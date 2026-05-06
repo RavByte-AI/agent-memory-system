@@ -25,6 +25,7 @@ export const REQUIRED_MEMORY_FILES = [
   "07-testing-and-quality.md",
   "08-known-issues-and-tech-debt.md",
   "09-agent-guidelines.md",
+  "10-agent-worklog.md",
   "README.md",
   "context-index.json"
 ];
@@ -39,7 +40,8 @@ export const REQUIRED_CONTEXT_TOPICS = [
   "security-config",
   "testing-quality",
   "known-issues",
-  "agent-guidelines"
+  "agent-guidelines",
+  "agent-worklog"
 ];
 
 export const DEFAULT_MAX_FILE_BYTES = 256 * 1024;

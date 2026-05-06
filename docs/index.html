@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Agent Memory System preserves project context, execution history, and handoffs across AI coding agents." />
+    <title>Agent Memory System</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Agent Memory System home">
+        <span class="brand-mark"></span>
+        <span>Agent Memory System</span>
+      </a>
+      <nav>
+        <a href="#memory">Memory</a>
+        <a href="#handoff">Handoff</a>
+        <a href="#install">Install</a>
+        <a href="https://www.ravbyte.com">RAVBYTE</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Persistent context for coding agents</p>
+          <h1>Project memory that survives every agent switch.</h1>
+          <p class="lead">
+            Generate repository memory, keep it fresh, and preserve execution state as work moves between Antigravity, Codex, Claude, Cursor, and the next agent you try.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#install">Install the CLI</a>
+            <a class="button secondary" href="https://github.com/RAVBYTE/agent-memory-system">View on GitHub</a>
+          </div>
+        </div>
+
+        <div class="memory-console" aria-label="Agent Memory System terminal preview">
+          <div class="console-top">
+            <span></span><span></span><span></span>
+            <strong>memory/handoff</strong>
+          </div>
+          <pre><code>$ npx agent-memory-system init
+Generated memory/context-index.json
+Generated memory/09-agent-guidelines.md
+
+$ agent-memory worklog handoff \
+  --agent codex \
+  --message "tests pass; next publish pages"
+
+memory/agent-handoff.md is ready
+for the next agent.</code></pre>
+        </div>
+      </section>
+
+      <section class="signal-strip" aria-label="Core signals">
+        <div><strong>10+</strong><span>memory files</span></div>
+        <div><strong>JSONL</strong><span>agent worklog</span></div>
+        <div><strong>CI</strong><span>freshness checks</span></div>
+        <div><strong>MIT</strong><span>open source</span></div>
+      </section>
+
+      <section id="memory" class="feature-grid">
+        <article>
+          <p class="tag">Repository memory</p>
+          <h2>One command turns a codebase into agent-readable context.</h2>
+          <p>
+            The scanner detects manifests, routes, APIs, configs, tests, storage hints, docs, and generated directories, then writes deterministic Markdown plus a machine-readable topic index.
+          </p>
+        </article>
+        <article>
+          <p class="tag">Automatic upkeep</p>
+          <h2>Memory stays current as the repository moves.</h2>
+          <p>
+            `agent-memory maintain --since main` detects structural Git changes, refreshes the memory directory, and validates that agents have the latest project map.
+          </p>
+        </article>
+        <article>
+          <p class="tag">Safe by default</p>
+          <h2>Names, not secrets.</h2>
+          <p>
+            Environment variable names are documented, but secret values are blocked by validators. Generated and vendor directories are ignored as source ownership.
+          </p>
+        </article>
+      </section>
+
+      <section id="handoff" class="handoff">
+        <div>
+          <p class="eyebrow">Cross-agent continuity</p>
+          <h2>Antigravity starts it. Codex continues it. Claude reviews it.</h2>
+          <p>
+            Agent Memory System records checkpoints, commands, files, blockers, next steps, and final handoffs in `memory/agent-worklog.jsonl`, then generates `memory/agent-handoff.md` for the next assistant.
+          </p>
+        </div>
+        <div class="handoff-card">
+          <div class="node active">Antigravity</div>
+          <div class="wire"></div>
+          <div class="node">Codex</div>
+          <div class="wire"></div>
+          <div class="node">Claude</div>
+          <div class="handoff-memory">
+            <span>shared memory layer</span>
+            <strong>context-index.json + agent-handoff.md</strong>
+          </div>
+        </div>
+      </section>
+
+      <section id="install" class="install">
+        <div>
+          <p class="tag">Install</p>
+          <h2>Drop it into any repository.</h2>
+        </div>
+        <pre><code>npx agent-memory-system init
+agent-memory maintain --since main
+agent-memory worklog checkpoint --agent codex --message "implemented scanner"
+agent-memory worklog handoff --agent codex --message "ready for review"</code></pre>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <strong>RAVBYTE TECHNOLOGIES PRIVATE LIMITED</strong>
+        <span>Main Developer / Founder: Gaurav Singh</span>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:sync@ravbyte.com">sync@ravbyte.com</a>
+        <a href="https://x.com/gauravchadhry">Founder X</a>
+        <a href="https://www.linkedin.com/in/gauravchadhry/">LinkedIn</a>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -12,6 +12,30 @@ function manifestRows(scan: ProjectScan): string[][] {
   ]);
 }
 
+function ownership(scan: ProjectScan): string {
+  const rootManifest = scan.manifests.find((manifest) => manifest.path === "package.json") ?? scan.manifests[0];
+  const owner = rootManifest?.owner;
+
+  if (owner) {
+    return [
+      owner.founder ? `- Main Developer / Founder: ${owner.founder}` : undefined,
+      owner.company ? `- Company: ${owner.company}` : undefined,
+      owner.website ? `- Website: ${owner.website}` : undefined,
+      owner.email ? `- Email: ${owner.email}` : undefined,
+      owner.x ? `- Founder X: ${owner.x}` : undefined,
+      owner.linkedin ? `- Founder LinkedIn: ${owner.linkedin}` : undefined
+    ].filter(Boolean).join("\n");
+  }
+
+  const lines = [
+    rootManifest?.author ? `- Owner: ${rootManifest.author}` : "- Owner: [INCOMPLETE] Add maintainers or team ownership.",
+    rootManifest?.homepage ? `- Website: ${rootManifest.homepage}` : undefined,
+    "- Memory maintainer: [INCOMPLETE] Add who keeps this directory current."
+  ];
+
+  return lines.filter(Boolean).join("\n");
+}
+
 function artifact(path: string, content: string): MemoryArtifact {
   return { path, content: `${content.trimEnd()}\n` };
 }
@@ -35,8 +59,7 @@ ${scan.testCommands.length > 0 ? "\n\n## Validation Commands\n\n" + list(scan.te
 
 ## Ownership
 
-- Owner: [INCOMPLETE] Add maintainers or team ownership.
-- Memory maintainer: [INCOMPLETE] Add who keeps this directory current.`
+${ownership(scan)}`
   );
 }
 
@@ -247,11 +270,14 @@ function agentGuidelines(scan: ProjectScan): MemoryArtifact {
 1. Read \`memory/README.md\`.
 2. Read \`memory/context-index.json\`.
 3. Open the memory file for the domain you are about to modify.
+4. Read \`memory/agent-handoff.md\` if it exists to recover the previous agent's state.
 
 ## Editing Rules
 
 - Prefer repository conventions found in manifests and existing source files.
 - Update relevant memory files when adding endpoints, packages, commands, schemas, storage, build steps, or major architecture.
+- Record meaningful work with \`agent-memory worklog checkpoint --agent <name> --message "<what changed>"\`.
+- Before switching agents or stopping mid-task, run \`agent-memory worklog handoff --agent <name> --message "<current state>" --next "<next action>"\`.
 - Never edit generated/vendor directories as source: ${GENERATED_DIRS.map((dir) => `\`${dir}/\``).join(", ")}.
 - Never store secret values in code comments, memory files, logs, or examples.
 
@@ -260,6 +286,36 @@ function agentGuidelines(scan: ProjectScan): MemoryArtifact {
 - Repository: \`${scan.repoName}\`
 - Profile: \`${scan.profile}\`
 - Relevant agent files already present: ${scan.agentFiles.length ? scan.agentFiles.map((file) => `\`${file}\``).join(", ") : "[INFERRED] none detected"}`
+  );
+}
+
+function agentWorklog(): MemoryArtifact {
+  return artifact(
+    "10-agent-worklog.md",
+    `${header("Agent Worklog and Handoff")}
+## Purpose
+
+This project supports continuity across agent switches. If work starts in Antigravity and continues in Codex, Claude, Cursor, or another assistant, the next agent should recover context from \`memory/agent-handoff.md\` and \`memory/agent-worklog.jsonl\`.
+
+## Files
+
+- \`agent-worklog.jsonl\`: machine-readable append-only event stream.
+- \`agent-handoff.md\`: short human-readable handoff summary generated from recent events.
+
+## Commands
+
+\`\`\`bash
+agent-memory worklog start --agent codex --task "implement scanner"
+agent-memory worklog checkpoint --agent codex --message "added validator tests" --files src/validators/rules.ts,tests/validators.test.ts
+agent-memory worklog handoff --agent codex --message "build passes, next publish GitHub Pages" --next "push repository"
+agent-memory worklog show
+\`\`\`
+
+## Agent Rules
+
+- Log decisions, commands, files touched, blockers, and next steps.
+- Do not log secrets, tokens, credentials, private keys, or sensitive user data.
+- Keep messages concise and useful for the next agent.`
   );
 }
 
@@ -285,6 +341,7 @@ ${table(
     ["07-testing-and-quality.md", "Validation commands and quality gates."],
     ["08-known-issues-and-tech-debt.md", "Scanner-discovered risks and known debt."],
     ["09-agent-guidelines.md", "Agent instructions for using this memory layer."],
+    ["10-agent-worklog.md", "Agent execution log and handoff workflow."],
     ["context-index.json", "Machine-readable topic index."]
   ],
   ["File", "Description"]
@@ -292,7 +349,11 @@ ${table(
 
 ## Staleness Policy
 
-When a structural change adds or changes packages, endpoints, commands, schemas, storage, build steps, or security boundaries, update the relevant memory file in the same pull request.
+When a structural change adds or changes packages, endpoints, commands, schemas, storage, build steps, or security boundaries, run \`agent-memory maintain --since main\` and commit the refreshed memory files.
+
+## Agent Handoff Policy
+
+Agents should record checkpoints during long tasks and create a handoff before switching tools or stopping mid-task. The next agent should read \`agent-handoff.md\` before continuing.
 
 ## Do Not Edit as Source
 
@@ -312,6 +373,7 @@ export async function generateMemory(scan: ProjectScan, _options: GenerateOption
     testingQuality(scan),
     knownIssues(scan),
     agentGuidelines(scan),
+    agentWorklog(),
     readme()
   ];
 

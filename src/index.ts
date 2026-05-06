@@ -3,4 +3,5 @@ export { generateMemory } from "./generator/generate.js";
 export { writeMemoryArtifacts } from "./generator/write.js";
 export { validateMemory } from "./validators/validate.js";
 export { classifyMemoryImpact, getChangedFiles } from "./maintenance/git.js";
+export { appendWorklogEvent, readWorklogEvents, writeHandoffSummary } from "./agent-log/store.js";
 export * from "./types.js";

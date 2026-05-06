@@ -21,12 +21,23 @@ export function analyzeManifest(filePath: string, content: string): ManifestInfo
 
   if (name === "package.json") {
     const parsed = safeJson(content) as
-      | { name?: string; scripts?: Record<string, string>; dependencies?: unknown; devDependencies?: unknown }
+      | {
+          name?: string;
+          author?: string | { name?: string; email?: string; url?: string };
+          homepage?: string;
+          scripts?: Record<string, string>;
+          dependencies?: unknown;
+          devDependencies?: unknown;
+          agentMemory?: ManifestInfo["owner"];
+        }
       | undefined;
     return {
       path: filePath,
       type: "node",
       name: parsed?.name,
+      author: typeof parsed?.author === "string" ? parsed.author : parsed?.author?.name,
+      homepage: parsed?.homepage,
+      owner: parsed?.agentMemory,
       scripts: parsed?.scripts ?? {},
       dependencies: [...dependencyNames(parsed?.dependencies), ...dependencyNames(parsed?.devDependencies)]
     };

@@ -26,4 +26,20 @@ agent-memory maintain --since main --check
 
 The command detects Git changes, identifies memory-impacting files, refreshes `memory/`, and validates the result.
 
+## Cross-Agent Handoff
+
+When an agent takes over a task, it should read `memory/agent-handoff.md` and, when needed, `memory/agent-worklog.jsonl`.
+
+Agents should record checkpoints:
+
+```bash
+agent-memory worklog checkpoint --agent codex --message "implemented scanner tests" --files tests/scanner.test.ts --commands "npm test"
+```
+
+Before switching tools or handing work to another assistant:
+
+```bash
+agent-memory worklog handoff --agent codex --message "typecheck passes; docs need review" --next "review README"
+```
+
 The skill intentionally delegates scanning and generation to the CLI so the same behavior works across Codex, Kiro, Claude, Cursor, humans, and CI.

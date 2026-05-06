@@ -2,7 +2,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { Command } from "commander";
-import { classifyMemoryImpact, generateMemory, getChangedFiles, scanRepository, validateMemory, writeMemoryArtifacts } from "../index.js";
+import { appendWorklogEvent, classifyMemoryImpact, generateMemory, getChangedFiles, readWorklogEvents, scanRepository, validateMemory, writeMemoryArtifacts } from "../index.js";
 
 async function exists(filePath: string): Promise<boolean> {
   try {
@@ -18,7 +18,7 @@ async function addAgentBootstrap(rootDir: string, outputDir: string, dryRun: boo
   if (await exists(target)) {
     return undefined;
   }
-  const content = `# Agent Instructions\n\nBefore large changes, read \`${outputDir}/README.md\` and \`${outputDir}/context-index.json\`, then open the relevant memory file for the area you are editing.\n`;
+  const content = `# Agent Instructions\n\nBefore large changes, read \`${outputDir}/README.md\` and \`${outputDir}/context-index.json\`, then open the relevant memory file for the area you are editing.\n\nIf \`${outputDir}/agent-handoff.md\` exists, read it before continuing work from another agent.\n\nDuring long work, record checkpoints with \`agent-memory worklog checkpoint --agent <name> --message \"<state>\"\`.\n\nBefore switching agents or stopping mid-task, record a handoff with \`agent-memory worklog handoff --agent <name> --message \"<state>\" --next \"<next action>\"\`.\n`;
   if (!dryRun) {
     await fs.writeFile(target, content, "utf8");
   }
@@ -195,6 +195,63 @@ program
     console.log(`Manifests: ${scan.manifests.length}`);
     const impact = classifyMemoryImpact(await getChangedFiles(rootDir, "main"));
     console.log(`Memory-impacting changes: ${impact.structuralFiles.length}`);
+  });
+
+const worklog = program
+  .command("worklog")
+  .description("Record and inspect agent execution state for cross-agent handoff.");
+
+function addWorklogOptions(command: Command): Command {
+  return command
+    .requiredOption("--agent <name>", "agent name, such as codex, claude, antigravity, cursor")
+    .option("--task <task>", "task name or goal")
+    .requiredOption("--message <message>", "short worklog message")
+    .option("--files <paths>", "comma-separated files touched or relevant")
+    .option("--commands <commands>", "comma-separated commands run")
+    .option("--next <steps>", "comma-separated next steps")
+    .option("-m, --memory-dir <dir>", "memory directory", "memory");
+}
+
+for (const type of ["start", "log", "checkpoint", "handoff", "finish"] as const) {
+  addWorklogOptions(worklog.command(type).description(`Record a ${type} worklog event.`))
+    .action(async (options: { agent: string; task?: string; message: string; files?: string; commands?: string; next?: string; memoryDir: string }) => {
+      const event = await appendWorklogEvent({
+        rootDir: process.cwd(),
+        memoryDir: options.memoryDir,
+        type,
+        agent: options.agent,
+        task: options.task,
+        message: options.message,
+        files: options.files ? [options.files] : [],
+        commands: options.commands ? [options.commands] : [],
+        nextSteps: options.next ? [options.next] : []
+      });
+      console.log(`Recorded ${event.type} event ${event.id}.`);
+      if (type === "handoff") {
+        console.log(`${options.memoryDir}/agent-handoff.md is ready for the next agent.`);
+      }
+    });
+}
+
+worklog
+  .command("show")
+  .description("Show recent agent worklog events.")
+  .option("-m, --memory-dir <dir>", "memory directory", "memory")
+  .option("--json", "print JSON", false)
+  .action(async (options: { memoryDir: string; json: boolean }) => {
+    const events = await readWorklogEvents(path.resolve(process.cwd(), options.memoryDir));
+    const recent = events.slice(-12);
+    if (options.json) {
+      console.log(JSON.stringify(recent, null, 2));
+      return;
+    }
+    if (recent.length === 0) {
+      console.log("No agent worklog events recorded yet.");
+      return;
+    }
+    for (const event of recent) {
+      console.log(`${event.timestamp} | ${event.agent} | ${event.type}: ${event.message}`);
+    }
   });
 
 program.parseAsync(process.argv).catch((error: unknown) => {

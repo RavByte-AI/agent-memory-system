@@ -32,10 +32,34 @@ export interface MemoryImpact {
   requiresMemoryUpdate: boolean;
 }
 
+export type AgentWorklogEventType = "start" | "log" | "checkpoint" | "handoff" | "finish";
+
+export interface AgentWorklogEvent {
+  id: string;
+  timestamp: string;
+  type: AgentWorklogEventType;
+  agent: string;
+  task?: string;
+  message: string;
+  files?: string[];
+  commands?: string[];
+  nextSteps?: string[];
+}
+
 export interface ManifestInfo {
   path: string;
   type: "node" | "python" | "rust" | "go" | "java" | "docker" | "typescript" | "other";
   name?: string;
+  author?: string;
+  homepage?: string;
+  owner?: {
+    founder?: string;
+    company?: string;
+    website?: string;
+    email?: string;
+    x?: string;
+    linkedin?: string;
+  };
   scripts?: Record<string, string>;
   dependencies?: string[];
 }

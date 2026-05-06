@@ -23,6 +23,7 @@
 - `examples/node-app/app/api/health/route.ts`
 - `examples/node-app/app/page.tsx`
 - `examples/python-api/app/main.py`
+- `src/agent-log/store.ts`
 - `src/analyzers/env.ts`
 - `src/analyzers/manifest.ts`
 - `src/cli/index.ts`
@@ -43,6 +44,7 @@
 - `tests/maintenance.test.ts`
 - `tests/scanner.test.ts`
 - `tests/validators.test.ts`
+- `tests/worklog.test.ts`
 - `vitest.config.ts`
 
 ## Route Files

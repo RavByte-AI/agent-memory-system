@@ -1,12 +1,21 @@
 # Agent Memory System
 
-Generate an AI-readable project memory layer for any repository with one command.
+Generate and maintain an AI-readable project memory layer for any repository with one command.
 
 ```bash
 npx agent-memory-system init
 ```
 
-The tool scans a project, infers its shape, writes deterministic Markdown memory files to `memory/`, creates `memory/context-index.json`, and adds a lightweight `AGENTS.md` bootstrap when none exists.
+The tool scans a project, infers its shape, writes deterministic Markdown memory files to `memory/`, creates `memory/context-index.json`, adds a lightweight `AGENTS.md` bootstrap when none exists, and preserves agent working state across Antigravity, Codex, Claude, Cursor, and other assistants.
+
+## Ownership
+
+- Main Developer / Founder: Gaurav Singh
+- Company: RAVBYTE TECHNOLOGIES PRIVATE LIMITED
+- Website: https://www.ravbyte.com
+- Email: sync@ravbyte.com
+- Founder X: https://x.com/gauravchadhry
+- Founder LinkedIn: https://www.linkedin.com/in/gauravchadhry/
 
 ## Install
 
@@ -29,6 +38,8 @@ agent-memory scan --json
 agent-memory validate --strict
 agent-memory update --since main
 agent-memory maintain --since main
+agent-memory worklog checkpoint --agent codex --message "updated scanner" --files src/scanner/scan.ts
+agent-memory worklog handoff --agent codex --message "ready for Claude review" --next "review generated memory"
 agent-memory doctor
 ```
 
@@ -53,6 +64,25 @@ memory/
 ## Agent Workflow
 
 Agents should read `memory/README.md` and `memory/context-index.json` before making large changes. They should then open the domain-specific memory file for the area they are modifying.
+
+When taking over from another agent, first read:
+
+```bash
+memory/agent-handoff.md
+memory/agent-worklog.jsonl
+```
+
+During long-running work, agents should record checkpoints:
+
+```bash
+agent-memory worklog checkpoint --agent codex --message "implemented CLI maintain command" --files src/cli/index.ts --commands "npm test"
+```
+
+Before switching tools or stopping mid-task:
+
+```bash
+agent-memory worklog handoff --agent codex --message "tests pass; next publish GitHub Pages" --next "push to GitHub"
+```
 
 After structural changes, agents should run:
 

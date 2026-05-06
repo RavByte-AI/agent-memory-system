@@ -17,7 +17,7 @@
 | Languages        | Python, TypeScript                               |
 | Frameworks       | Express, FastAPI, Next.js, React, Vitest, pytest |
 | Manifests        | 8                                                |
-| Source files     | 25                                               |
+| Source files     | 27                                               |
 
 ## Quick Start
 
@@ -40,5 +40,9 @@
 
 ## Ownership
 
-- Owner: [INCOMPLETE] Add maintainers or team ownership.
-- Memory maintainer: [INCOMPLETE] Add who keeps this directory current.
+- Main Developer / Founder: Gaurav Singh
+- Company: RAVBYTE TECHNOLOGIES PRIVATE LIMITED
+- Website: https://www.ravbyte.com
+- Email: sync@ravbyte.com
+- Founder X: https://x.com/gauravchadhry
+- Founder LinkedIn: https://www.linkedin.com/in/gauravchadhry/

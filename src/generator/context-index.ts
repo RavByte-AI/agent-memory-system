@@ -41,6 +41,10 @@ export function createContextIndex(): ContextIndex {
     "agent-guidelines": {
       file: "09-agent-guidelines.md",
       description: "How AI agents should use the memory system before editing the repository."
+    },
+    "agent-worklog": {
+      file: "10-agent-worklog.md",
+      description: "How agents record sessions, checkpoints, execution notes, and handoffs across tools."
     }
   };
 }
