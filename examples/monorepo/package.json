@@ -1,0 +1,9 @@
+{
+  "name": "example-monorepo",
+  "private": true,
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "build": "npm -ws run build",
+    "test": "npm -ws test"
+  }
+}

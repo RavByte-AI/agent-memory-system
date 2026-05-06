@@ -1,0 +1,4 @@
+[project]
+name = "example-python-api"
+version = "0.1.0"
+dependencies = ["fastapi", "pytest"]

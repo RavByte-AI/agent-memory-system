@@ -1,0 +1,42 @@
+{
+  "project-overview": {
+    "file": "00-project-overview.md",
+    "description": "Project purpose, detected profile, languages, frameworks, and quick orientation."
+  },
+  "repository-map": {
+    "file": "01-repository-map.md",
+    "description": "Important manifests, source files, routes, APIs, configs, docs, and agent instruction files."
+  },
+  "system-architecture": {
+    "file": "02-system-architecture.md",
+    "description": "Inferred runtime architecture, service boundaries, deployment hints, and uncertainty labels."
+  },
+  "development-workflow": {
+    "file": "03-development-workflow.md",
+    "description": "Detected build, test, install, and local workflow commands."
+  },
+  "api-interfaces": {
+    "file": "04-api-and-interfaces.md",
+    "description": "Detected API, route, and interface files that define external or internal contracts."
+  },
+  "data-storage": {
+    "file": "05-data-and-storage.md",
+    "description": "Detected database, migration, persistence, and storage hints."
+  },
+  "security-config": {
+    "file": "06-security-and-config.md",
+    "description": "Environment variable names, configuration files, agent safety rules, and secret-handling notes."
+  },
+  "testing-quality": {
+    "file": "07-testing-and-quality.md",
+    "description": "Testing commands, quality gates, validation strategy, and generated-artifact boundaries."
+  },
+  "known-issues": {
+    "file": "08-known-issues-and-tech-debt.md",
+    "description": "Unreadable files, TODO markers, placeholders, and scanner-discovered risks."
+  },
+  "agent-guidelines": {
+    "file": "09-agent-guidelines.md",
+    "description": "How AI agents should use the memory system before editing the repository."
+  }
+}
