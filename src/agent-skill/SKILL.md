@@ -14,7 +14,13 @@ Use this skill when an AI agent needs to understand an unfamiliar repository or 
 3. Read `memory/context-index.json`.
 4. Open the memory file that matches the task domain.
 5. Before editing, verify the memory file against the current source if the area is high risk or recently changed.
-6. When making structural changes, update the relevant memory file and `context-index.json` in the same change.
+6. When making structural changes, run:
+
+   ```bash
+   agent-memory maintain --since main
+   ```
+
+7. Commit the refreshed memory files with the structural change.
 
 ## Safety Rules
 

@@ -25,6 +25,13 @@ export interface ValidateOptions {
   strict?: boolean;
 }
 
+export interface MemoryImpact {
+  changedFiles: string[];
+  structuralFiles: string[];
+  suggestedTopics: string[];
+  requiresMemoryUpdate: boolean;
+}
+
 export interface ManifestInfo {
   path: string;
   type: "node" | "python" | "rust" | "go" | "java" | "docker" | "typescript" | "other";

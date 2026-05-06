@@ -8,6 +8,7 @@
 
 - `examples/python-api/app/main.py`
 - `src/generator/generate.ts`
+- `src/maintenance/git.ts`
 - `src/scanner/scan.ts`
 - `tests/generator.test.ts`
 - `tests/scanner.test.ts`

@@ -32,3 +32,4 @@
 - `README.md`
 - `examples/node-app/README.md`
 - `examples/python-api/README.md`
+- `memory/README.md`

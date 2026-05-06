@@ -21,4 +21,4 @@
 
 - Repository: `AgentMemorySystem`
 - Profile: `mixed`
-- Relevant agent files already present: [INFERRED] none detected
+- Relevant agent files already present: `AGENTS.md`

@@ -31,6 +31,7 @@
 - `src/generator/generate.ts`
 - `src/generator/write.ts`
 - `src/index.ts`
+- `src/maintenance/git.ts`
 - `src/scanner/path-utils.ts`
 - `src/scanner/scan.ts`
 - `src/templates/format.ts`
@@ -39,6 +40,7 @@
 - `src/validators/validate.ts`
 - `tests/generator.test.ts`
 - `tests/integration.test.ts`
+- `tests/maintenance.test.ts`
 - `tests/scanner.test.ts`
 - `tests/validators.test.ts`
 - `vitest.config.ts`
@@ -69,6 +71,8 @@
 - `README.md`
 - `examples/node-app/README.md`
 - `examples/python-api/README.md`
+- `memory/README.md`
+- `AGENTS.md`
 
 ## Generated or Vendor Directories
 

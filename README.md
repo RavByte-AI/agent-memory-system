@@ -28,6 +28,7 @@ agent-memory init --output memory --profile auto --force false --dry-run false
 agent-memory scan --json
 agent-memory validate --strict
 agent-memory update --since main
+agent-memory maintain --since main
 agent-memory doctor
 ```
 
@@ -53,9 +54,27 @@ memory/
 
 Agents should read `memory/README.md` and `memory/context-index.json` before making large changes. They should then open the domain-specific memory file for the area they are modifying.
 
+After structural changes, agents should run:
+
+```bash
+agent-memory maintain --since main
+```
+
+Structural changes include package manifests, routes, API files, schemas, models, migrations, config, CI workflows, command definitions, and agent instruction files. The command detects Git changes, refreshes `memory/`, and validates the result.
+
+For CI or review checks:
+
+```bash
+agent-memory maintain --since main --check
+```
+
 ## Safety
 
 Agent Memory System records environment variable names, not values. It ignores generated and vendor paths such as `node_modules/`, `.git/`, `dist/`, `build/`, `.next/`, `.venv/`, `__pycache__/`, and `target/`.
+
+## Examples
+
+Keep `examples/` in the public repository. These fixtures prove the scanner works across a Node app, Python API, and monorepo, and the integration tests depend on them. They are intentionally small so the package stays lightweight.
 
 ## Development
 

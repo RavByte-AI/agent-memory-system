@@ -26,7 +26,9 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "memory:maintain": "tsx src/cli/index.ts maintain",
+    "memory:check": "tsx src/cli/index.ts maintain --check"
   },
   "dependencies": {
     "commander": "^12.1.0",

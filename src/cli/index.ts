@@ -2,7 +2,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { Command } from "commander";
-import { generateMemory, scanRepository, validateMemory, writeMemoryArtifacts } from "../index.js";
+import { classifyMemoryImpact, generateMemory, getChangedFiles, scanRepository, validateMemory, writeMemoryArtifacts } from "../index.js";
 
 async function exists(filePath: string): Promise<boolean> {
   try {
@@ -110,7 +110,7 @@ program
 
 program
   .command("update")
-  .description("Regenerate memory files. --since is accepted for future Git-diff-aware updates.")
+  .description("Regenerate memory files.")
   .option("--since <ref>", "future diff base", "main")
   .option("-o, --output <dir>", "output directory", "memory")
   .option("--force", "overwrite existing generated files", true)
@@ -118,7 +118,68 @@ program
     const scan = await scanRepository({ rootDir: process.cwd() });
     const artifacts = await generateMemory(scan, { outputDir: options.output });
     await writeMemoryArtifacts(process.cwd(), options.output, artifacts, options.force);
-    console.log(`Updated ${options.output}/ using full scan. Git-diff-aware --since ${options.since} is [PLANNED].`);
+    const changedFiles = await getChangedFiles(process.cwd(), options.since);
+    const impact = classifyMemoryImpact(changedFiles);
+    console.log(`Updated ${options.output}/ using full scan.`);
+    if (impact.requiresMemoryUpdate) {
+      console.log(`Structural changes detected since ${options.since}: ${impact.structuralFiles.length}`);
+      console.log(`Suggested topics: ${impact.suggestedTopics.join(", ") || "general"}`);
+    }
+  });
+
+program
+  .command("maintain")
+  .description("Refresh memory after repository changes and report Git impact.")
+  .option("--since <ref>", "Git ref used for change detection", "main")
+  .option("-o, --output <dir>", "output directory", "memory")
+  .option("--check", "check whether structural changes require memory updates without writing", false)
+  .option("--dry-run", "show planned memory writes without changing files", false)
+  .action(async (options: { since: string; output: string; check: boolean; dryRun: boolean }) => {
+    const rootDir = process.cwd();
+    const changedFiles = await getChangedFiles(rootDir, options.since);
+    const impact = classifyMemoryImpact(changedFiles);
+
+    if (changedFiles.length === 0) {
+      console.log("No Git changes detected.");
+    } else {
+      console.log(`Changed files detected: ${changedFiles.length}`);
+    }
+
+    if (impact.requiresMemoryUpdate) {
+      console.log(`Memory-impacting structural files: ${impact.structuralFiles.length}`);
+      for (const file of impact.structuralFiles.slice(0, 20)) {
+        console.log(`- ${file}`);
+      }
+      console.log(`Suggested topics: ${impact.suggestedTopics.join(", ") || "general"}`);
+    } else {
+      console.log("No structural changes requiring memory refresh were detected.");
+    }
+
+    if (options.check) {
+      const validation = await validateMemory({ rootDir, memoryDir: options.output });
+      printValidation(validation);
+      const hasMemoryChanges = changedFiles.some((file) => file === options.output || file.startsWith(`${options.output}/`));
+      if (impact.requiresMemoryUpdate && !hasMemoryChanges) {
+        console.error(`Structural changes require refreshed ${options.output}/ files.`);
+      }
+      if ((impact.requiresMemoryUpdate && !hasMemoryChanges) || !validation.ok) {
+        process.exitCode = 1;
+      }
+      return;
+    }
+
+    const scan = await scanRepository({ rootDir });
+    const artifacts = await generateMemory(scan, { outputDir: options.output });
+
+    if (options.dryRun) {
+      console.log(`Would refresh ${artifacts.length} files in ${options.output}/.`);
+      return;
+    }
+
+    await writeMemoryArtifacts(rootDir, options.output, artifacts, true);
+    const validation = await validateMemory({ rootDir, memoryDir: options.output });
+    printValidation(validation);
+    console.log("Memory maintenance complete.");
   });
 
 program
@@ -132,6 +193,8 @@ program
     const scan = await scanRepository({ rootDir });
     console.log(`Detected profile: ${scan.profile}`);
     console.log(`Manifests: ${scan.manifests.length}`);
+    const impact = classifyMemoryImpact(await getChangedFiles(rootDir, "main"));
+    console.log(`Memory-impacting changes: ${impact.structuralFiles.length}`);
   });
 
 program.parseAsync(process.argv).catch((error: unknown) => {
