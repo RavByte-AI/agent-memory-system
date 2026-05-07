@@ -1,9 +1,9 @@
 # Architecture Flow
 
 **Last Updated:** 2026-05-07
-**Graph Commit:** 9636b99
-**Health:** B (83/100)
-**Files:** 78 | **Edges:** 63 | **Functions:** 189
+**Graph Commit:** 6a1f05a
+**Health:** B (88/100)
+**Files:** 94 | **Edges:** 78 | **Functions:** 0
 
 ---
 
@@ -11,8 +11,8 @@
 
 | Layer | Summary |
 |---|---|
-| `utils` | 69 files | `.gitignore`, `AGENTS.md` +67 more |
-| `config` | 5 files | `package.json`, `tsconfig.json` +3 more |
+| `utils` | 83 files | `.gitignore`, `AGENTS.md` +81 more |
+| `config` | 7 files | `package.json`, `tsconfig.json` +5 more |
 | `ui` | 1 files | `src/templates/format.ts` |
 | `services` | 3 files | `examples/monorepo/packages/api/package.json`, `examples/monorepo/packages/api/src/routes.ts` +1 more |
 
@@ -26,14 +26,14 @@ Files with the most dependents — changes here have the widest blast radius.
 
 | File | Dependents | Risk |
 |---|---|---|
+| `src/graph/types.ts` | 13 | High |
 | `src/types.ts` | 12 | High |
-| `src/graph/types.ts` | 11 | High |
+| `benchmarks/harness/types.ts` | 5 | Medium |
 | `src/graph/blast-radius.ts` | 5 | Medium |
 | `src/constants.ts` | 4 | Medium |
+| `src/graph/summarizer.ts` | 4 | Medium |
+| `src/graph/builder.ts` | 3 | Medium |
 | `src/graph/snapshot.ts` | 3 | Medium |
-| `src/graph/summarizer.ts` | 3 | Medium |
-| `src/graph/builder.ts` | 2 | Medium |
-| `src/graph/health.ts` | 2 | Medium |
 
 ## Entry Points
 
@@ -48,6 +48,7 @@ Public surface — files that no other file imports:
 - `SECURITY.md`
 - `vitest.config.ts`
 - `.github/release.yml`
+- `benchmarks/README.md`
 - `docs/agent-skill.md`
 - `memory/00-project-overview.md`
 - `memory/01-repository-map.md`
@@ -66,20 +67,28 @@ Public surface — files that no other file imports:
 - `memory/cross-repo-links.json`
 - `memory/README.md`
 - `memory/repository-graph.json`
-- `.github/ISSUE_TEMPLATE/bug_report.md`
-- `.github/ISSUE_TEMPLATE/feature_request.md`
-- `.github/ISSUE_TEMPLATE/scanner_accuracy.md`
 - `.github/rulesets/main-branch-protection.json`
 - `.github/workflows/ci.yml`
 - `.github/workflows/pages.yml`
 - `.github/workflows/publish.yml`
+- `.github/ISSUE_TEMPLATE/bug_report.md`
+- `.github/ISSUE_TEMPLATE/feature_request.md`
+- `.github/ISSUE_TEMPLATE/scanner_accuracy.md`
+- `benchmarks/metrics/aggregate-metrics.json`
+- `benchmarks/reports/executive-summary.md`
+- `benchmarks/reports/github-benchmark.md`
+- `benchmarks/reports/technical-report.md`
+- `benchmarks/scripts/report.ts`
+- `benchmarks/scripts/run.ts`
+- `benchmarks/runs/graph-snapshot-AgentMemorySystem.json`
+- `benchmarks/runs/run-1778180126928-d2d2cb.json`
 - `examples/node-app/README.md`
 - `examples/python-api/pyproject.toml`
 - `examples/python-api/README.md`
 - `examples/python-api/requirements.txt`
 - `src/agent-skill/SKILL.md`
-- `src/graph/index.ts`
 - `src/cli/index.ts`
+- `src/graph/index.ts`
 - `examples/node-app/app/page.tsx`
 - `examples/python-api/app/main.py`
 - `examples/monorepo/packages/api/package.json`
@@ -105,20 +114,11 @@ None detected. ✅
 - `SECURITY.md` (layer: utils)
 - `vitest.config.ts` (layer: utils)
 - `.github/release.yml` (layer: utils)
-- `docs/agent-skill.md` (layer: utils)
+- `benchmarks/README.md` (layer: utils)
 
 ## Security Issues
 
-- `memory/repository-graph.json` line 1940: **debug-statement** (low)
-- `memory/repository-graph.json` line 1946: **debug-statement** (low)
-- `memory/repository-graph.json` line 1952: **debug-statement** (low)
-- `memory/repository-graph.json` line 1958: **debug-statement** (low)
-- `memory/repository-graph.json` line 1964: **debug-statement** (low)
-- `memory/repository-graph.json` line 1970: **debug-statement** (low)
-- `memory/repository-graph.json` line 1976: **debug-statement** (low)
-- `memory/repository-graph.json` line 1982: **debug-statement** (low)
-- `memory/repository-graph.json` line 1988: **debug-statement** (low)
-- `memory/repository-graph.json` line 1994: **debug-statement** (low)
+No security issues detected. ✅
 
 ## Agent Navigation Hints
 

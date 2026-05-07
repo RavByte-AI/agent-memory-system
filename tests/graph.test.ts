@@ -434,7 +434,7 @@ describe("summarizeGraph", () => {
   it("includes repoName and grade", async () => {
     const graph = await analyzeRepository({ rootDir: AMS_ROOT, depth: "shallow", maxFiles: 80 });
     const summary = summarizeGraph(graph);
-    expect(summary.repoName).toBe("AgentMemorySystem");
+    expect(summary.repoName).toBe("agent-memory-system");
     expect(["A", "B", "C", "D", "F"]).toContain(summary.grade);
   });
 });
@@ -485,7 +485,7 @@ describe("graph query API", () => {
 describe("analyzeRepository (integration)", () => {
   it("analyses AMS itself with depth=shallow and returns valid graph", async () => {
     const graph = await analyzeRepository({ rootDir: AMS_ROOT, depth: "shallow", maxFiles: 100 });
-    expect(graph.repoName).toBe("AgentMemorySystem");
+    expect(graph.repoName).toBe("agent-memory-system");
     expect(graph.stats.totalFiles).toBeGreaterThan(20);
     expect(graph.stats.totalEdges).toBeGreaterThan(10);
     expect(graph.circularDependencies).toHaveLength(0);

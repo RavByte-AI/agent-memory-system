@@ -39,10 +39,36 @@ async function safeRead(filePath: string): Promise<string | null> {
   }
 }
 
+function repoNameFromPackageJson(packageJson: string): string | null {
+  try {
+    const manifest = JSON.parse(packageJson) as {
+      repository?: string | { url?: string };
+      name?: string;
+    };
+    const repositoryUrl = typeof manifest.repository === "string"
+      ? manifest.repository
+      : manifest.repository?.url;
+    const repositoryName = repositoryUrl
+      ?.replace(/^git\+/, "")
+      .replace(/\.git$/, "")
+      .split("/")
+      .filter(Boolean)
+      .at(-1);
+    return repositoryName ?? manifest.name ?? null;
+  } catch {
+    return null;
+  }
+}
+
+async function inferRepoName(rootDir: string): Promise<string> {
+  const manifest = await safeRead(path.join(rootDir, "package.json"));
+  return (manifest ? repoNameFromPackageJson(manifest) : null) ?? path.basename(rootDir);
+}
+
 /** Build the full dependency + call graph for a local repository. */
 export async function analyzeRepository(opts: GraphAnalyzeOptions): Promise<GraphData> {
   const rootDir = path.resolve(opts.rootDir);
-  const repoName = path.basename(rootDir);
+  const repoName = await inferRepoName(rootDir);
   const depth = opts.depth ?? "full";
   const maxFiles = opts.maxFiles ?? 1000;
 
