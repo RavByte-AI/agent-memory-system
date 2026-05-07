@@ -21,7 +21,7 @@
 Agent Memory System gives any repository a durable memory layer that AI agents can read before they work. It scans the codebase, generates structured Markdown memory, creates a machine-readable topic index, tracks structural changes, and records handoffs so context survives when work moves between Antigravity, Codex, Claude, Cursor, or another assistant.
 
 ```bash
-npx agent-memory-system init
+npx @ravbyte/agent-memory-system@latest init
 ```
 
 The project is owned and maintained by **RAVBYTE TECHNOLOGIES PRIVATE LIMITED**, but it is completely open source under the MIT License and open for public contribution.
@@ -74,7 +74,14 @@ memory/
 Run once in a repository:
 
 ```bash
-npx agent-memory-system init
+npx @ravbyte/agent-memory-system@latest init
+```
+
+Install globally if you prefer a persistent CLI:
+
+```bash
+npm install -g @ravbyte/agent-memory-system@latest
+agent-memory init
 ```
 
 Refresh memory after structural changes:

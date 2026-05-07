@@ -23,3 +23,5 @@ npm run build
 Include a short summary, testing notes, and any changes to generated memory shape or public CLI/API behavior.
 
 Changes to `main` should go through pull requests with the `Required CI` status check passing.
+
+If the pull request should publish a new npm release after merge, bump `package.json` and `package-lock.json` before merging. The `Publish npm` workflow skips versions that already exist on npm.

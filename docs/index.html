@@ -48,7 +48,7 @@
             <strong>agent-memory</strong>
           </div>
           <div class="terminal-script" aria-label="Terminal commands">
-            <div class="term-line typing"><span class="prompt">$</span> <span class="cmd">npx</span> <span class="pkg">agent-memory-system</span> <span class="arg">init</span><span class="cursor"></span></div>
+            <div class="term-line output"><span class="prompt">$</span> <span class="cmd">npx</span> <span class="pkg">@ravbyte/agent-memory-system@latest</span> <span class="arg">init</span><span class="cursor"></span></div>
             <div class="term-line output"><span class="ok">Generated</span> <span class="path">memory/context-index.json</span></div>
             <div class="term-line output"><span class="ok">Generated</span> <span class="path">memory/09-agent-guidelines.md</span></div>
             <div class="term-line output"><span class="ok">Generated</span> <span class="path">memory/10-agent-worklog.md</span></div>
@@ -147,7 +147,8 @@
           <p class="tag">Install</p>
           <h2>Drop it into any repository.</h2>
         </div>
-        <pre><code>npx agent-memory-system init
+        <pre><code>npx @ravbyte/agent-memory-system@latest init
+npm install -g @ravbyte/agent-memory-system@latest
 agent-memory maintain --since main
 agent-memory worklog checkpoint --agent codex --message "implemented scanner"
 agent-memory worklog handoff --agent codex --message "ready for review"</code></pre>

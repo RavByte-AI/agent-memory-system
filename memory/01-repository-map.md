@@ -6,16 +6,16 @@
 
 ## Manifests
 
-| Path                                          | Type       | Name                | Dependencies                                                              |
-| --------------------------------------------- | ---------- | ------------------- | ------------------------------------------------------------------------- |
-| `examples/monorepo/package.json`              | node       | example-monorepo    |                                                                           |
-| `examples/monorepo/packages/api/package.json` | node       | @example/api        | express                                                                   |
-| `examples/monorepo/packages/web/package.json` | node       | @example/web        | next, react                                                               |
-| `examples/node-app/package.json`              | node       | example-node-app    | next, react, typescript, vitest                                           |
-| `examples/python-api/pyproject.toml`          | python     | example-python-api  |                                                                           |
-| `examples/python-api/requirements.txt`        | python     |                     | fastapi, pytest                                                           |
-| `package.json`                                | node       | agent-memory-system | commander, fast-glob, zod, @types/node, fast-check, tsup, tsx, typescript |
-| `tsconfig.json`                               | typescript |                     |                                                                           |
+| Path                                          | Type       | Name                         | Dependencies                                                              |
+| --------------------------------------------- | ---------- | ---------------------------- | ------------------------------------------------------------------------- |
+| `examples/monorepo/package.json`              | node       | example-monorepo             |                                                                           |
+| `examples/monorepo/packages/api/package.json` | node       | @example/api                 | express                                                                   |
+| `examples/monorepo/packages/web/package.json` | node       | @example/web                 | next, react                                                               |
+| `examples/node-app/package.json`              | node       | example-node-app             | next, react, typescript, vitest                                           |
+| `examples/python-api/pyproject.toml`          | python     | example-python-api           |                                                                           |
+| `examples/python-api/requirements.txt`        | python     |                              | fastapi, pytest                                                           |
+| `package.json`                                | node       | @ravbyte/agent-memory-system | commander, fast-glob, zod, @types/node, fast-check, tsup, tsx, typescript |
+| `tsconfig.json`                               | typescript |                              |                                                                           |
 
 ## Source Files
 

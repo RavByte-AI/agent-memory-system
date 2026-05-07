@@ -1,0 +1,78 @@
+name: Publish npm
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "package.json"
+      - "package-lock.json"
+      - "src/**"
+      - "README.md"
+      - "LICENSE"
+      - ".github/workflows/publish.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  id-token: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  publish:
+    name: Publish latest npm package
+    runs-on: ubuntu-latest
+    if: github.repository == 'RavByte-AI/agent-memory-system'
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org/
+          cache: npm
+
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+      - run: npm run memory:check
+
+      - name: Check npm version
+        id: version
+        shell: bash
+        run: |
+          PKG_NAME="$(node -p "require('./package.json').name")"
+          PKG_VERSION="$(node -p "require('./package.json').version")"
+          PUBLISHED_VERSION="$(npm view "${PKG_NAME}@${PKG_VERSION}" version --registry=https://registry.npmjs.org/ 2>/dev/null || true)"
+
+          echo "name=${PKG_NAME}" >> "$GITHUB_OUTPUT"
+          echo "version=${PKG_VERSION}" >> "$GITHUB_OUTPUT"
+          echo "tag=v${PKG_VERSION}" >> "$GITHUB_OUTPUT"
+
+          if [ "${PUBLISHED_VERSION}" = "${PKG_VERSION}" ]; then
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+            echo "${PKG_NAME}@${PKG_VERSION} is already published. Skipping npm publish."
+          else
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+            echo "${PKG_NAME}@${PKG_VERSION} is not published yet. Publishing as latest."
+          fi
+
+      - name: Publish to npm
+        if: steps.version.outputs.publish == 'true'
+        run: npm publish --access public
+
+      - name: Create GitHub release
+        if: steps.version.outputs.publish == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ steps.version.outputs.tag }}" \
+            --target "${GITHUB_SHA}" \
+            --title "${{ steps.version.outputs.name }} ${{ steps.version.outputs.version }}" \
+            --notes "Published ${{ steps.version.outputs.name }}@${{ steps.version.outputs.version }} to npm as the latest release." \
+            --generate-notes \
+            --latest

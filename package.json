@@ -1,5 +1,5 @@
 {
-  "name": "agent-memory-system",
+  "name": "@ravbyte/agent-memory-system",
   "version": "0.1.0",
   "description": "Generate and maintain AI-readable project memory, worklogs, and handoffs for any repository.",
   "type": "module",
@@ -17,6 +17,10 @@
     "type": "git",
     "url": "https://github.com/RavByte-AI/agent-memory-system"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "bin": {
     "agent-memory": "./dist/cli/index.js",
     "agent-memory-system": "./dist/cli/index.js"
@@ -24,7 +28,10 @@
   "files": [
     "dist",
     "src/agent-skill",
-    "docs",
+    "docs/agent-skill.md",
+    "docs/assets",
+    "docs/index.html",
+    "docs/styles.css",
     "README.md",
     "LICENSE"
   ],
