@@ -1,6 +1,6 @@
 {
   "name": "@ravbyte/agent-memory-system",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Generate and maintain AI-readable project memory, worklogs, and handoffs for any repository.",
   "type": "module",
   "license": "MIT",

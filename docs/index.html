@@ -3,9 +3,57 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Agent Memory System preserves project context, execution history, security notes, and handoffs across AI coding agents." />
-    <title>Agent Memory System</title>
+    <title>Agent Memory System – Context for AI Agents | RAVBYTE</title>
+    <meta name="description" content="Agent Memory System gives every repository a durable, secure memory layer so project context, execution history, and handoffs survive across Antigravity, Codex, Claude, Cursor, and future agents." />
+    <meta name="keywords" content="Agent Memory System, AI agent memory, AI context infrastructure, repository memory, agent handoff system, Codex memory, Claude memory, Cursor AI memory, Antigravity AI, AI developer tools, AI coding assistant infrastructure, open source AI infrastructure, project memory layer, AI worklog system, durable agent memory, repository context management, AI collaboration tools, context persistence for AI, GitHub AI tooling, RAVBYTE" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="RAVBYTE TECHNOLOGIES PRIVATE LIMITED" />
+    <meta name="creator" content="Gaurav Singh" />
+    <meta name="application-name" content="Agent Memory System" />
+    <meta name="theme-color" content="#000000" />
+    <meta property="og:title" content="Agent Memory System – Open Source Context Infrastructure for AI Agents" />
+    <meta property="og:description" content="Durable and secure memory infrastructure for AI agents across Codex, Claude, Cursor, and more. Preserve repository context, execution history, and agent handoffs." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="RAVBYTE" />
+    <meta property="og:url" content="https://ravbyte-ai.github.io/agent-memory-system/" />
+    <meta property="og:image" content="https://ravbyte-ai.github.io/agent-memory-system/assets/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Agent Memory System – Open Source Context Infrastructure for AI Agents" />
+    <meta name="twitter:description" content="Open source memory infrastructure for AI agents. Persistent context, worklogs, and secure handoffs across coding assistants." />
+    <meta name="twitter:image" content="https://ravbyte-ai.github.io/agent-memory-system/assets/og-image.png" />
+    <link rel="canonical" href="https://ravbyte-ai.github.io/agent-memory-system/" />
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+    <link rel="apple-touch-icon" href="./assets/favicon.png" />
     <link rel="stylesheet" href="./styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Agent Memory System",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Cross-platform",
+        "creator": {
+          "@type": "Organization",
+          "name": "RAVBYTE TECHNOLOGIES PRIVATE LIMITED"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Gaurav Singh"
+        },
+        "license": "https://opensource.org/licenses/MIT",
+        "url": "https://github.com/RavByte-AI/agent-memory-system",
+        "description": "Open source memory infrastructure for AI agents with repository context, execution history, worklogs, and secure handoffs.",
+        "keywords": [
+          "AI agents",
+          "context infrastructure",
+          "repository memory",
+          "Codex",
+          "Claude",
+          "Cursor",
+          "AI tooling"
+        ]
+      }
+    </script>
   </head>
   <body>
     <header class="site-header">
@@ -25,9 +73,9 @@
       <section class="hero">
         <div class="hero-copy">
           <p class="eyebrow">Open source context infrastructure</p>
-          <h1>Memory for AI agents.</h1>
+          <h1>Open Source Context Infrastructure for AI Agents</h1>
           <p class="lead">
-            Agent Memory System gives every repository a durable, secure memory layer so project context, execution history, and handoffs survive across Antigravity, Codex, Claude, Cursor, and future agents.
+            Agent Memory System gives every repository in a workspace a durable, secure memory layer so project context, execution history, and handoffs survive across folders, repos, Antigravity, Codex, Claude, Cursor, and future agents.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="#install">Install</a>
@@ -48,6 +96,13 @@
             <strong>agent-memory</strong>
           </div>
           <div class="terminal-script" aria-label="Terminal commands">
+            <div class="cli-banner">
+              <span class="banner-mark">◆</span>
+              <div>
+                <strong>Agent Memory System</strong>
+                <small>workspace context • repo memory • agent handoff</small>
+              </div>
+            </div>
             <div class="term-line output"><span class="prompt">$</span> <span class="cmd">npx</span> <span class="pkg">@ravbyte/agent-memory-system@latest</span> <span class="arg">init</span><span class="cursor"></span></div>
             <div class="term-line output"><span class="ok">Generated</span> <span class="path">memory/context-index.json</span></div>
             <div class="term-line output"><span class="ok">Generated</span> <span class="path">memory/09-agent-guidelines.md</span></div>
@@ -84,9 +139,9 @@
       <section id="memory" class="feature-grid">
         <article>
           <p class="tag">Repository memory</p>
-          <h2>One command creates project context.</h2>
+          <h2>One command maps every repo in a workspace.</h2>
           <p>
-            The scanner detects manifests, routes, APIs, configs, tests, storage hints, documentation, and generated directories, then writes Markdown plus a topic index any agent can read.
+            The scanner handles projects with many folders and repos in one workspace. It detects manifests, routes, APIs, configs, tests, storage hints, documentation, and generated directories, then writes Markdown plus a topic index any agent can read.
           </p>
         </article>
         <article>
@@ -149,6 +204,7 @@
         </div>
         <pre><code>npx @ravbyte/agent-memory-system@latest init
 npm install -g @ravbyte/agent-memory-system@latest
+agent-memory scan --json
 agent-memory maintain --since main
 agent-memory worklog checkpoint --agent codex --message "implemented scanner"
 agent-memory worklog handoff --agent codex --message "ready for review"</code></pre>

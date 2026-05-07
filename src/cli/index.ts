@@ -3,7 +3,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { Command } from "commander";
 import { appendWorklogEvent, classifyMemoryImpact, generateMemory, getChangedFiles, readWorklogEvents, scanRepository, validateMemory, writeMemoryArtifacts } from "../index.js";
-import { logError, logInfo, logSuccess, logWarning, maybePrintLatestNotice, theme } from "./theme.js";
+import { logError, logInfo, logSuccess, logWarning, maybePrintLatestNotice, printCliBanner, theme } from "./theme.js";
 
 async function exists(filePath: string): Promise<boolean> {
   try {
@@ -42,7 +42,7 @@ const program = new Command();
 program
   .name("agent-memory")
   .description("Generate an AI-readable project memory layer for any repository.")
-  .version("0.1.0");
+  .version("0.1.1");
 
 program
   .command("init")
@@ -53,6 +53,7 @@ program
   .option("--dry-run", "print planned writes without changing files", false)
   .action(async (options: { output: string; profile: string; force: boolean; dryRun: boolean }) => {
     const rootDir = process.cwd();
+    printCliBanner();
     const scan = await scanRepository({ rootDir, profile: options.profile as never });
     const artifacts = await generateMemory(scan, { outputDir: options.output, profile: options.profile as never });
 
@@ -91,6 +92,7 @@ program
       console.log(JSON.stringify(scan, null, 2));
       return;
     }
+    printCliBanner();
     console.log(`${theme.bold(scan.repoName)}: ${theme.accent(scan.profile)}`);
     console.log(`Languages: ${scan.languages.join(", ") || theme.muted("none detected")}`);
     console.log(`Frameworks: ${scan.frameworks.join(", ") || theme.muted("none detected")}`);
@@ -106,6 +108,7 @@ program
   .option("--strict", "treat warnings as stricter validation context", false)
   .action(async (options: { memoryDir: string; strict: boolean }) => {
     const result = await validateMemory({ rootDir: process.cwd(), memoryDir: options.memoryDir, strict: options.strict });
+    printCliBanner();
     printValidation(result);
     if (!result.ok) {
       process.exitCode = 1;
@@ -121,6 +124,7 @@ program
   .option("--force", "overwrite existing generated files", true)
   .action(async (options: { since: string; output: string; force: boolean }) => {
     const scan = await scanRepository({ rootDir: process.cwd() });
+    printCliBanner();
     const artifacts = await generateMemory(scan, { outputDir: options.output });
     await writeMemoryArtifacts(process.cwd(), options.output, artifacts, options.force);
     const changedFiles = await getChangedFiles(process.cwd(), options.since);
@@ -142,6 +146,7 @@ program
   .option("--dry-run", "show planned memory writes without changing files", false)
   .action(async (options: { since: string; output: string; check: boolean; dryRun: boolean }) => {
     const rootDir = process.cwd();
+    printCliBanner();
     const changedFiles = await getChangedFiles(rootDir, options.since);
     const impact = classifyMemoryImpact(changedFiles);
 
@@ -214,6 +219,7 @@ program
   .description("Check local environment and memory readiness.")
   .action(async () => {
     const rootDir = process.cwd();
+    printCliBanner();
     console.log(`Working directory: ${theme.path(rootDir)}`);
     console.log(`Memory directory: ${(await exists(path.join(rootDir, "memory"))) ? theme.accent("present") : theme.warn("missing")}`);
     console.log(`AGENTS.md: ${(await exists(path.join(rootDir, "AGENTS.md"))) ? theme.accent("present") : theme.warn("missing")}`);
@@ -243,6 +249,7 @@ function addWorklogOptions(command: Command): Command {
 for (const type of ["start", "log", "checkpoint", "handoff", "finish"] as const) {
   addWorklogOptions(worklog.command(type).description(`Record a ${type} worklog event.`))
     .action(async (options: { agent: string; task?: string; message: string; files?: string; commands?: string; next?: string; memoryDir: string }) => {
+      printCliBanner();
       const event = await appendWorklogEvent({
         rootDir: process.cwd(),
         memoryDir: options.memoryDir,
@@ -274,6 +281,7 @@ worklog
       console.log(JSON.stringify(recent, null, 2));
       return;
     }
+    printCliBanner();
     if (recent.length === 0) {
       logInfo("No agent worklog events recorded yet.");
       await maybePrintLatestNotice();

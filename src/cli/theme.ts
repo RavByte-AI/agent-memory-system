@@ -22,19 +22,28 @@ export const theme = {
 };
 
 export function logSuccess(message: string): void {
-  console.log(`${theme.accent("✓")} ${message}`);
+  console.log(`${theme.accent("[ok]")} ${message}`);
 }
 
 export function logInfo(message: string): void {
-  console.log(`${theme.cyan("•")} ${message}`);
+  console.log(`${theme.cyan("[i]")} ${message}`);
 }
 
 export function logWarning(message: string): void {
-  console.log(`${theme.warn("!")} ${message}`);
+  console.log(`${theme.warn("[!]")} ${message}`);
 }
 
 export function logError(message: string): void {
-  console.error(`${theme.error("✗")} ${message}`);
+  console.error(`${theme.error("[x]")} ${message}`);
+}
+
+export function printCliBanner(): void {
+  console.log("");
+  console.log(theme.accent("+------------------------------------------------------+"));
+  console.log(`${theme.accent("|")} ${theme.bold("Agent Memory System")} ${theme.muted("by RAVBYTE")}                    ${theme.accent("|")}`);
+  console.log(`${theme.accent("|")} ${theme.muted("workspace context")} ${theme.cyan("|")} ${theme.muted("repo memory")} ${theme.cyan("|")} ${theme.muted("agent handoff")} ${theme.accent("|")}`);
+  console.log(theme.accent("+------------------------------------------------------+"));
+  console.log("");
 }
 
 async function readPackageMeta(): Promise<{ name: string; version: string }> {
