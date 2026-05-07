@@ -21,7 +21,6 @@ function ownership(scan: ProjectScan): string {
       owner.founder ? `- Founder: ${owner.founder}` : undefined,
       owner.company ? `- Company: ${owner.company}` : undefined,
       owner.website ? `- Website: ${owner.website}` : undefined,
-      owner.email ? `- Email: ${owner.email}` : undefined,
       owner.x ? `- Founder X: ${owner.x}` : undefined,
       owner.linkedin ? `- Founder LinkedIn: ${owner.linkedin}` : undefined
     ].filter(Boolean).join("\n");

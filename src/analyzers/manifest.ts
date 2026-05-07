@@ -23,7 +23,7 @@ export function analyzeManifest(filePath: string, content: string): ManifestInfo
     const parsed = safeJson(content) as
       | {
           name?: string;
-          author?: string | { name?: string; email?: string; url?: string };
+          author?: string | { name?: string; url?: string };
           homepage?: string;
           scripts?: Record<string, string>;
           dependencies?: unknown;

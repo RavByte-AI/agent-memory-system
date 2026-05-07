@@ -56,7 +56,6 @@ export interface ManifestInfo {
     founder?: string;
     company?: string;
     website?: string;
-    email?: string;
     x?: string;
     linkedin?: string;
   };

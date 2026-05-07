@@ -10,7 +10,7 @@
   <body>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Agent Memory System home">
-        <img src="./assets/company-logo.png" alt="RAVBYTE Technologies" style="height: 20px; width: auto;" />
+        <img src="./assets/company-logo.png" alt="RAVBYTE Technologies" style="height: 25px; width: auto;" />
       </a>
       <nav>
         <a href="#memory">Memory</a>
@@ -47,17 +47,19 @@
             <span></span><span></span><span></span>
             <strong>agent-memory</strong>
           </div>
-          <pre><code>$ npx agent-memory-system init
-Generated memory/context-index.json
-Generated memory/09-agent-guidelines.md
-Generated memory/10-agent-worklog.md
-
-$ agent-memory worklog handoff \
-  --agent codex \
-  --message "tests pass; next publish pages"
-
-memory/agent-handoff.md is ready
-for the next agent.</code></pre>
+          <div class="terminal-script" aria-label="Terminal commands">
+            <div class="term-line typing"><span class="prompt">$</span> <span class="cmd">npx</span> <span class="pkg">agent-memory-system</span> <span class="arg">init</span><span class="cursor"></span></div>
+            <div class="term-line output"><span class="ok">Generated</span> <span class="path">memory/context-index.json</span></div>
+            <div class="term-line output"><span class="ok">Generated</span> <span class="path">memory/09-agent-guidelines.md</span></div>
+            <div class="term-line output"><span class="ok">Generated</span> <span class="path">memory/10-agent-worklog.md</span></div>
+            <div class="term-gap"></div>
+            <div class="term-line"><span class="prompt">$</span> <span class="cmd">agent-memory</span> <span class="subcmd">worklog</span> <span class="arg">handoff</span> <span class="slash">\</span></div>
+            <div class="term-line indent"><span class="flag">--agent</span> <span class="value">codex</span> <span class="slash">\</span></div>
+            <div class="term-line indent"><span class="flag">--message</span> <span class="quote">"tests pass; next publish pages"</span></div>
+            <div class="term-gap"></div>
+            <div class="term-line success"><span class="path">memory/agent-handoff.md</span> is ready</div>
+            <div class="term-line success">for the next agent.</div>
+          </div>
         </div>
       </section>
 
@@ -180,7 +182,6 @@ agent-memory worklog handoff --agent codex --message "ready for review"</code></
       </div>
       <div class="footer-links">
         <a href="https://github.com/RavByte-AI/agent-memory-system">GitHub</a>
-        <a href="mailto:sync@ravbyte.com">sync@ravbyte.com</a>
         <a href="https://x.com/gauravchadhry">Founder X</a>
         <a href="https://www.linkedin.com/in/gauravchadhry/">LinkedIn</a>
       </div>

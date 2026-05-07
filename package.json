@@ -4,13 +4,12 @@
   "description": "Generate and maintain AI-readable project memory, worklogs, and handoffs for any repository.",
   "type": "module",
   "license": "MIT",
-  "author": "Gaurav Singh <sync@ravbyte.com>",
+  "author": "Gaurav Singh",
   "homepage": "https://www.ravbyte.com",
   "agentMemory": {
     "founder": "Gaurav Singh",
     "company": "RAVBYTE TECHNOLOGIES PRIVATE LIMITED",
     "website": "https://www.ravbyte.com",
-    "email": "sync@ravbyte.com",
     "x": "https://x.com/gauravchadhry",
     "linkedin": "https://www.linkedin.com/in/gauravchadhry/"
   },

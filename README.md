@@ -31,7 +31,6 @@ The project is owned and maintained by **RAVBYTE TECHNOLOGIES PRIVATE LIMITED**,
 - Founder: Gaurav Singh
 - Company: RAVBYTE TECHNOLOGIES PRIVATE LIMITED
 - Website: https://www.ravbyte.com
-- Email: sync@ravbyte.com
 - Founder X: https://x.com/gauravchadhry
 - Founder LinkedIn: https://www.linkedin.com/in/gauravchadhry/
 - Repository: https://github.com/RavByte-AI/agent-memory-system

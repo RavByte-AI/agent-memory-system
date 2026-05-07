@@ -206,6 +206,104 @@ pre {
   line-height: 1.75;
 }
 
+.terminal-script {
+  padding: 26px;
+  color: #dbd8ce;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.term-line {
+  min-height: 28px;
+  white-space: pre-wrap;
+}
+
+.term-line.typing {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  border-right: 0;
+  animation: typeIn 1.6s steps(30, end) both;
+}
+
+.term-gap {
+  height: 16px;
+}
+
+.indent {
+  padding-left: 24px;
+}
+
+.prompt {
+  color: var(--accent);
+  text-shadow: 0 0 18px rgba(216, 255, 107, 0.35);
+}
+
+.cmd {
+  color: #8cf7ff;
+}
+
+.pkg,
+.subcmd {
+  color: #f4f1eb;
+}
+
+.arg {
+  color: #ffb86b;
+}
+
+.flag {
+  color: #b89cff;
+}
+
+.value,
+.quote {
+  color: #ffd479;
+}
+
+.slash {
+  color: var(--muted);
+}
+
+.ok {
+  color: #7dff9b;
+}
+
+.path {
+  color: #8cf7ff;
+}
+
+.success {
+  color: #c9ffc8;
+}
+
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1.2em;
+  margin-left: 4px;
+  vertical-align: -0.2em;
+  background: var(--accent);
+  box-shadow: 0 0 18px rgba(216, 255, 107, 0.55);
+  animation: blink 0.9s steps(1, end) infinite;
+}
+
+@keyframes typeIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: 34ch;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
 .ownership,
 .security,
 .handoff,
