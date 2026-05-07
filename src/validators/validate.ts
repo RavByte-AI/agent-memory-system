@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import fg from "fast-glob";
 import type { ValidateOptions, ValidationResult } from "../types.js";
-import { findSecretPatterns, hasLastUpdatedNearTop, isRepositoryRelativePath, missingRequiredFiles, validateContextIndex } from "./rules.js";
+import { findSecretPatterns, hasLastUpdatedNearTop, isRepositoryRelativePath, missingRequiredFiles, validateContextIndex, validateGraphFreshness } from "./rules.js";
 
 async function readIfExists(filePath: string): Promise<string | undefined> {
   try {
@@ -74,6 +74,10 @@ export async function validateMemory(memoryPathOrOptions: string | ValidateOptio
       }
     }
   }
+
+  // Graph freshness check (non-blocking — warnings only)
+  const graphWarnings = await validateGraphFreshness(memoryDir, rootDir);
+  warnings.push(...graphWarnings);
 
   return {
     ok: errors.length === 0,

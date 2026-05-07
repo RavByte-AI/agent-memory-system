@@ -16,6 +16,8 @@
 
 ## Config Files
 
+- `benchmarks/config/agents.json`
+- `benchmarks/config/repositories.json`
 - `examples/node-app/.env.example`
 - `examples/python-api/pyproject.toml`
 - `src/analyzers/env.ts`

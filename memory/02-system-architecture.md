@@ -28,6 +28,7 @@ flowchart LR
 ## Deployment Hints
 
 - `src/analyzers/manifest.ts`
+- `src/graph/layers.ts`
 - `src/maintenance/git.ts`
 - `src/scanner/scan.ts`
 - `src/templates/format.ts`

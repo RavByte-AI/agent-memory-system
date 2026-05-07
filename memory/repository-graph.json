@@ -1,0 +1,4693 @@
+{
+  "repoName": "AgentMemorySystem",
+  "rootDir": "C:\\Users\\Gaurav\\Documents\\AgentMemorySystem",
+  "grade": "B",
+  "healthScore": 83,
+  "stats": {
+    "totalFiles": 78,
+    "totalFunctions": 189,
+    "totalEdges": 63,
+    "circularDependencies": 0,
+    "deadCodeFiles": 41,
+    "avgCoupling": 0.8,
+    "securityIssues": 80,
+    "layerViolations": 1
+  },
+  "layers": {
+    "utils": [
+      ".gitignore",
+      "AGENTS.md",
+      "CODE_OF_CONDUCT.md",
+      "CONTRIBUTING.md",
+      "package-lock.json",
+      "README.md",
+      "SECURITY.md",
+      "vitest.config.ts",
+      ".github/release.yml",
+      "docs/agent-skill.md",
+      "memory/00-project-overview.md",
+      "memory/01-repository-map.md",
+      "memory/02-system-architecture.md",
+      "memory/03-development-workflow.md",
+      "memory/04-api-and-interfaces.md",
+      "memory/05-data-and-storage.md",
+      "memory/06-security-and-config.md",
+      "memory/07-testing-and-quality.md",
+      "memory/08-known-issues-and-tech-debt.md",
+      "memory/09-agent-guidelines.md",
+      "memory/10-agent-worklog.md",
+      "memory/agent-handoff.md",
+      "memory/architecture-flow.md",
+      "memory/context-index.json",
+      "memory/cross-repo-links.json",
+      "memory/README.md",
+      "memory/repository-graph.json",
+      "src/constants.ts",
+      "src/index.ts",
+      "src/types.ts",
+      ".github/ISSUE_TEMPLATE/bug_report.md",
+      ".github/ISSUE_TEMPLATE/feature_request.md",
+      ".github/ISSUE_TEMPLATE/scanner_accuracy.md",
+      ".github/rulesets/main-branch-protection.json",
+      ".github/workflows/ci.yml",
+      ".github/workflows/pages.yml",
+      ".github/workflows/publish.yml",
+      "examples/node-app/README.md",
+      "examples/python-api/pyproject.toml",
+      "examples/python-api/README.md",
+      "examples/python-api/requirements.txt",
+      "src/agent-log/store.ts",
+      "src/agent-skill/SKILL.md",
+      "src/analyzers/env.ts",
+      "src/analyzers/manifest.ts",
+      "src/generator/context-index.ts",
+      "src/generator/generate.ts",
+      "src/generator/graph-artifacts.ts",
+      "src/generator/write.ts",
+      "src/graph/blast-radius.ts",
+      "src/graph/builder.ts",
+      "src/graph/health.ts",
+      "src/graph/index.ts",
+      "src/graph/layers.ts",
+      "src/graph/parser.ts",
+      "src/graph/patterns.ts",
+      "src/graph/query.ts",
+      "src/graph/snapshot.ts",
+      "src/graph/summarizer.ts",
+      "src/graph/types.ts",
+      "src/cli/index.ts",
+      "src/cli/theme.ts",
+      "src/maintenance/git.ts",
+      "src/validators/rules.ts",
+      "src/validators/validate.ts",
+      "src/scanner/path-utils.ts",
+      "src/scanner/scan.ts",
+      "examples/node-app/app/page.tsx",
+      "examples/python-api/app/main.py"
+    ],
+    "config": [
+      "package.json",
+      "tsconfig.json",
+      "examples/monorepo/package.json",
+      "examples/node-app/package.json",
+      "examples/monorepo/packages/web/package.json"
+    ],
+    "ui": [
+      "src/templates/format.ts"
+    ],
+    "services": [
+      "examples/monorepo/packages/api/package.json",
+      "examples/monorepo/packages/api/src/routes.ts",
+      "examples/node-app/app/api/health/route.ts"
+    ]
+  },
+  "files": [
+    {
+      "path": ".gitignore",
+      "name": ".gitignore",
+      "layer": "utils",
+      "lines": 10,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "AGENTS.md",
+      "name": "AGENTS.md",
+      "layer": "utils",
+      "lines": 15,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "name": "CODE_OF_CONDUCT.md",
+      "layer": "utils",
+      "lines": 3,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "name": "CONTRIBUTING.md",
+      "layer": "utils",
+      "lines": 14,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "package-lock.json",
+      "name": "package-lock.json",
+      "layer": "utils",
+      "lines": 2815,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 85
+    },
+    {
+      "path": "package.json",
+      "name": "package.json",
+      "layer": "config",
+      "lines": 64,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "README.md",
+      "name": "README.md",
+      "layer": "utils",
+      "lines": 107,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "SECURITY.md",
+      "name": "SECURITY.md",
+      "layer": "utils",
+      "lines": 3,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "tsconfig.json",
+      "name": "tsconfig.json",
+      "layer": "config",
+      "lines": 17,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "vitest.config.ts",
+      "name": "vitest.config.ts",
+      "layer": "utils",
+      "lines": 8,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [
+        {
+          "name": "default",
+          "kind": "default",
+          "line": 3
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": ".github/release.yml",
+      "name": "release.yml",
+      "layer": "utils",
+      "lines": 20,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "docs/agent-skill.md",
+      "name": "agent-skill.md",
+      "layer": "utils",
+      "lines": 26,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "memory/00-project-overview.md",
+      "name": "00-project-overview.md",
+      "layer": "utils",
+      "lines": 27,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "memory/01-repository-map.md",
+      "name": "01-repository-map.md",
+      "layer": "utils",
+      "lines": 70,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "memory/02-system-architecture.md",
+      "name": "02-system-architecture.md",
+      "layer": "utils",
+      "lines": 19,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "memory/03-development-workflow.md",
+      "name": "03-development-workflow.md",
+      "layer": "utils",
+      "lines": 19,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "memory/04-api-and-interfaces.md",
+      "name": "04-api-and-interfaces.md",
+      "layer": "utils",
+      "lines": 12,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "memory/05-data-and-storage.md",
+      "name": "05-data-and-storage.md",
+      "layer": "utils",
+      "lines": 13,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "memory/06-security-and-config.md",
+      "name": "06-security-and-config.md",
+      "layer": "utils",
+      "lines": 15,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "memory/07-testing-and-quality.md",
+      "name": "07-testing-and-quality.md",
+      "layer": "utils",
+      "lines": 16,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "memory/08-known-issues-and-tech-debt.md",
+      "name": "08-known-issues-and-tech-debt.md",
+      "layer": "utils",
+      "lines": 10,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "memory/09-agent-guidelines.md",
+      "name": "09-agent-guidelines.md",
+      "layer": "utils",
+      "lines": 14,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "memory/10-agent-worklog.md",
+      "name": "10-agent-worklog.md",
+      "layer": "utils",
+      "lines": 13,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "memory/agent-handoff.md",
+      "name": "agent-handoff.md",
+      "layer": "utils",
+      "lines": 15,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "memory/architecture-flow.md",
+      "name": "architecture-flow.md",
+      "layer": "utils",
+      "lines": 110,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "memory/context-index.json",
+      "name": "context-index.json",
+      "layer": "utils",
+      "lines": 46,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "memory/cross-repo-links.json",
+      "name": "cross-repo-links.json",
+      "layer": "utils",
+      "lines": 12,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "memory/README.md",
+      "name": "README.md",
+      "layer": "utils",
+      "lines": 19,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "memory/repository-graph.json",
+      "name": "repository-graph.json",
+      "layer": "utils",
+      "lines": 3779,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 1940,
+          "snippet": "\"snippet\": \"console.log(`  ${theme.path(`${options.output}/${artifact.path}`)}`)"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 1946,
+          "snippet": "\"snippet\": \"console.log(`  ${theme.path(\\\"AGENTS.md\\\")}`);\""
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 1952,
+          "snippet": "\"snippet\": \"console.log(JSON.stringify(scan, null, 2));\""
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 1958,
+          "snippet": "\"snippet\": \"console.log(`${theme.bold(scan.repoName)}: ${theme.accent(scan.profi"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 1964,
+          "snippet": "\"snippet\": \"console.log(`Languages: ${scan.languages.join(\\\", \\\") || theme.muted"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 1970,
+          "snippet": "\"snippet\": \"console.log(`Frameworks: ${scan.frameworks.join(\\\", \\\") || theme.mut"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 1976,
+          "snippet": "\"snippet\": \"console.log(`Manifests: ${theme.bold(String(scan.manifests.length))}"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 1982,
+          "snippet": "\"snippet\": \"console.log(`Source files: ${theme.bold(String(scan.sourceFiles.leng"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 1988,
+          "snippet": "\"snippet\": \"console.log(`  - ${theme.path(file)}`);\""
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 1994,
+          "snippet": "\"snippet\": \"console.log(`Working directory: ${theme.path(rootDir)}`);\""
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2000,
+          "snippet": "\"snippet\": \"console.log(`Memory directory: ${(await exists(path.join(rootDir, \\\""
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2006,
+          "snippet": "\"snippet\": \"console.log(`AGENTS.md: ${(await exists(path.join(rootDir, \\\"AGENTS."
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2012,
+          "snippet": "\"snippet\": \"console.log(`Detected profile: ${theme.accent(scan.profile)}`);\""
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2018,
+          "snippet": "\"snippet\": \"console.log(`Manifests: ${theme.bold(String(scan.manifests.length))}"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2024,
+          "snippet": "\"snippet\": \"console.log(`Memory-impacting changes: ${theme.bold(String(impact.st"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2030,
+          "snippet": "\"snippet\": \"console.log(JSON.stringify(recent, null, 2));\""
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2036,
+          "snippet": "\"snippet\": \"console.log(`${theme.muted(event.timestamp)} | ${theme.cyan(event.ag"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2042,
+          "snippet": "\"snippet\": \"for (const a of artifacts) console.log(`  ${theme.path(path.join(opt"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2048,
+          "snippet": "\"snippet\": \"r.results.forEach((l) => console.log(`  ${l}`));\""
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2054,
+          "snippet": "\"snippet\": \"r.results.forEach((f) => console.log(`  ${theme.path(f)}`));\""
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2060,
+          "snippet": "\"snippet\": \"info.results.forEach((l) => console.log(`  ${l}`));\""
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2066,
+          "snippet": "\"snippet\": \"console.log(`  imports: ${deps.results.map((f) => theme.path(f)).joi"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2072,
+          "snippet": "\"snippet\": \"console.log(`  importedBy: ${dep_on.results.map((f) => theme.path(f)"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2078,
+          "snippet": "\"snippet\": \"result.results.forEach((f) => console.log(`  ${theme.path(f)}`));\""
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2084,
+          "snippet": "\"snippet\": \"if (options.json) { console.log(JSON.stringify(summary, null, 2)); r"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2090,
+          "snippet": "\"snippet\": \"console.log(`\\\\nEntry points:`);\""
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2096,
+          "snippet": "\"snippet\": \"summary.entryPoints.forEach((f) => console.log(`  ${theme.path(f)}`)"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2102,
+          "snippet": "\"snippet\": \"console.log(`\\\\nHigh-risk files:`);\""
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2108,
+          "snippet": "\"snippet\": \"summary.highRiskFiles.forEach((f) => console.log(`  ${theme.path(f.p"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2254,
+          "snippet": "\"snippet\": \"console.log(`${theme.accent(\\\"[ok]\\\")} ${message}`);\""
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2260,
+          "snippet": "\"snippet\": \"console.log(`${theme.cyan(\\\"[i]\\\")} ${message}`);\""
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2266,
+          "snippet": "\"snippet\": \"console.log(`${theme.warn(\\\"[!]\\\")} ${message}`);\""
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2272,
+          "snippet": "\"snippet\": \"console.log(\\\"\\\");\""
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2278,
+          "snippet": "\"snippet\": \"console.log(theme.accent(\\\"+----------------------------------------"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2284,
+          "snippet": "\"snippet\": \"console.log(`${theme.accent(\\\"|\\\")} ${theme.bold(\\\"Agent Memory Syst"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2290,
+          "snippet": "\"snippet\": \"console.log(`${theme.accent(\\\"|\\\")} ${theme.muted(\\\"workspace contex"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2296,
+          "snippet": "\"snippet\": \"console.log(theme.accent(\\\"+----------------------------------------"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2302,
+          "snippet": "\"snippet\": \"console.log(\\\"\\\");\""
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2308,
+          "snippet": "\"snippet\": \"console.log(`  ${theme.command(`npx ${name}@latest init`)}`);\""
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 2314,
+          "snippet": "\"snippet\": \"console.log(`  ${theme.command(`npm install -g ${name}@latest`)}`);\""
+        }
+      ],
+      "healthScore": 5
+    },
+    {
+      "path": "src/constants.ts",
+      "name": "constants.ts",
+      "layer": "utils",
+      "lines": 44,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [
+        "src/generator/generate.ts",
+        "src/validators/rules.ts",
+        "src/scanner/path-utils.ts",
+        "src/scanner/scan.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "GENERATED_DIRS",
+          "kind": "const",
+          "line": 1
+        },
+        {
+          "name": "REQUIRED_MEMORY_FILES",
+          "kind": "const",
+          "line": 17
+        },
+        {
+          "name": "REQUIRED_CONTEXT_TOPICS",
+          "kind": "const",
+          "line": 33
+        },
+        {
+          "name": "DEFAULT_MAX_FILE_BYTES",
+          "kind": "const",
+          "line": 47
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "src/index.ts",
+      "name": "index.ts",
+      "layer": "utils",
+      "lines": 7,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [
+        "src/scanner/scan.ts",
+        "src/generator/generate.ts",
+        "src/generator/write.ts",
+        "src/validators/validate.ts",
+        "src/maintenance/git.ts",
+        "src/agent-log/store.ts",
+        "src/types.ts"
+      ],
+      "importedBy": [
+        "src/cli/index.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "scanRepository",
+          "kind": "const",
+          "line": 1
+        },
+        {
+          "name": "generateMemory",
+          "kind": "const",
+          "line": 2
+        },
+        {
+          "name": "writeMemoryArtifacts",
+          "kind": "const",
+          "line": 3
+        },
+        {
+          "name": "validateMemory",
+          "kind": "const",
+          "line": 4
+        },
+        {
+          "name": "classifyMemoryImpact",
+          "kind": "const",
+          "line": 5
+        },
+        {
+          "name": "getChangedFiles",
+          "kind": "const",
+          "line": 5
+        },
+        {
+          "name": "appendWorklogEvent",
+          "kind": "const",
+          "line": 6
+        },
+        {
+          "name": "readWorklogEvents",
+          "kind": "const",
+          "line": 6
+        },
+        {
+          "name": "writeHandoffSummary",
+          "kind": "const",
+          "line": 6
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "src/types.ts",
+      "name": "types.ts",
+      "layer": "utils",
+      "lines": 96,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [
+        "src/index.ts",
+        "src/agent-log/store.ts",
+        "src/analyzers/manifest.ts",
+        "src/generator/context-index.ts",
+        "src/generator/generate.ts",
+        "src/generator/graph-artifacts.ts",
+        "src/generator/write.ts",
+        "src/maintenance/git.ts",
+        "src/validators/rules.ts",
+        "src/validators/validate.ts",
+        "src/scanner/scan.ts",
+        "src/templates/format.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "RepoProfile",
+          "kind": "type",
+          "line": 1
+        },
+        {
+          "name": "ScanOptions",
+          "kind": "type",
+          "line": 10
+        },
+        {
+          "name": "GenerateOptions",
+          "kind": "type",
+          "line": 16
+        },
+        {
+          "name": "ValidateOptions",
+          "kind": "type",
+          "line": 22
+        },
+        {
+          "name": "MemoryImpact",
+          "kind": "type",
+          "line": 28
+        },
+        {
+          "name": "AgentWorklogEventType",
+          "kind": "type",
+          "line": 35
+        },
+        {
+          "name": "AgentWorklogEvent",
+          "kind": "type",
+          "line": 37
+        },
+        {
+          "name": "ManifestInfo",
+          "kind": "type",
+          "line": 49
+        },
+        {
+          "name": "ProjectScan",
+          "kind": "type",
+          "line": 66
+        },
+        {
+          "name": "MemoryArtifact",
+          "kind": "type",
+          "line": 89
+        },
+        {
+          "name": "ContextIndexEntry",
+          "kind": "type",
+          "line": 94
+        },
+        {
+          "name": "ContextIndex",
+          "kind": "type",
+          "line": 99
+        },
+        {
+          "name": "ValidationResult",
+          "kind": "type",
+          "line": 101
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug_report.md",
+      "name": "bug_report.md",
+      "layer": "utils",
+      "lines": 9,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/feature_request.md",
+      "name": "feature_request.md",
+      "layer": "utils",
+      "lines": 6,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/scanner_accuracy.md",
+      "name": "scanner_accuracy.md",
+      "layer": "utils",
+      "lines": 6,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": ".github/rulesets/main-branch-protection.json",
+      "name": "main-branch-protection.json",
+      "layer": "utils",
+      "lines": 44,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "name": "ci.yml",
+      "layer": "utils",
+      "lines": 21,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": ".github/workflows/pages.yml",
+      "name": "pages.yml",
+      "layer": "utils",
+      "lines": 30,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": ".github/workflows/publish.yml",
+      "name": "publish.yml",
+      "layer": "utils",
+      "lines": 81,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "examples/monorepo/package.json",
+      "name": "package.json",
+      "layer": "config",
+      "lines": 9,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "examples/node-app/package.json",
+      "name": "package.json",
+      "layer": "config",
+      "lines": 15,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "examples/node-app/README.md",
+      "name": "README.md",
+      "layer": "utils",
+      "lines": 1,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "examples/python-api/pyproject.toml",
+      "name": "pyproject.toml",
+      "layer": "utils",
+      "lines": 4,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "examples/python-api/README.md",
+      "name": "README.md",
+      "layer": "utils",
+      "lines": 1,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "examples/python-api/requirements.txt",
+      "name": "requirements.txt",
+      "layer": "utils",
+      "lines": 2,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "src/agent-log/store.ts",
+      "name": "store.ts",
+      "layer": "utils",
+      "lines": 70,
+      "complexity": 9,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "splitList",
+          "line": 17,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "eventId",
+          "line": 24,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "line",
+          "line": 28,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "appendWorklogEvent",
+          "line": 32,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 2,
+          "calledBy": []
+        },
+        {
+          "name": "readWorklogEvents",
+          "line": 53,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 2,
+          "calledBy": []
+        },
+        {
+          "name": "writeHandoffSummary",
+          "line": 66,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "return",
+          "line": 18,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        }
+      ],
+      "imports": [
+        "src/types.ts"
+      ],
+      "importedBy": [
+        "src/index.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "appendWorklogEvent",
+          "kind": "function",
+          "line": 32
+        },
+        {
+          "name": "readWorklogEvents",
+          "kind": "function",
+          "line": 53
+        },
+        {
+          "name": "writeHandoffSummary",
+          "kind": "function",
+          "line": 66
+        },
+        {
+          "name": "AppendWorklogInput",
+          "kind": "type",
+          "line": 5
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "src/agent-skill/SKILL.md",
+      "name": "SKILL.md",
+      "layer": "utils",
+      "lines": 26,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "src/analyzers/env.ts",
+      "name": "env.ts",
+      "layer": "utils",
+      "lines": 17,
+      "complexity": 5,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "extractEnvNames",
+          "line": 4,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 5,
+          "calledBy": []
+        }
+      ],
+      "imports": [],
+      "importedBy": [
+        "src/scanner/scan.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "extractEnvNames",
+          "kind": "function",
+          "line": 4
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "src/analyzers/manifest.ts",
+      "name": "manifest.ts",
+      "layer": "utils",
+      "lines": 119,
+      "complexity": 21,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "safeJson",
+          "line": 4,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 4,
+          "calledBy": []
+        },
+        {
+          "name": "dependencyNames",
+          "line": 12,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 3,
+          "calledBy": []
+        },
+        {
+          "name": "analyzeManifest",
+          "line": 19,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 3,
+          "calledBy": []
+        },
+        {
+          "name": "detectFrameworks",
+          "line": 86,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 3,
+          "calledBy": []
+        },
+        {
+          "name": "commandsFromManifests",
+          "line": 114,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 8,
+          "calledBy": []
+        }
+      ],
+      "imports": [
+        "src/types.ts"
+      ],
+      "importedBy": [
+        "src/scanner/scan.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "analyzeManifest",
+          "kind": "function",
+          "line": 19
+        },
+        {
+          "name": "detectFrameworks",
+          "kind": "function",
+          "line": 86
+        },
+        {
+          "name": "commandsFromManifests",
+          "kind": "function",
+          "line": 114
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 80
+    },
+    {
+      "path": "src/generator/context-index.ts",
+      "name": "context-index.ts",
+      "layer": "utils",
+      "lines": 69,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "createContextIndex",
+          "line": 3,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        }
+      ],
+      "imports": [
+        "src/types.ts"
+      ],
+      "importedBy": [
+        "src/generator/generate.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "createContextIndex",
+          "kind": "function",
+          "line": 3
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "src/generator/generate.ts",
+      "name": "generate.ts",
+      "layer": "utils",
+      "lines": 230,
+      "complexity": 41,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "manifestRows",
+          "line": 6,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 2,
+          "calledBy": []
+        },
+        {
+          "name": "ownership",
+          "line": 15,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 2,
+          "calledBy": []
+        },
+        {
+          "name": "artifact",
+          "line": 38,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 2,
+          "calledBy": []
+        },
+        {
+          "name": "overview",
+          "line": 42,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 2,
+          "calledBy": []
+        },
+        {
+          "name": "repositoryMap",
+          "line": 65,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "architecture",
+          "line": 101,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 2,
+          "calledBy": []
+        },
+        {
+          "name": "workflow",
+          "line": 137,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "apiInterfaces",
+          "line": 160,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "dataStorage",
+          "line": 183,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "securityConfig",
+          "line": 202,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "testingQuality",
+          "line": 222,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "knownIssues",
+          "line": 242,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 3,
+          "calledBy": []
+        },
+        {
+          "name": "agentGuidelines",
+          "line": 263,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 3,
+          "calledBy": []
+        },
+        {
+          "name": "agentWorklog",
+          "line": 291,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 2,
+          "calledBy": []
+        },
+        {
+          "name": "readme",
+          "line": 321,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 3,
+          "calledBy": []
+        },
+        {
+          "name": "generateMemory",
+          "line": 363,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "overview",
+          "line": 365,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "repositoryMap",
+          "line": 366,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "architecture",
+          "line": 367,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "workflow",
+          "line": 368,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "apiInterfaces",
+          "line": 369,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "dataStorage",
+          "line": 370,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "securityConfig",
+          "line": 371,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "testingQuality",
+          "line": 372,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "knownIssues",
+          "line": 373,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "agentGuidelines",
+          "line": 374,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "agentWorklog",
+          "line": 375,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "readme",
+          "line": 376,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "artifact",
+          "line": 380,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        }
+      ],
+      "imports": [
+        "src/constants.ts",
+        "src/types.ts",
+        "src/generator/context-index.ts",
+        "src/templates/format.ts"
+      ],
+      "importedBy": [
+        "src/index.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "generateMemory",
+          "kind": "function",
+          "line": 363
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 65
+    },
+    {
+      "path": "src/generator/graph-artifacts.ts",
+      "name": "graph-artifacts.ts",
+      "layer": "utils",
+      "lines": 111,
+      "complexity": 6,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "artifact",
+          "line": 17,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "buildRepositoryGraphArtifact",
+          "line": 25,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "buildArchitectureFlowArtifact",
+          "line": 37,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "buildBreakingChangesArtifact",
+          "line": 141,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "buildDependencyImpactArtifact",
+          "line": 149,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "buildCrossRepoLinksArtifact",
+          "line": 199,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        }
+      ],
+      "imports": [
+        "src/graph/types.ts",
+        "src/types.ts",
+        "src/graph/snapshot.ts",
+        "src/graph/summarizer.ts",
+        "src/graph/blast-radius.ts"
+      ],
+      "importedBy": [
+        "src/cli/index.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "buildRepositoryGraphArtifact",
+          "kind": "function",
+          "line": 25
+        },
+        {
+          "name": "buildArchitectureFlowArtifact",
+          "kind": "function",
+          "line": 37
+        },
+        {
+          "name": "buildBreakingChangesArtifact",
+          "kind": "function",
+          "line": 141
+        },
+        {
+          "name": "buildDependencyImpactArtifact",
+          "kind": "function",
+          "line": 149
+        },
+        {
+          "name": "buildCrossRepoLinksArtifact",
+          "kind": "function",
+          "line": 199
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "src/generator/write.ts",
+      "name": "write.ts",
+      "layer": "utils",
+      "lines": 22,
+      "complexity": 5,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "writeMemoryArtifacts",
+          "line": 5,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 5,
+          "calledBy": []
+        }
+      ],
+      "imports": [
+        "src/types.ts"
+      ],
+      "importedBy": [
+        "src/index.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "writeMemoryArtifacts",
+          "kind": "function",
+          "line": 5
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "src/graph/blast-radius.ts",
+      "name": "blast-radius.ts",
+      "layer": "utils",
+      "lines": 77,
+      "complexity": 31,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "buildReverseIndex",
+          "line": 8,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 6,
+          "calledBy": []
+        },
+        {
+          "name": "computeBlastRadius",
+          "line": 17,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 8,
+          "calledBy": []
+        },
+        {
+          "name": "detectCircularDependencies",
+          "line": 38,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 12,
+          "calledBy": []
+        },
+        {
+          "name": "detectLayerViolations",
+          "line": 75,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 5,
+          "calledBy": []
+        }
+      ],
+      "imports": [
+        "src/graph/types.ts"
+      ],
+      "importedBy": [
+        "src/generator/graph-artifacts.ts",
+        "src/graph/builder.ts",
+        "src/graph/query.ts",
+        "src/graph/snapshot.ts",
+        "src/graph/summarizer.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "buildReverseIndex",
+          "kind": "function",
+          "line": 8
+        },
+        {
+          "name": "computeBlastRadius",
+          "kind": "function",
+          "line": 17
+        },
+        {
+          "name": "detectCircularDependencies",
+          "kind": "function",
+          "line": 38
+        },
+        {
+          "name": "detectLayerViolations",
+          "kind": "function",
+          "line": 75
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 80
+    },
+    {
+      "path": "src/graph/builder.ts",
+      "name": "builder.ts",
+      "layer": "utils",
+      "lines": 139,
+      "complexity": 8,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "safeRead",
+          "line": 32,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 5,
+          "calledBy": []
+        },
+        {
+          "name": "analyzeRepository",
+          "line": 43,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 2,
+          "calledBy": []
+        },
+        {
+          "name": "getBlastRadius",
+          "line": 170,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        }
+      ],
+      "imports": [
+        "src/graph/types.ts",
+        "src/graph/parser.ts",
+        "src/graph/layers.ts",
+        "src/graph/health.ts",
+        "src/graph/blast-radius.ts",
+        "src/graph/patterns.ts"
+      ],
+      "importedBy": [
+        "src/graph/index.ts",
+        "src/cli/index.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "analyzeRepository",
+          "kind": "function",
+          "line": 43
+        },
+        {
+          "name": "getBlastRadius",
+          "kind": "function",
+          "line": 170
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "src/graph/health.ts",
+      "name": "health.ts",
+      "layer": "utils",
+      "lines": 39,
+      "complexity": 32,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "fileHealthScore",
+          "line": 6,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 18,
+          "calledBy": []
+        },
+        {
+          "name": "scoreToGrade",
+          "line": 18,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 9,
+          "calledBy": []
+        },
+        {
+          "name": "repoHealthScore",
+          "line": 26,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 5,
+          "calledBy": []
+        }
+      ],
+      "imports": [
+        "src/graph/types.ts"
+      ],
+      "importedBy": [
+        "src/graph/builder.ts",
+        "src/graph/index.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "fileHealthScore",
+          "kind": "function",
+          "line": 6
+        },
+        {
+          "name": "scoreToGrade",
+          "kind": "function",
+          "line": 18
+        },
+        {
+          "name": "repoHealthScore",
+          "kind": "function",
+          "line": 26
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 80
+    },
+    {
+      "path": "src/graph/index.ts",
+      "name": "index.ts",
+      "layer": "utils",
+      "lines": 34,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [
+        "src/graph/builder.ts",
+        "src/graph/snapshot.ts",
+        "src/graph/summarizer.ts",
+        "src/graph/query.ts",
+        "src/graph/layers.ts",
+        "src/graph/health.ts",
+        "src/graph/types.ts"
+      ],
+      "importedBy": [],
+      "exportedSymbols": [
+        {
+          "name": "analyzeRepository",
+          "kind": "const",
+          "line": 4
+        },
+        {
+          "name": "getBlastRadius",
+          "kind": "const",
+          "line": 4
+        },
+        {
+          "name": "createSnapshot",
+          "kind": "const",
+          "line": 5
+        },
+        {
+          "name": "writeSnapshot",
+          "kind": "const",
+          "line": 5
+        },
+        {
+          "name": "readSnapshot",
+          "kind": "const",
+          "line": 5
+        },
+        {
+          "name": "diffSnapshots",
+          "kind": "const",
+          "line": 5
+        },
+        {
+          "name": "summarizeGraph",
+          "kind": "const",
+          "line": 6
+        },
+        {
+          "name": "queryBlastRadius",
+          "kind": "const",
+          "line": 7
+        },
+        {
+          "name": "queryCallers",
+          "kind": "const",
+          "line": 7
+        },
+        {
+          "name": "queryDependencies",
+          "kind": "const",
+          "line": 7
+        },
+        {
+          "name": "queryDependents",
+          "kind": "const",
+          "line": 7
+        },
+        {
+          "name": "queryEntryPoints",
+          "kind": "const",
+          "line": 7
+        },
+        {
+          "name": "queryFileInfo",
+          "kind": "const",
+          "line": 7
+        },
+        {
+          "name": "queryHighRisk",
+          "kind": "const",
+          "line": 7
+        },
+        {
+          "name": "queryLayer",
+          "kind": "const",
+          "line": 7
+        },
+        {
+          "name": "detectLayer",
+          "kind": "const",
+          "line": 17
+        },
+        {
+          "name": "groupByLayer",
+          "kind": "const",
+          "line": 17
+        },
+        {
+          "name": "fileHealthScore",
+          "kind": "const",
+          "line": 18
+        },
+        {
+          "name": "repoHealthScore",
+          "kind": "const",
+          "line": 18
+        },
+        {
+          "name": "scoreToGrade",
+          "kind": "const",
+          "line": 18
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "src/graph/layers.ts",
+      "name": "layers.ts",
+      "layer": "utils",
+      "lines": 33,
+      "complexity": 6,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "detectLayer",
+          "line": 24,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 4,
+          "calledBy": []
+        },
+        {
+          "name": "groupByLayer",
+          "line": 31,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 2,
+          "calledBy": []
+        }
+      ],
+      "imports": [
+        "src/graph/types.ts"
+      ],
+      "importedBy": [
+        "src/graph/builder.ts",
+        "src/graph/index.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "detectLayer",
+          "kind": "function",
+          "line": 24
+        },
+        {
+          "name": "groupByLayer",
+          "kind": "function",
+          "line": 31
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "src/graph/parser.ts",
+      "name": "parser.ts",
+      "layer": "utils",
+      "lines": 243,
+      "complexity": 61,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "isCode",
+          "line": 39,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 3,
+          "calledBy": []
+        },
+        {
+          "name": "isText",
+          "line": 42,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 3,
+          "calledBy": []
+        },
+        {
+          "name": "isBinary",
+          "line": 45,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 3,
+          "calledBy": []
+        },
+        {
+          "name": "isIncluded",
+          "line": 48,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 3,
+          "calledBy": []
+        },
+        {
+          "name": "isMarkdown",
+          "line": 51,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 5,
+          "calledBy": []
+        },
+        {
+          "name": "resolveImport",
+          "line": 64,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 5,
+          "calledBy": []
+        },
+        {
+          "name": "extractRawImports",
+          "line": 111,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 9,
+          "calledBy": []
+        },
+        {
+          "name": "estimateComplexity",
+          "line": 180,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 12,
+          "calledBy": []
+        },
+        {
+          "name": "extractFunctions",
+          "line": 184,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 5,
+          "calledBy": []
+        },
+        {
+          "name": "extractExports",
+          "line": 249,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 9,
+          "calledBy": []
+        },
+        {
+          "name": "detectSecurityIssues",
+          "line": 297,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 3,
+          "calledBy": []
+        },
+        {
+          "name": "countLines",
+          "line": 312,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        }
+      ],
+      "imports": [
+        "src/graph/types.ts"
+      ],
+      "importedBy": [
+        "src/graph/builder.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "isCode",
+          "kind": "function",
+          "line": 39
+        },
+        {
+          "name": "isText",
+          "kind": "function",
+          "line": 42
+        },
+        {
+          "name": "isBinary",
+          "kind": "function",
+          "line": 45
+        },
+        {
+          "name": "isIncluded",
+          "kind": "function",
+          "line": 48
+        },
+        {
+          "name": "isMarkdown",
+          "kind": "function",
+          "line": 51
+        },
+        {
+          "name": "resolveImport",
+          "kind": "function",
+          "line": 64
+        },
+        {
+          "name": "extractRawImports",
+          "kind": "function",
+          "line": 111
+        },
+        {
+          "name": "extractFunctions",
+          "kind": "function",
+          "line": 184
+        },
+        {
+          "name": "extractExports",
+          "kind": "function",
+          "line": 249
+        },
+        {
+          "name": "detectSecurityIssues",
+          "kind": "function",
+          "line": 297
+        },
+        {
+          "name": "countLines",
+          "kind": "function",
+          "line": 312
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 75
+    },
+    {
+      "path": "src/graph/patterns.ts",
+      "name": "patterns.ts",
+      "layer": "utils",
+      "lines": 24,
+      "complexity": 12,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "detectPatterns",
+          "line": 8,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 12,
+          "calledBy": []
+        }
+      ],
+      "imports": [
+        "src/graph/types.ts"
+      ],
+      "importedBy": [
+        "src/graph/builder.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "detectPatterns",
+          "kind": "function",
+          "line": 8
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 90
+    },
+    {
+      "path": "src/graph/query.ts",
+      "name": "query.ts",
+      "layer": "utils",
+      "lines": 113,
+      "complexity": 30,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "queryDependents",
+          "line": 18,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 4,
+          "calledBy": []
+        },
+        {
+          "name": "queryDependencies",
+          "line": 30,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 3,
+          "calledBy": []
+        },
+        {
+          "name": "queryBlastRadius",
+          "line": 42,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 2,
+          "calledBy": []
+        },
+        {
+          "name": "queryEntryPoints",
+          "line": 56,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "queryLayer",
+          "line": 68,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 4,
+          "calledBy": []
+        },
+        {
+          "name": "queryHighRisk",
+          "line": 78,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 6,
+          "calledBy": []
+        },
+        {
+          "name": "queryCallers",
+          "line": 90,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 7,
+          "calledBy": []
+        },
+        {
+          "name": "queryFileInfo",
+          "line": 107,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 3,
+          "calledBy": []
+        }
+      ],
+      "imports": [
+        "src/graph/types.ts",
+        "src/graph/blast-radius.ts"
+      ],
+      "importedBy": [
+        "src/graph/index.ts",
+        "src/cli/index.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "queryDependents",
+          "kind": "function",
+          "line": 18
+        },
+        {
+          "name": "queryDependencies",
+          "kind": "function",
+          "line": 30
+        },
+        {
+          "name": "queryBlastRadius",
+          "kind": "function",
+          "line": 42
+        },
+        {
+          "name": "queryEntryPoints",
+          "kind": "function",
+          "line": 56
+        },
+        {
+          "name": "queryLayer",
+          "kind": "function",
+          "line": 68
+        },
+        {
+          "name": "queryHighRisk",
+          "kind": "function",
+          "line": 78
+        },
+        {
+          "name": "queryCallers",
+          "kind": "function",
+          "line": 90
+        },
+        {
+          "name": "queryFileInfo",
+          "kind": "function",
+          "line": 107
+        },
+        {
+          "name": "QueryResult",
+          "kind": "type",
+          "line": 10
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 80
+    },
+    {
+      "path": "src/graph/snapshot.ts",
+      "name": "snapshot.ts",
+      "layer": "utils",
+      "lines": 100,
+      "complexity": 20,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "createSnapshot",
+          "line": 13,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 2,
+          "calledBy": []
+        },
+        {
+          "name": "writeSnapshot",
+          "line": 22,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 6,
+          "calledBy": []
+        },
+        {
+          "name": "readSnapshot",
+          "line": 27,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 6,
+          "calledBy": []
+        },
+        {
+          "name": "diffSnapshots",
+          "line": 41,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 6,
+          "calledBy": []
+        }
+      ],
+      "imports": [
+        "src/graph/types.ts",
+        "src/graph/blast-radius.ts"
+      ],
+      "importedBy": [
+        "src/generator/graph-artifacts.ts",
+        "src/graph/index.ts",
+        "src/cli/index.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "createSnapshot",
+          "kind": "function",
+          "line": 13
+        },
+        {
+          "name": "writeSnapshot",
+          "kind": "function",
+          "line": 22
+        },
+        {
+          "name": "readSnapshot",
+          "kind": "function",
+          "line": 27
+        },
+        {
+          "name": "diffSnapshots",
+          "kind": "function",
+          "line": 41
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 90
+    },
+    {
+      "path": "src/graph/summarizer.ts",
+      "name": "summarizer.ts",
+      "layer": "utils",
+      "lines": 77,
+      "complexity": 10,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "summarizeGraph",
+          "line": 11,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 3,
+          "calledBy": []
+        },
+        {
+          "name": "traceChain",
+          "line": 85,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 6,
+          "calledBy": []
+        },
+        {
+          "name": "dfs",
+          "line": 101,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        }
+      ],
+      "imports": [
+        "src/graph/types.ts",
+        "src/graph/blast-radius.ts"
+      ],
+      "importedBy": [
+        "src/generator/graph-artifacts.ts",
+        "src/graph/index.ts",
+        "src/cli/index.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "summarizeGraph",
+          "kind": "function",
+          "line": 11
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "src/graph/types.ts",
+      "name": "types.ts",
+      "layer": "utils",
+      "lines": 178,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [
+        "src/generator/graph-artifacts.ts",
+        "src/graph/blast-radius.ts",
+        "src/graph/builder.ts",
+        "src/graph/health.ts",
+        "src/graph/index.ts",
+        "src/graph/layers.ts",
+        "src/graph/parser.ts",
+        "src/graph/patterns.ts",
+        "src/graph/query.ts",
+        "src/graph/snapshot.ts",
+        "src/graph/summarizer.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "ArchLayer",
+          "kind": "type",
+          "line": 6
+        },
+        {
+          "name": "FunctionNode",
+          "kind": "type",
+          "line": 18
+        },
+        {
+          "name": "ExportedSymbol",
+          "kind": "type",
+          "line": 29
+        },
+        {
+          "name": "SecurityIssue",
+          "kind": "type",
+          "line": 36
+        },
+        {
+          "name": "PatternMatch",
+          "kind": "type",
+          "line": 44
+        },
+        {
+          "name": "LayerViolation",
+          "kind": "type",
+          "line": 54
+        },
+        {
+          "name": "GraphEdge",
+          "kind": "type",
+          "line": 62
+        },
+        {
+          "name": "FileNode",
+          "kind": "type",
+          "line": 72
+        },
+        {
+          "name": "GraphStats",
+          "kind": "type",
+          "line": 91
+        },
+        {
+          "name": "GraphData",
+          "kind": "type",
+          "line": 103
+        },
+        {
+          "name": "GraphSnapshot",
+          "kind": "type",
+          "line": 119
+        },
+        {
+          "name": "BreakingChange",
+          "kind": "type",
+          "line": 126
+        },
+        {
+          "name": "ChangeSet",
+          "kind": "type",
+          "line": 140
+        },
+        {
+          "name": "CrossRepoLink",
+          "kind": "type",
+          "line": 163
+        },
+        {
+          "name": "AgentGraphSummary",
+          "kind": "type",
+          "line": 174
+        },
+        {
+          "name": "GraphAnalyzeOptions",
+          "kind": "type",
+          "line": 190
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "src/cli/index.ts",
+      "name": "index.ts",
+      "layer": "utils",
+      "lines": 435,
+      "complexity": 79,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "exists",
+          "line": 13,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 7,
+          "calledBy": []
+        },
+        {
+          "name": "addAgentBootstrap",
+          "line": 22,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 7,
+          "calledBy": []
+        },
+        {
+          "name": "printValidation",
+          "line": 34,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 4,
+          "calledBy": []
+        },
+        {
+          "name": "addWorklogOptions",
+          "line": 243,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 4,
+          "calledBy": []
+        },
+        {
+          "name": "logSuccess",
+          "line": 36,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logError",
+          "line": 39,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "printCliBanner",
+          "line": 61,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logInfo",
+          "line": 66,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logSuccess",
+          "line": 80,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logSuccess",
+          "line": 83,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "printValidation",
+          "line": 85,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logInfo",
+          "line": 86,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "printCliBanner",
+          "line": 100,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "printCliBanner",
+          "line": 116,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "printValidation",
+          "line": 117,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "printCliBanner",
+          "line": 132,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logSuccess",
+          "line": 137,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logInfo",
+          "line": 139,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logInfo",
+          "line": 140,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "printCliBanner",
+          "line": 154,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logInfo",
+          "line": 159,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logInfo",
+          "line": 161,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logWarning",
+          "line": 165,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logInfo",
+          "line": 169,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logSuccess",
+          "line": 171,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "printValidation",
+          "line": 176,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logError",
+          "line": 197,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logInfo",
+          "line": 210,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "printValidation",
+          "line": 217,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logSuccess",
+          "line": 218,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "printCliBanner",
+          "line": 227,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "addWorklogOptions",
+          "line": 255,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "printCliBanner",
+          "line": 257,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logSuccess",
+          "line": 269,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logSuccess",
+          "line": 271,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "printCliBanner",
+          "line": 289,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logInfo",
+          "line": 291,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "printCliBanner",
+          "line": 315,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logInfo",
+          "line": 318,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logInfo",
+          "line": 327,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "buildRepositoryGraphArtifact",
+          "line": 341,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "buildArchitectureFlowArtifact",
+          "line": 342,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "buildCrossRepoLinksArtifact",
+          "line": 343,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logInfo",
+          "line": 350,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logSuccess",
+          "line": 359,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logSuccess",
+          "line": 361,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "printCliBanner",
+          "line": 373,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logError",
+          "line": 378,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logInfo",
+          "line": 384,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logInfo",
+          "line": 390,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logInfo",
+          "line": 398,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logError",
+          "line": 404,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "printCliBanner",
+          "line": 413,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logInfo",
+          "line": 418,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "printCliBanner",
+          "line": 429,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logWarning",
+          "line": 447,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logSuccess",
+          "line": 449,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "printCliBanner",
+          "line": 463,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logInfo",
+          "line": 469,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logWarning",
+          "line": 475,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logError",
+          "line": 481,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        }
+      ],
+      "imports": [
+        "src/index.ts",
+        "src/cli/theme.ts",
+        "src/graph/builder.ts",
+        "src/graph/snapshot.ts",
+        "src/graph/summarizer.ts",
+        "src/graph/query.ts",
+        "src/generator/graph-artifacts.ts"
+      ],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 68,
+          "snippet": "console.log(`  ${theme.path(`${options.output}/${artifact.path}`)}`);"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 71,
+          "snippet": "console.log(`  ${theme.path(\"AGENTS.md\")}`);"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 97,
+          "snippet": "console.log(JSON.stringify(scan, null, 2));"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 101,
+          "snippet": "console.log(`${theme.bold(scan.repoName)}: ${theme.accent(scan.profile)}`);"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 102,
+          "snippet": "console.log(`Languages: ${scan.languages.join(\", \") || theme.muted(\"none detecte"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 103,
+          "snippet": "console.log(`Frameworks: ${scan.frameworks.join(\", \") || theme.muted(\"none detec"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 104,
+          "snippet": "console.log(`Manifests: ${theme.bold(String(scan.manifests.length))}`);"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 105,
+          "snippet": "console.log(`Source files: ${theme.bold(String(scan.sourceFiles.length))}`);"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 167,
+          "snippet": "console.log(`  - ${theme.path(file)}`);"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 228,
+          "snippet": "console.log(`Working directory: ${theme.path(rootDir)}`);"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 229,
+          "snippet": "console.log(`Memory directory: ${(await exists(path.join(rootDir, \"memory\"))) ? "
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 230,
+          "snippet": "console.log(`AGENTS.md: ${(await exists(path.join(rootDir, \"AGENTS.md\"))) ? them"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 232,
+          "snippet": "console.log(`Detected profile: ${theme.accent(scan.profile)}`);"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 233,
+          "snippet": "console.log(`Manifests: ${theme.bold(String(scan.manifests.length))}`);"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 235,
+          "snippet": "console.log(`Memory-impacting changes: ${theme.bold(String(impact.structuralFile"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 286,
+          "snippet": "console.log(JSON.stringify(recent, null, 2));"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 296,
+          "snippet": "console.log(`${theme.muted(event.timestamp)} | ${theme.cyan(event.agent)} | ${th"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 351,
+          "snippet": "for (const a of artifacts) console.log(`  ${theme.path(path.join(options.output,"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 385,
+          "snippet": "r.results.forEach((l) => console.log(`  ${l}`));"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 391,
+          "snippet": "r.results.forEach((f) => console.log(`  ${theme.path(f)}`));"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 399,
+          "snippet": "info.results.forEach((l) => console.log(`  ${l}`));"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 400,
+          "snippet": "console.log(`  imports: ${deps.results.map((f) => theme.path(f)).join(\", \") || \""
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 401,
+          "snippet": "console.log(`  importedBy: ${dep_on.results.map((f) => theme.path(f)).join(\", \")"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 419,
+          "snippet": "result.results.forEach((f) => console.log(`  ${theme.path(f)}`));"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 468,
+          "snippet": "if (options.json) { console.log(JSON.stringify(summary, null, 2)); return; }"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 470,
+          "snippet": "console.log(`\\nEntry points:`);"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 471,
+          "snippet": "summary.entryPoints.forEach((f) => console.log(`  ${theme.path(f)}`));"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 472,
+          "snippet": "console.log(`\\nHigh-risk files:`);"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 473,
+          "snippet": "summary.highRiskFiles.forEach((f) => console.log(`  ${theme.path(f.path)} (${f.d"
+        }
+      ],
+      "healthScore": 0
+    },
+    {
+      "path": "src/cli/theme.ts",
+      "name": "theme.ts",
+      "layer": "utils",
+      "lines": 76,
+      "complexity": 34,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "wrap",
+          "line": 9,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logSuccess",
+          "line": 24,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logInfo",
+          "line": 28,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logWarning",
+          "line": 32,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "logError",
+          "line": 36,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 2,
+          "calledBy": []
+        },
+        {
+          "name": "printCliBanner",
+          "line": 40,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 4,
+          "calledBy": []
+        },
+        {
+          "name": "readPackageMeta",
+          "line": 49,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 5,
+          "calledBy": []
+        },
+        {
+          "name": "parseVersion",
+          "line": 58,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 7,
+          "calledBy": []
+        },
+        {
+          "name": "isNewerVersion",
+          "line": 63,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 7,
+          "calledBy": []
+        },
+        {
+          "name": "maybePrintLatestNotice",
+          "line": 73,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 4,
+          "calledBy": []
+        },
+        {
+          "name": "logWarning",
+          "line": 84,
+          "exported": false,
+          "isClassMethod": true,
+          "complexity": 1,
+          "calledBy": []
+        }
+      ],
+      "imports": [],
+      "importedBy": [
+        "src/cli/index.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "logSuccess",
+          "kind": "function",
+          "line": 24
+        },
+        {
+          "name": "logInfo",
+          "kind": "function",
+          "line": 28
+        },
+        {
+          "name": "logWarning",
+          "kind": "function",
+          "line": 32
+        },
+        {
+          "name": "logError",
+          "kind": "function",
+          "line": 36
+        },
+        {
+          "name": "printCliBanner",
+          "kind": "function",
+          "line": 40
+        },
+        {
+          "name": "maybePrintLatestNotice",
+          "kind": "function",
+          "line": 73
+        },
+        {
+          "name": "theme",
+          "kind": "const",
+          "line": 13
+        }
+      ],
+      "securityIssues": [
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 25,
+          "snippet": "console.log(`${theme.accent(\"[ok]\")} ${message}`);"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 29,
+          "snippet": "console.log(`${theme.cyan(\"[i]\")} ${message}`);"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 33,
+          "snippet": "console.log(`${theme.warn(\"[!]\")} ${message}`);"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 41,
+          "snippet": "console.log(\"\");"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 42,
+          "snippet": "console.log(theme.accent(\"+-----------------------------------------------------"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 43,
+          "snippet": "console.log(`${theme.accent(\"|\")} ${theme.bold(\"Agent Memory System\")} ${theme.m"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 44,
+          "snippet": "console.log(`${theme.accent(\"|\")} ${theme.muted(\"workspace context\")} ${theme.cy"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 45,
+          "snippet": "console.log(theme.accent(\"+-----------------------------------------------------"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 46,
+          "snippet": "console.log(\"\");"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 85,
+          "snippet": "console.log(`  ${theme.command(`npx ${name}@latest init`)}`);"
+        },
+        {
+          "kind": "debug-statement",
+          "severity": "low",
+          "line": 86,
+          "snippet": "console.log(`  ${theme.command(`npm install -g ${name}@latest`)}`);"
+        }
+      ],
+      "healthScore": 53
+    },
+    {
+      "path": "src/maintenance/git.ts",
+      "name": "git.ts",
+      "layer": "utils",
+      "lines": 72,
+      "complexity": 21,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "gitLines",
+          "line": 7,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 7,
+          "calledBy": []
+        },
+        {
+          "name": "getChangedFiles",
+          "line": 19,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 7,
+          "calledBy": []
+        },
+        {
+          "name": "classifyMemoryImpact",
+          "line": 39,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 7,
+          "calledBy": []
+        }
+      ],
+      "imports": [
+        "src/types.ts"
+      ],
+      "importedBy": [
+        "src/index.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "getChangedFiles",
+          "kind": "function",
+          "line": 19
+        },
+        {
+          "name": "classifyMemoryImpact",
+          "kind": "function",
+          "line": 39
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 80
+    },
+    {
+      "path": "src/validators/rules.ts",
+      "name": "rules.ts",
+      "layer": "utils",
+      "lines": 49,
+      "complexity": 24,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "missingRequiredFiles",
+          "line": 5,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 4,
+          "calledBy": []
+        },
+        {
+          "name": "hasLastUpdatedNearTop",
+          "line": 10,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 4,
+          "calledBy": []
+        },
+        {
+          "name": "findSecretPatterns",
+          "line": 14,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 5,
+          "calledBy": []
+        },
+        {
+          "name": "isRepositoryRelativePath",
+          "line": 33,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 6,
+          "calledBy": []
+        },
+        {
+          "name": "validateContextIndex",
+          "line": 40,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 5,
+          "calledBy": []
+        }
+      ],
+      "imports": [
+        "src/constants.ts",
+        "src/types.ts"
+      ],
+      "importedBy": [
+        "src/validators/validate.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "missingRequiredFiles",
+          "kind": "function",
+          "line": 5
+        },
+        {
+          "name": "hasLastUpdatedNearTop",
+          "kind": "function",
+          "line": 10
+        },
+        {
+          "name": "findSecretPatterns",
+          "kind": "function",
+          "line": 14
+        },
+        {
+          "name": "isRepositoryRelativePath",
+          "kind": "function",
+          "line": 33
+        },
+        {
+          "name": "validateContextIndex",
+          "kind": "function",
+          "line": 40
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 80
+    },
+    {
+      "path": "src/validators/validate.ts",
+      "name": "validate.ts",
+      "layer": "utils",
+      "lines": 78,
+      "complexity": 10,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "readIfExists",
+          "line": 7,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 4,
+          "calledBy": []
+        },
+        {
+          "name": "validateMemory",
+          "line": 15,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 6,
+          "calledBy": []
+        }
+      ],
+      "imports": [
+        "src/types.ts",
+        "src/validators/rules.ts"
+      ],
+      "importedBy": [
+        "src/index.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "validateMemory",
+          "kind": "function",
+          "line": 15
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "src/scanner/path-utils.ts",
+      "name": "path-utils.ts",
+      "layer": "utils",
+      "lines": 15,
+      "complexity": 4,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "toPosixPath",
+          "line": 4,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "relativePath",
+          "line": 8,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "ignoreGlobs",
+          "line": 12,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "isGeneratedPath",
+          "line": 16,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        }
+      ],
+      "imports": [
+        "src/constants.ts"
+      ],
+      "importedBy": [
+        "src/scanner/scan.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "toPosixPath",
+          "kind": "function",
+          "line": 4
+        },
+        {
+          "name": "relativePath",
+          "kind": "function",
+          "line": 8
+        },
+        {
+          "name": "ignoreGlobs",
+          "kind": "function",
+          "line": 12
+        },
+        {
+          "name": "isGeneratedPath",
+          "kind": "function",
+          "line": 16
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "src/scanner/scan.ts",
+      "name": "scan.ts",
+      "layer": "utils",
+      "lines": 186,
+      "complexity": 23,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "languageFromPath",
+          "line": 23,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 4,
+          "calledBy": []
+        },
+        {
+          "name": "inferProfiles",
+          "line": 41,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 9,
+          "calledBy": []
+        },
+        {
+          "name": "chooseProfile",
+          "line": 64,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 4,
+          "calledBy": []
+        },
+        {
+          "name": "safeRead",
+          "line": 71,
+          "exported": false,
+          "isClassMethod": false,
+          "complexity": 3,
+          "calledBy": []
+        },
+        {
+          "name": "scanRepository",
+          "line": 84,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 3,
+          "calledBy": []
+        }
+      ],
+      "imports": [
+        "src/constants.ts",
+        "src/analyzers/env.ts",
+        "src/analyzers/manifest.ts",
+        "src/types.ts",
+        "src/scanner/path-utils.ts"
+      ],
+      "importedBy": [
+        "src/index.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "scanRepository",
+          "kind": "function",
+          "line": 84
+        },
+        {
+          "name": "relativePath",
+          "kind": "const",
+          "line": 207
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 80
+    },
+    {
+      "path": "src/templates/format.ts",
+      "name": "format.ts",
+      "layer": "ui",
+      "lines": 32,
+      "complexity": 8,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "todayIso",
+          "line": 3,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 2,
+          "calledBy": []
+        },
+        {
+          "name": "header",
+          "line": 7,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 2,
+          "calledBy": []
+        },
+        {
+          "name": "list",
+          "line": 11,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 2,
+          "calledBy": []
+        },
+        {
+          "name": "table",
+          "line": 18,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        },
+        {
+          "name": "projectFacts",
+          "line": 25,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        }
+      ],
+      "imports": [
+        "src/types.ts"
+      ],
+      "importedBy": [
+        "src/generator/generate.ts"
+      ],
+      "exportedSymbols": [
+        {
+          "name": "todayIso",
+          "kind": "function",
+          "line": 3
+        },
+        {
+          "name": "header",
+          "kind": "function",
+          "line": 7
+        },
+        {
+          "name": "list",
+          "kind": "function",
+          "line": 11
+        },
+        {
+          "name": "table",
+          "kind": "function",
+          "line": 18
+        },
+        {
+          "name": "projectFacts",
+          "kind": "function",
+          "line": 25
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "examples/node-app/app/page.tsx",
+      "name": "page.tsx",
+      "layer": "utils",
+      "lines": 3,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "Page",
+          "line": 1,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        }
+      ],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [
+        {
+          "name": "default",
+          "kind": "default",
+          "line": 1
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "examples/python-api/app/main.py",
+      "name": "main.py",
+      "layer": "utils",
+      "lines": 4,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "app",
+          "line": 5,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        }
+      ],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "examples/monorepo/packages/api/package.json",
+      "name": "package.json",
+      "layer": "services",
+      "lines": 10,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "examples/monorepo/packages/web/package.json",
+      "name": "package.json",
+      "layer": "config",
+      "lines": 11,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "examples/monorepo/packages/api/src/routes.ts",
+      "name": "routes.ts",
+      "layer": "services",
+      "lines": 1,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [
+        {
+          "name": "routes",
+          "kind": "const",
+          "line": 1
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 100
+    },
+    {
+      "path": "examples/node-app/app/api/health/route.ts",
+      "name": "route.ts",
+      "layer": "services",
+      "lines": 3,
+      "complexity": 1,
+      "churn": 0,
+      "functions": [
+        {
+          "name": "GET",
+          "line": 1,
+          "exported": true,
+          "isClassMethod": false,
+          "complexity": 1,
+          "calledBy": []
+        }
+      ],
+      "imports": [],
+      "importedBy": [],
+      "exportedSymbols": [
+        {
+          "name": "GET",
+          "kind": "function",
+          "line": 1
+        }
+      ],
+      "securityIssues": [],
+      "healthScore": 100
+    }
+  ],
+  "edges": [
+    {
+      "source": "src/index.ts",
+      "target": "src/scanner/scan.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/index.ts",
+      "target": "src/generator/generate.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/index.ts",
+      "target": "src/generator/write.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/index.ts",
+      "target": "src/validators/validate.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/index.ts",
+      "target": "src/maintenance/git.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/index.ts",
+      "target": "src/agent-log/store.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/index.ts",
+      "target": "src/types.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/agent-log/store.ts",
+      "target": "src/types.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/analyzers/manifest.ts",
+      "target": "src/types.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/generator/context-index.ts",
+      "target": "src/types.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/generator/generate.ts",
+      "target": "src/constants.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/generator/generate.ts",
+      "target": "src/types.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/generator/generate.ts",
+      "target": "src/generator/context-index.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/generator/generate.ts",
+      "target": "src/templates/format.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/generator/graph-artifacts.ts",
+      "target": "src/graph/types.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/generator/graph-artifacts.ts",
+      "target": "src/types.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/generator/graph-artifacts.ts",
+      "target": "src/graph/snapshot.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/generator/graph-artifacts.ts",
+      "target": "src/graph/summarizer.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/generator/graph-artifacts.ts",
+      "target": "src/graph/blast-radius.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/generator/write.ts",
+      "target": "src/types.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/graph/blast-radius.ts",
+      "target": "src/graph/types.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/graph/builder.ts",
+      "target": "src/graph/types.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/graph/builder.ts",
+      "target": "src/graph/parser.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/graph/builder.ts",
+      "target": "src/graph/layers.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/graph/builder.ts",
+      "target": "src/graph/health.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/graph/builder.ts",
+      "target": "src/graph/blast-radius.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/graph/builder.ts",
+      "target": "src/graph/patterns.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/graph/health.ts",
+      "target": "src/graph/types.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/graph/index.ts",
+      "target": "src/graph/builder.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/graph/index.ts",
+      "target": "src/graph/snapshot.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/graph/index.ts",
+      "target": "src/graph/summarizer.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/graph/index.ts",
+      "target": "src/graph/query.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/graph/index.ts",
+      "target": "src/graph/layers.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/graph/index.ts",
+      "target": "src/graph/health.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/graph/index.ts",
+      "target": "src/graph/types.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/graph/layers.ts",
+      "target": "src/graph/types.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/graph/parser.ts",
+      "target": "src/graph/types.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/graph/patterns.ts",
+      "target": "src/graph/types.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/graph/query.ts",
+      "target": "src/graph/types.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/graph/query.ts",
+      "target": "src/graph/blast-radius.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/graph/snapshot.ts",
+      "target": "src/graph/types.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/graph/snapshot.ts",
+      "target": "src/graph/blast-radius.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/graph/summarizer.ts",
+      "target": "src/graph/types.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/graph/summarizer.ts",
+      "target": "src/graph/blast-radius.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/cli/index.ts",
+      "target": "src/index.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/cli/index.ts",
+      "target": "src/cli/theme.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/cli/index.ts",
+      "target": "src/graph/builder.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/cli/index.ts",
+      "target": "src/graph/snapshot.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/cli/index.ts",
+      "target": "src/graph/summarizer.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/cli/index.ts",
+      "target": "src/graph/query.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/cli/index.ts",
+      "target": "src/generator/graph-artifacts.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/maintenance/git.ts",
+      "target": "src/types.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/validators/rules.ts",
+      "target": "src/constants.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/validators/rules.ts",
+      "target": "src/types.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/validators/validate.ts",
+      "target": "src/types.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/validators/validate.ts",
+      "target": "src/validators/rules.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/scanner/path-utils.ts",
+      "target": "src/constants.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/scanner/scan.ts",
+      "target": "src/constants.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/scanner/scan.ts",
+      "target": "src/analyzers/env.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/scanner/scan.ts",
+      "target": "src/analyzers/manifest.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/scanner/scan.ts",
+      "target": "src/types.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/scanner/scan.ts",
+      "target": "src/scanner/path-utils.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    },
+    {
+      "source": "src/templates/format.ts",
+      "target": "src/types.ts",
+      "kind": "import",
+      "symbols": [],
+      "weight": 1
+    }
+  ],
+  "patterns": [
+    {
+      "name": "Singleton",
+      "severity": "info",
+      "isAnti": false,
+      "files": [
+        "src/graph/patterns.ts"
+      ],
+      "description": "Single-instance pattern. Common for config, logging, or connection pools.",
+      "metrics": {
+        "instances": 1
+      }
+    },
+    {
+      "name": "Factory",
+      "severity": "info",
+      "isAnti": false,
+      "files": [
+        "src/generator/context-index.ts",
+        "src/generator/generate.ts",
+        "src/generator/graph-artifacts.ts",
+        "src/graph/patterns.ts",
+        "src/graph/snapshot.ts",
+        "src/templates/format.ts"
+      ],
+      "description": "Creates objects without specifying exact class. Enables loose coupling.",
+      "metrics": {
+        "factories": 6
+      }
+    },
+    {
+      "name": "Observer/Event",
+      "severity": "info",
+      "isAnti": false,
+      "files": [
+        "src/graph/patterns.ts"
+      ],
+      "description": "Event-driven subscription mechanism. Decouples producers from consumers.",
+      "metrics": {
+        "emitters": 1
+      }
+    },
+    {
+      "name": "Context Provider",
+      "severity": "info",
+      "isAnti": false,
+      "files": [
+        "memory/repository-graph.json",
+        "src/generator/context-index.ts",
+        "src/generator/generate.ts",
+        "src/graph/patterns.ts"
+      ],
+      "description": "React Context for global state without prop drilling.",
+      "metrics": {
+        "contexts": 4
+      }
+    },
+    {
+      "name": "God Object",
+      "severity": "warning",
+      "isAnti": true,
+      "files": [
+        "src/generator/generate.ts",
+        "src/cli/index.ts"
+      ],
+      "description": "Files with 15+ functions. Consider splitting into smaller modules.",
+      "metrics": {
+        "files": 2
+      }
+    },
+    {
+      "name": "Long File",
+      "severity": "warning",
+      "isAnti": true,
+      "files": [
+        "package-lock.json",
+        "memory/repository-graph.json"
+      ],
+      "description": "Files over 500 lines are harder to maintain.",
+      "metrics": {
+        "files": 2
+      }
+    }
+  ],
+  "circularDependencies": [],
+  "layerViolations": [
+    {
+      "source": "src/generator/generate.ts",
+      "target": "src/templates/format.ts",
+      "sourceLayer": "utils",
+      "targetLayer": "ui"
+    }
+  ],
+  "version": "1.0",
+  "generatedAt": "2026-05-07T17:47:57.669Z",
+  "commitSha": "9636b99"
+}

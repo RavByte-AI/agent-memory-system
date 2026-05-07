@@ -1,0 +1,275 @@
+{
+  "capturedAt": "2026-05-07T18:55:26.924Z",
+  "repoName": "AgentMemorySystem",
+  "grade": "B",
+  "healthScore": 83,
+  "stats": {
+    "totalFiles": 88,
+    "totalFunctions": 216,
+    "totalEdges": 78,
+    "circularDependencies": 0,
+    "deadCodeFiles": 44,
+    "avgCoupling": 0.9,
+    "securityIssues": 140,
+    "layerViolations": 1
+  },
+  "summary": {
+    "repoName": "AgentMemorySystem",
+    "grade": "B",
+    "healthScore": 83,
+    "entryPoints": [
+      ".gitignore",
+      "AGENTS.md",
+      "CODE_OF_CONDUCT.md",
+      "CONTRIBUTING.md",
+      "package-lock.json",
+      "README.md",
+      "SECURITY.md",
+      "vitest.config.ts",
+      ".github/release.yml",
+      "benchmarks/README.md",
+      "docs/agent-skill.md",
+      "memory/00-project-overview.md",
+      "memory/01-repository-map.md",
+      "memory/02-system-architecture.md",
+      "memory/03-development-workflow.md",
+      "memory/04-api-and-interfaces.md",
+      "memory/05-data-and-storage.md",
+      "memory/06-security-and-config.md",
+      "memory/07-testing-and-quality.md",
+      "memory/08-known-issues-and-tech-debt.md",
+      "memory/09-agent-guidelines.md",
+      "memory/10-agent-worklog.md",
+      "memory/agent-handoff.md",
+      "memory/architecture-flow.md",
+      "memory/context-index.json",
+      "memory/cross-repo-links.json",
+      "memory/README.md",
+      "memory/repository-graph.json",
+      ".github/ISSUE_TEMPLATE/bug_report.md",
+      ".github/ISSUE_TEMPLATE/feature_request.md",
+      ".github/ISSUE_TEMPLATE/scanner_accuracy.md",
+      ".github/rulesets/main-branch-protection.json",
+      ".github/workflows/ci.yml",
+      ".github/workflows/pages.yml",
+      ".github/workflows/publish.yml",
+      "benchmarks/scripts/report.ts",
+      "benchmarks/scripts/run.ts",
+      "examples/node-app/README.md",
+      "examples/python-api/pyproject.toml",
+      "examples/python-api/README.md",
+      "examples/python-api/requirements.txt",
+      "src/agent-skill/SKILL.md",
+      "src/cli/index.ts",
+      "src/graph/index.ts",
+      "examples/node-app/app/page.tsx",
+      "examples/python-api/app/main.py",
+      "examples/monorepo/packages/api/package.json",
+      "examples/monorepo/packages/api/src/routes.ts",
+      "examples/node-app/app/api/health/route.ts"
+    ],
+    "highRiskFiles": [
+      {
+        "path": "src/graph/types.ts",
+        "dependents": 13,
+        "reason": "13 files import this — changes here have the widest blast radius."
+      },
+      {
+        "path": "src/types.ts",
+        "dependents": 12,
+        "reason": "12 files import this — changes here have the widest blast radius."
+      },
+      {
+        "path": "benchmarks/harness/types.ts",
+        "dependents": 5,
+        "reason": "5 files import this — changes here have the widest blast radius."
+      },
+      {
+        "path": "src/graph/blast-radius.ts",
+        "dependents": 5,
+        "reason": "5 files import this — changes here have the widest blast radius."
+      },
+      {
+        "path": "src/constants.ts",
+        "dependents": 4,
+        "reason": "4 files import this — changes here have the widest blast radius."
+      }
+    ],
+    "criticalPaths": [],
+    "layers": {
+      "utils": [
+        ".gitignore",
+        "AGENTS.md",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+        "package-lock.json",
+        "README.md",
+        "SECURITY.md",
+        "vitest.config.ts",
+        ".github/release.yml",
+        "benchmarks/README.md",
+        "docs/agent-skill.md",
+        "src/constants.ts",
+        "src/index.ts",
+        "src/types.ts",
+        "memory/00-project-overview.md",
+        "memory/01-repository-map.md",
+        "memory/02-system-architecture.md",
+        "memory/03-development-workflow.md",
+        "memory/04-api-and-interfaces.md",
+        "memory/05-data-and-storage.md",
+        "memory/06-security-and-config.md",
+        "memory/07-testing-and-quality.md",
+        "memory/08-known-issues-and-tech-debt.md",
+        "memory/09-agent-guidelines.md",
+        "memory/10-agent-worklog.md",
+        "memory/agent-handoff.md",
+        "memory/architecture-flow.md",
+        "memory/context-index.json",
+        "memory/cross-repo-links.json",
+        "memory/README.md",
+        "memory/repository-graph.json",
+        ".github/ISSUE_TEMPLATE/bug_report.md",
+        ".github/ISSUE_TEMPLATE/feature_request.md",
+        ".github/ISSUE_TEMPLATE/scanner_accuracy.md",
+        ".github/rulesets/main-branch-protection.json",
+        ".github/workflows/ci.yml",
+        ".github/workflows/pages.yml",
+        ".github/workflows/publish.yml",
+        "benchmarks/harness/metrics.ts",
+        "benchmarks/harness/reporter.ts",
+        "benchmarks/harness/runner.ts",
+        "benchmarks/harness/tasks.ts",
+        "benchmarks/harness/types.ts",
+        "benchmarks/scripts/report.ts",
+        "benchmarks/scripts/run.ts",
+        "examples/node-app/README.md",
+        "examples/python-api/pyproject.toml",
+        "examples/python-api/README.md",
+        "examples/python-api/requirements.txt",
+        "src/agent-skill/SKILL.md",
+        "src/agent-log/store.ts",
+        "src/generator/context-index.ts",
+        "src/generator/generate.ts",
+        "src/generator/graph-artifacts.ts",
+        "src/generator/write.ts",
+        "src/cli/index.ts",
+        "src/cli/theme.ts",
+        "src/analyzers/env.ts",
+        "src/analyzers/manifest.ts",
+        "src/graph/blast-radius.ts",
+        "src/graph/builder.ts",
+        "src/graph/health.ts",
+        "src/graph/index.ts",
+        "src/graph/layers.ts",
+        "src/graph/parser.ts",
+        "src/graph/patterns.ts",
+        "src/graph/query.ts",
+        "src/graph/snapshot.ts",
+        "src/graph/summarizer.ts",
+        "src/graph/types.ts",
+        "src/maintenance/git.ts",
+        "src/scanner/path-utils.ts",
+        "src/scanner/scan.ts",
+        "src/validators/rules.ts",
+        "src/validators/validate.ts",
+        "examples/node-app/app/page.tsx",
+        "examples/python-api/app/main.py"
+      ],
+      "config": [
+        "package.json",
+        "tsconfig.json",
+        "benchmarks/config/agents.json",
+        "benchmarks/config/repositories.json",
+        "examples/monorepo/package.json",
+        "examples/node-app/package.json",
+        "examples/monorepo/packages/web/package.json"
+      ],
+      "ui": [
+        "src/templates/format.ts"
+      ],
+      "services": [
+        "examples/monorepo/packages/api/package.json",
+        "examples/monorepo/packages/api/src/routes.ts",
+        "examples/node-app/app/api/health/route.ts"
+      ]
+    },
+    "circularDeps": [],
+    "layerViolations": [
+      {
+        "source": "src/generator/generate.ts",
+        "target": "src/templates/format.ts"
+      }
+    ],
+    "securityIssues": [
+      {
+        "file": "memory/repository-graph.json",
+        "kind": "debug-statement",
+        "severity": "low"
+      },
+      {
+        "file": "memory/repository-graph.json",
+        "kind": "debug-statement",
+        "severity": "low"
+      },
+      {
+        "file": "memory/repository-graph.json",
+        "kind": "debug-statement",
+        "severity": "low"
+      },
+      {
+        "file": "memory/repository-graph.json",
+        "kind": "debug-statement",
+        "severity": "low"
+      },
+      {
+        "file": "memory/repository-graph.json",
+        "kind": "debug-statement",
+        "severity": "low"
+      },
+      {
+        "file": "memory/repository-graph.json",
+        "kind": "debug-statement",
+        "severity": "low"
+      },
+      {
+        "file": "memory/repository-graph.json",
+        "kind": "debug-statement",
+        "severity": "low"
+      },
+      {
+        "file": "memory/repository-graph.json",
+        "kind": "debug-statement",
+        "severity": "low"
+      },
+      {
+        "file": "memory/repository-graph.json",
+        "kind": "debug-statement",
+        "severity": "low"
+      },
+      {
+        "file": "memory/repository-graph.json",
+        "kind": "debug-statement",
+        "severity": "low"
+      }
+    ],
+    "navigationHints": [
+      {
+        "query": "Where is the CLI entry point?",
+        "startFile": "src/cli/index.ts",
+        "relatedFiles": []
+      },
+      {
+        "query": "What are the highest-risk files to change?",
+        "startFile": "src/graph/types.ts",
+        "relatedFiles": [
+          "src/types.ts",
+          "benchmarks/harness/types.ts",
+          "src/graph/blast-radius.ts",
+          "src/constants.ts"
+        ]
+      }
+    ],
+    "estimatedTokens": 1504
+  }
+}

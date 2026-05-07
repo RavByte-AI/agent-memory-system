@@ -1,0 +1,1923 @@
+{
+  "runId": "run-1778180126928-d2d2cb",
+  "startedAt": "2026-05-07T18:55:26.928Z",
+  "completedAt": "2026-05-07T18:55:27.306Z",
+  "agentId": "antigravity",
+  "repoId": "AgentMemorySystem",
+  "mode": "both",
+  "tasks": [
+    "U1",
+    "U2",
+    "U3",
+    "U4",
+    "U5",
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "R1",
+    "R2",
+    "D1",
+    "D2",
+    "D3",
+    "C1",
+    "C2",
+    "C3",
+    "M1",
+    "M2",
+    "B1",
+    "B2"
+  ],
+  "results": [
+    {
+      "runId": "run-1778180126943-ac5fb3",
+      "taskId": "U1",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "baseline",
+      "timestamp": "2026-05-07T18:55:26.943Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34458,
+        "totalPromptTokens": 34480,
+        "responseTokens": 10344,
+        "filesTraversed": 35,
+        "dirsExplored": 9,
+        "contextWindowUtilisation": 0.269375
+      },
+      "accuracy": {
+        "architectureCorrect": false,
+        "requiredFilesFound": 2,
+        "requiredFilesTotal": 3,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 1,
+        "correctConceptsFound": 2,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 2257,
+        "iterations": 7,
+        "retries": 1,
+        "messagesExchanged": 12
+      },
+      "cost": {
+        "estimatedCostUSD": 0.32755999999999996,
+        "tokensSaved": 0,
+        "costSavedUSD": 0,
+        "reductionPercent": 0
+      },
+      "responseSummary": "[Baseline] Traversed 35 files. Found 2/3 concepts.",
+      "memoryUsed": false,
+      "memoryFilesRead": [],
+      "notes": "Cold-start. No AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180126949-19a74f",
+      "taskId": "U1",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "ams",
+      "timestamp": "2026-05-07T18:55:26.949Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34512,
+        "totalPromptTokens": 36284,
+        "responseTokens": 9071,
+        "filesTraversed": 20,
+        "dirsExplored": 2,
+        "contextWindowUtilisation": 0.28346875
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 3,
+        "requiredFilesTotal": 3,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 0,
+        "correctConceptsFound": 3,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 536,
+        "iterations": 3,
+        "retries": 0,
+        "messagesExchanged": 4
+      },
+      "cost": {
+        "estimatedCostUSD": 0.317485,
+        "tokensSaved": -531,
+        "costSavedUSD": 0.010074999999999945,
+        "reductionPercent": 3
+      },
+      "responseSummary": "[AMS] Read 5 memory files + 3 target files. Found 3/3 concepts.",
+      "memoryUsed": true,
+      "memoryFilesRead": [
+        "00-project-overview.md",
+        "01-repository-map.md",
+        "02-system-architecture.md",
+        "03-development-workflow.md",
+        "04-api-and-interfaces.md"
+      ],
+      "notes": "Warm-start via AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180126957-f8b81c",
+      "taskId": "U2",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "baseline",
+      "timestamp": "2026-05-07T18:55:26.957Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34458,
+        "totalPromptTokens": 34481,
+        "responseTokens": 10344,
+        "filesTraversed": 35,
+        "dirsExplored": 9,
+        "contextWindowUtilisation": 0.2693828125
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 1,
+        "requiredFilesTotal": 1,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 1,
+        "correctConceptsFound": 2,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 868,
+        "iterations": 7,
+        "retries": 1,
+        "messagesExchanged": 12
+      },
+      "cost": {
+        "estimatedCostUSD": 0.327565,
+        "tokensSaved": 0,
+        "costSavedUSD": 0,
+        "reductionPercent": 0
+      },
+      "responseSummary": "[Baseline] Traversed 35 files. Found 2/3 concepts.",
+      "memoryUsed": false,
+      "memoryFilesRead": [],
+      "notes": "Cold-start. No AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180126964-957dc9",
+      "taskId": "U2",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "ams",
+      "timestamp": "2026-05-07T18:55:26.964Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34512,
+        "totalPromptTokens": 40050,
+        "responseTokens": 10013,
+        "filesTraversed": 18,
+        "dirsExplored": 2,
+        "contextWindowUtilisation": 0.312890625
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 1,
+        "requiredFilesTotal": 1,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 0,
+        "correctConceptsFound": 3,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 335,
+        "iterations": 3,
+        "retries": 0,
+        "messagesExchanged": 4
+      },
+      "cost": {
+        "estimatedCostUSD": 0.350445,
+        "tokensSaved": -5238,
+        "costSavedUSD": -0.02288000000000001,
+        "reductionPercent": -7
+      },
+      "responseSummary": "[AMS] Read 5 memory files + 1 target files. Found 3/3 concepts.",
+      "memoryUsed": true,
+      "memoryFilesRead": [
+        "00-project-overview.md",
+        "01-repository-map.md",
+        "02-system-architecture.md",
+        "03-development-workflow.md",
+        "04-api-and-interfaces.md"
+      ],
+      "notes": "Warm-start via AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180126982-382597",
+      "taskId": "U3",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "baseline",
+      "timestamp": "2026-05-07T18:55:26.982Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34458,
+        "totalPromptTokens": 34483,
+        "responseTokens": 10345,
+        "filesTraversed": 35,
+        "dirsExplored": 9,
+        "contextWindowUtilisation": 0.2693984375
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 3,
+        "requiredFilesTotal": 4,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 1,
+        "correctConceptsFound": 3,
+        "correctConceptsTotal": 4
+      },
+      "speed": {
+        "durationMs": 1654,
+        "iterations": 7,
+        "retries": 1,
+        "messagesExchanged": 12
+      },
+      "cost": {
+        "estimatedCostUSD": 0.32759,
+        "tokensSaved": 0,
+        "costSavedUSD": 0,
+        "reductionPercent": 0
+      },
+      "responseSummary": "[Baseline] Traversed 35 files. Found 3/4 concepts.",
+      "memoryUsed": false,
+      "memoryFilesRead": [],
+      "notes": "Cold-start. No AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180126990-7d2c55",
+      "taskId": "U3",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "ams",
+      "timestamp": "2026-05-07T18:55:26.990Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34512,
+        "totalPromptTokens": 42012,
+        "responseTokens": 10503,
+        "filesTraversed": 21,
+        "dirsExplored": 2,
+        "contextWindowUtilisation": 0.32821875
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 4,
+        "requiredFilesTotal": 4,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 0,
+        "correctConceptsFound": 4,
+        "correctConceptsTotal": 4
+      },
+      "speed": {
+        "durationMs": 890,
+        "iterations": 3,
+        "retries": 0,
+        "messagesExchanged": 5
+      },
+      "cost": {
+        "estimatedCostUSD": 0.36760499999999996,
+        "tokensSaved": -7687,
+        "costSavedUSD": -0.04001499999999997,
+        "reductionPercent": -12
+      },
+      "responseSummary": "[AMS] Read 5 memory files + 4 target files. Found 4/4 concepts.",
+      "memoryUsed": true,
+      "memoryFilesRead": [
+        "00-project-overview.md",
+        "01-repository-map.md",
+        "02-system-architecture.md",
+        "03-development-workflow.md",
+        "04-api-and-interfaces.md"
+      ],
+      "notes": "Warm-start via AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127002-408cdb",
+      "taskId": "U4",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "baseline",
+      "timestamp": "2026-05-07T18:55:27.002Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34458,
+        "totalPromptTokens": 34478,
+        "responseTokens": 10343,
+        "filesTraversed": 35,
+        "dirsExplored": 9,
+        "contextWindowUtilisation": 0.269359375
+      },
+      "accuracy": {
+        "architectureCorrect": false,
+        "requiredFilesFound": 2,
+        "requiredFilesTotal": 3,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 1,
+        "correctConceptsFound": 2,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 2159,
+        "iterations": 7,
+        "retries": 0,
+        "messagesExchanged": 12
+      },
+      "cost": {
+        "estimatedCostUSD": 0.327535,
+        "tokensSaved": 0,
+        "costSavedUSD": 0,
+        "reductionPercent": 0
+      },
+      "responseSummary": "[Baseline] Traversed 35 files. Found 2/3 concepts.",
+      "memoryUsed": false,
+      "memoryFilesRead": [],
+      "notes": "Cold-start. No AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127007-aef022",
+      "taskId": "U4",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "ams",
+      "timestamp": "2026-05-07T18:55:27.007Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34512,
+        "totalPromptTokens": 39709,
+        "responseTokens": 9927,
+        "filesTraversed": 20,
+        "dirsExplored": 2,
+        "contextWindowUtilisation": 0.3102265625
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 3,
+        "requiredFilesTotal": 3,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 0,
+        "correctConceptsFound": 3,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 594,
+        "iterations": 3,
+        "retries": 0,
+        "messagesExchanged": 4
+      },
+      "cost": {
+        "estimatedCostUSD": 0.34745000000000004,
+        "tokensSaved": -4815,
+        "costSavedUSD": -0.019915000000000016,
+        "reductionPercent": -6
+      },
+      "responseSummary": "[AMS] Read 5 memory files + 3 target files. Found 3/3 concepts.",
+      "memoryUsed": true,
+      "memoryFilesRead": [
+        "00-project-overview.md",
+        "01-repository-map.md",
+        "02-system-architecture.md",
+        "03-development-workflow.md",
+        "04-api-and-interfaces.md"
+      ],
+      "notes": "Warm-start via AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127021-ab90f8",
+      "taskId": "U5",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "baseline",
+      "timestamp": "2026-05-07T18:55:27.021Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34458,
+        "totalPromptTokens": 34491,
+        "responseTokens": 10347,
+        "filesTraversed": 35,
+        "dirsExplored": 9,
+        "contextWindowUtilisation": 0.2694609375
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 2,
+        "requiredFilesTotal": 4,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 1,
+        "correctConceptsFound": 2,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 2253,
+        "iterations": 7,
+        "retries": 0,
+        "messagesExchanged": 12
+      },
+      "cost": {
+        "estimatedCostUSD": 0.32765999999999995,
+        "tokensSaved": 0,
+        "costSavedUSD": 0,
+        "reductionPercent": 0
+      },
+      "responseSummary": "[Baseline] Traversed 35 files. Found 2/3 concepts.",
+      "memoryUsed": false,
+      "memoryFilesRead": [],
+      "notes": "Cold-start. No AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127030-8d109f",
+      "taskId": "U5",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "ams",
+      "timestamp": "2026-05-07T18:55:27.030Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34512,
+        "totalPromptTokens": 45910,
+        "responseTokens": 11478,
+        "filesTraversed": 21,
+        "dirsExplored": 2,
+        "contextWindowUtilisation": 0.358671875
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 4,
+        "requiredFilesTotal": 4,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 0,
+        "correctConceptsFound": 3,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 703,
+        "iterations": 3,
+        "retries": 0,
+        "messagesExchanged": 5
+      },
+      "cost": {
+        "estimatedCostUSD": 0.40171999999999997,
+        "tokensSaved": -12550,
+        "costSavedUSD": -0.07406000000000001,
+        "reductionPercent": -23
+      },
+      "responseSummary": "[AMS] Read 5 memory files + 4 target files. Found 3/3 concepts.",
+      "memoryUsed": true,
+      "memoryFilesRead": [
+        "00-project-overview.md",
+        "01-repository-map.md",
+        "02-system-architecture.md",
+        "03-development-workflow.md",
+        "04-api-and-interfaces.md"
+      ],
+      "notes": "Warm-start via AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127041-5c91b4",
+      "taskId": "F1",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "baseline",
+      "timestamp": "2026-05-07T18:55:27.041Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34458,
+        "totalPromptTokens": 34476,
+        "responseTokens": 10343,
+        "filesTraversed": 35,
+        "dirsExplored": 9,
+        "contextWindowUtilisation": 0.26934375
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 1,
+        "requiredFilesTotal": 1,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 1,
+        "correctConceptsFound": 1,
+        "correctConceptsTotal": 2
+      },
+      "speed": {
+        "durationMs": 2055,
+        "iterations": 7,
+        "retries": 2,
+        "messagesExchanged": 12
+      },
+      "cost": {
+        "estimatedCostUSD": 0.327525,
+        "tokensSaved": 0,
+        "costSavedUSD": 0,
+        "reductionPercent": 0
+      },
+      "responseSummary": "[Baseline] Traversed 35 files. Found 1/2 concepts.",
+      "memoryUsed": false,
+      "memoryFilesRead": [],
+      "notes": "Cold-start. No AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127053-7b1d23",
+      "taskId": "F1",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "ams",
+      "timestamp": "2026-05-07T18:55:27.053Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34512,
+        "totalPromptTokens": 40045,
+        "responseTokens": 10011,
+        "filesTraversed": 18,
+        "dirsExplored": 2,
+        "contextWindowUtilisation": 0.3128515625
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 1,
+        "requiredFilesTotal": 1,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 0,
+        "correctConceptsFound": 2,
+        "correctConceptsTotal": 2
+      },
+      "speed": {
+        "durationMs": 243,
+        "iterations": 3,
+        "retries": 0,
+        "messagesExchanged": 4
+      },
+      "cost": {
+        "estimatedCostUSD": 0.35039,
+        "tokensSaved": -5237,
+        "costSavedUSD": -0.02286499999999997,
+        "reductionPercent": -7
+      },
+      "responseSummary": "[AMS] Read 5 memory files + 1 target files. Found 2/2 concepts.",
+      "memoryUsed": true,
+      "memoryFilesRead": [
+        "00-project-overview.md",
+        "01-repository-map.md",
+        "02-system-architecture.md",
+        "03-development-workflow.md",
+        "04-api-and-interfaces.md"
+      ],
+      "notes": "Warm-start via AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127070-1d5acf",
+      "taskId": "F2",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "baseline",
+      "timestamp": "2026-05-07T18:55:27.070Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34458,
+        "totalPromptTokens": 34486,
+        "responseTokens": 10346,
+        "filesTraversed": 35,
+        "dirsExplored": 9,
+        "contextWindowUtilisation": 0.269421875
+      },
+      "accuracy": {
+        "architectureCorrect": false,
+        "requiredFilesFound": 1,
+        "requiredFilesTotal": 2,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 1,
+        "correctConceptsFound": 2,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 1639,
+        "iterations": 7,
+        "retries": 1,
+        "messagesExchanged": 12
+      },
+      "cost": {
+        "estimatedCostUSD": 0.32762,
+        "tokensSaved": 0,
+        "costSavedUSD": 0,
+        "reductionPercent": 0
+      },
+      "responseSummary": "[Baseline] Traversed 35 files. Found 2/3 concepts.",
+      "memoryUsed": false,
+      "memoryFilesRead": [],
+      "notes": "Cold-start. No AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127078-7755a5",
+      "taskId": "F2",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "ams",
+      "timestamp": "2026-05-07T18:55:27.078Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34512,
+        "totalPromptTokens": 40276,
+        "responseTokens": 10069,
+        "filesTraversed": 19,
+        "dirsExplored": 2,
+        "contextWindowUtilisation": 0.31465625
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 2,
+        "requiredFilesTotal": 2,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 0,
+        "correctConceptsFound": 3,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 594,
+        "iterations": 3,
+        "retries": 0,
+        "messagesExchanged": 4
+      },
+      "cost": {
+        "estimatedCostUSD": 0.35241500000000003,
+        "tokensSaved": -5513,
+        "costSavedUSD": -0.02479500000000001,
+        "reductionPercent": -8
+      },
+      "responseSummary": "[AMS] Read 5 memory files + 2 target files. Found 3/3 concepts.",
+      "memoryUsed": true,
+      "memoryFilesRead": [
+        "00-project-overview.md",
+        "01-repository-map.md",
+        "02-system-architecture.md",
+        "03-development-workflow.md",
+        "04-api-and-interfaces.md"
+      ],
+      "notes": "Warm-start via AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127092-7c1595",
+      "taskId": "F3",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "baseline",
+      "timestamp": "2026-05-07T18:55:27.092Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34458,
+        "totalPromptTokens": 34486,
+        "responseTokens": 10346,
+        "filesTraversed": 35,
+        "dirsExplored": 9,
+        "contextWindowUtilisation": 0.269421875
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 1,
+        "requiredFilesTotal": 2,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 1,
+        "correctConceptsFound": 2,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 985,
+        "iterations": 7,
+        "retries": 2,
+        "messagesExchanged": 12
+      },
+      "cost": {
+        "estimatedCostUSD": 0.32762,
+        "tokensSaved": 0,
+        "costSavedUSD": 0,
+        "reductionPercent": 0
+      },
+      "responseSummary": "[Baseline] Traversed 35 files. Found 2/3 concepts.",
+      "memoryUsed": false,
+      "memoryFilesRead": [],
+      "notes": "Cold-start. No AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127099-146220",
+      "taskId": "F3",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "ams",
+      "timestamp": "2026-05-07T18:55:27.099Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34512,
+        "totalPromptTokens": 40504,
+        "responseTokens": 10126,
+        "filesTraversed": 19,
+        "dirsExplored": 2,
+        "contextWindowUtilisation": 0.3164375
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 2,
+        "requiredFilesTotal": 2,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 0,
+        "correctConceptsFound": 3,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 885,
+        "iterations": 3,
+        "retries": 0,
+        "messagesExchanged": 4
+      },
+      "cost": {
+        "estimatedCostUSD": 0.35441,
+        "tokensSaved": -5798,
+        "costSavedUSD": -0.02678999999999998,
+        "reductionPercent": -8
+      },
+      "responseSummary": "[AMS] Read 5 memory files + 2 target files. Found 3/3 concepts.",
+      "memoryUsed": true,
+      "memoryFilesRead": [
+        "00-project-overview.md",
+        "01-repository-map.md",
+        "02-system-architecture.md",
+        "03-development-workflow.md",
+        "04-api-and-interfaces.md"
+      ],
+      "notes": "Warm-start via AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127108-4fd487",
+      "taskId": "F4",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "baseline",
+      "timestamp": "2026-05-07T18:55:27.108Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34458,
+        "totalPromptTokens": 34483,
+        "responseTokens": 10345,
+        "filesTraversed": 35,
+        "dirsExplored": 9,
+        "contextWindowUtilisation": 0.2693984375
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 2,
+        "requiredFilesTotal": 3,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 1,
+        "correctConceptsFound": 2,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 1085,
+        "iterations": 7,
+        "retries": 1,
+        "messagesExchanged": 12
+      },
+      "cost": {
+        "estimatedCostUSD": 0.32759,
+        "tokensSaved": 0,
+        "costSavedUSD": 0,
+        "reductionPercent": 0
+      },
+      "responseSummary": "[Baseline] Traversed 35 files. Found 2/3 concepts.",
+      "memoryUsed": false,
+      "memoryFilesRead": [],
+      "notes": "Cold-start. No AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127116-bbfb16",
+      "taskId": "F4",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "ams",
+      "timestamp": "2026-05-07T18:55:27.116Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34512,
+        "totalPromptTokens": 43236,
+        "responseTokens": 10809,
+        "filesTraversed": 20,
+        "dirsExplored": 2,
+        "contextWindowUtilisation": 0.33778125
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 3,
+        "requiredFilesTotal": 3,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 0,
+        "correctConceptsFound": 3,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 409,
+        "iterations": 3,
+        "retries": 0,
+        "messagesExchanged": 4
+      },
+      "cost": {
+        "estimatedCostUSD": 0.37831499999999996,
+        "tokensSaved": -9217,
+        "costSavedUSD": -0.050724999999999965,
+        "reductionPercent": -15
+      },
+      "responseSummary": "[AMS] Read 5 memory files + 3 target files. Found 3/3 concepts.",
+      "memoryUsed": true,
+      "memoryFilesRead": [
+        "00-project-overview.md",
+        "01-repository-map.md",
+        "02-system-architecture.md",
+        "03-development-workflow.md",
+        "04-api-and-interfaces.md"
+      ],
+      "notes": "Warm-start via AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127129-3b91e7",
+      "taskId": "R1",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "baseline",
+      "timestamp": "2026-05-07T18:55:27.129Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34458,
+        "totalPromptTokens": 34488,
+        "responseTokens": 10346,
+        "filesTraversed": 35,
+        "dirsExplored": 9,
+        "contextWindowUtilisation": 0.2694375
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 1,
+        "requiredFilesTotal": 2,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 1,
+        "correctConceptsFound": 2,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 1219,
+        "iterations": 7,
+        "retries": 0,
+        "messagesExchanged": 12
+      },
+      "cost": {
+        "estimatedCostUSD": 0.32763,
+        "tokensSaved": 0,
+        "costSavedUSD": 0,
+        "reductionPercent": 0
+      },
+      "responseSummary": "[Baseline] Traversed 35 files. Found 2/3 concepts.",
+      "memoryUsed": false,
+      "memoryFilesRead": [],
+      "notes": "Cold-start. No AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127134-414801",
+      "taskId": "R1",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "ams",
+      "timestamp": "2026-05-07T18:55:27.134Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34512,
+        "totalPromptTokens": 40057,
+        "responseTokens": 10014,
+        "filesTraversed": 19,
+        "dirsExplored": 2,
+        "contextWindowUtilisation": 0.3129453125
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 2,
+        "requiredFilesTotal": 2,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 0,
+        "correctConceptsFound": 3,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 520,
+        "iterations": 3,
+        "retries": 0,
+        "messagesExchanged": 4
+      },
+      "cost": {
+        "estimatedCostUSD": 0.350495,
+        "tokensSaved": -5237,
+        "costSavedUSD": -0.022865000000000024,
+        "reductionPercent": -7
+      },
+      "responseSummary": "[AMS] Read 5 memory files + 2 target files. Found 3/3 concepts.",
+      "memoryUsed": true,
+      "memoryFilesRead": [
+        "00-project-overview.md",
+        "01-repository-map.md",
+        "02-system-architecture.md",
+        "03-development-workflow.md",
+        "04-api-and-interfaces.md"
+      ],
+      "notes": "Warm-start via AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127142-ea8cab",
+      "taskId": "R2",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "baseline",
+      "timestamp": "2026-05-07T18:55:27.142Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34458,
+        "totalPromptTokens": 34493,
+        "responseTokens": 10348,
+        "filesTraversed": 35,
+        "dirsExplored": 9,
+        "contextWindowUtilisation": 0.2694765625
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 2,
+        "requiredFilesTotal": 3,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 1,
+        "correctConceptsFound": 2,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 956,
+        "iterations": 7,
+        "retries": 2,
+        "messagesExchanged": 12
+      },
+      "cost": {
+        "estimatedCostUSD": 0.327685,
+        "tokensSaved": 0,
+        "costSavedUSD": 0,
+        "reductionPercent": 0
+      },
+      "responseSummary": "[Baseline] Traversed 35 files. Found 2/3 concepts.",
+      "memoryUsed": false,
+      "memoryFilesRead": [],
+      "notes": "Cold-start. No AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127147-9f3d7f",
+      "taskId": "R2",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "ams",
+      "timestamp": "2026-05-07T18:55:27.147Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34512,
+        "totalPromptTokens": 38291,
+        "responseTokens": 9573,
+        "filesTraversed": 20,
+        "dirsExplored": 2,
+        "contextWindowUtilisation": 0.2991484375
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 3,
+        "requiredFilesTotal": 3,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 0,
+        "correctConceptsFound": 3,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 260,
+        "iterations": 3,
+        "retries": 0,
+        "messagesExchanged": 4
+      },
+      "cost": {
+        "estimatedCostUSD": 0.33504999999999996,
+        "tokensSaved": -3023,
+        "costSavedUSD": -0.007364999999999955,
+        "reductionPercent": -2
+      },
+      "responseSummary": "[AMS] Read 5 memory files + 3 target files. Found 3/3 concepts.",
+      "memoryUsed": true,
+      "memoryFilesRead": [
+        "00-project-overview.md",
+        "01-repository-map.md",
+        "02-system-architecture.md",
+        "03-development-workflow.md",
+        "04-api-and-interfaces.md"
+      ],
+      "notes": "Warm-start via AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127155-7bfbc6",
+      "taskId": "D1",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "baseline",
+      "timestamp": "2026-05-07T18:55:27.155Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34458,
+        "totalPromptTokens": 34488,
+        "responseTokens": 10346,
+        "filesTraversed": 35,
+        "dirsExplored": 9,
+        "contextWindowUtilisation": 0.2694375
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 1,
+        "requiredFilesTotal": 1,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 1,
+        "correctConceptsFound": 2,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 2210,
+        "iterations": 7,
+        "retries": 0,
+        "messagesExchanged": 12
+      },
+      "cost": {
+        "estimatedCostUSD": 0.32763,
+        "tokensSaved": 0,
+        "costSavedUSD": 0,
+        "reductionPercent": 0
+      },
+      "responseSummary": "[Baseline] Traversed 35 files. Found 2/3 concepts.",
+      "memoryUsed": false,
+      "memoryFilesRead": [],
+      "notes": "Cold-start. No AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127161-d949c6",
+      "taskId": "D1",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "ams",
+      "timestamp": "2026-05-07T18:55:27.161Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34512,
+        "totalPromptTokens": 37514,
+        "responseTokens": 9379,
+        "filesTraversed": 18,
+        "dirsExplored": 2,
+        "contextWindowUtilisation": 0.293078125
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 1,
+        "requiredFilesTotal": 1,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 0,
+        "correctConceptsFound": 3,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 361,
+        "iterations": 3,
+        "retries": 0,
+        "messagesExchanged": 4
+      },
+      "cost": {
+        "estimatedCostUSD": 0.32825499999999996,
+        "tokensSaved": -2059,
+        "costSavedUSD": -0.0006249999999999867,
+        "reductionPercent": 0
+      },
+      "responseSummary": "[AMS] Read 5 memory files + 1 target files. Found 3/3 concepts.",
+      "memoryUsed": true,
+      "memoryFilesRead": [
+        "00-project-overview.md",
+        "01-repository-map.md",
+        "02-system-architecture.md",
+        "03-development-workflow.md",
+        "04-api-and-interfaces.md"
+      ],
+      "notes": "Warm-start via AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127171-c464a2",
+      "taskId": "D2",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "baseline",
+      "timestamp": "2026-05-07T18:55:27.171Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34458,
+        "totalPromptTokens": 34493,
+        "responseTokens": 10348,
+        "filesTraversed": 35,
+        "dirsExplored": 9,
+        "contextWindowUtilisation": 0.2694765625
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 1,
+        "requiredFilesTotal": 1,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 1,
+        "correctConceptsFound": 2,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 1155,
+        "iterations": 7,
+        "retries": 2,
+        "messagesExchanged": 12
+      },
+      "cost": {
+        "estimatedCostUSD": 0.327685,
+        "tokensSaved": 0,
+        "costSavedUSD": 0,
+        "reductionPercent": 0
+      },
+      "responseSummary": "[Baseline] Traversed 35 files. Found 2/3 concepts.",
+      "memoryUsed": false,
+      "memoryFilesRead": [],
+      "notes": "Cold-start. No AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127175-77805c",
+      "taskId": "D2",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "ams",
+      "timestamp": "2026-05-07T18:55:27.175Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34512,
+        "totalPromptTokens": 35730,
+        "responseTokens": 8933,
+        "filesTraversed": 18,
+        "dirsExplored": 2,
+        "contextWindowUtilisation": 0.279140625
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 1,
+        "requiredFilesTotal": 1,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 0,
+        "correctConceptsFound": 3,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 494,
+        "iterations": 3,
+        "retries": 0,
+        "messagesExchanged": 4
+      },
+      "cost": {
+        "estimatedCostUSD": 0.31264499999999995,
+        "tokensSaved": 178,
+        "costSavedUSD": 0.015040000000000053,
+        "reductionPercent": 5
+      },
+      "responseSummary": "[AMS] Read 5 memory files + 1 target files. Found 3/3 concepts.",
+      "memoryUsed": true,
+      "memoryFilesRead": [
+        "00-project-overview.md",
+        "01-repository-map.md",
+        "02-system-architecture.md",
+        "03-development-workflow.md",
+        "04-api-and-interfaces.md"
+      ],
+      "notes": "Warm-start via AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127186-7e3561",
+      "taskId": "D3",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "baseline",
+      "timestamp": "2026-05-07T18:55:27.186Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34458,
+        "totalPromptTokens": 34492,
+        "responseTokens": 10348,
+        "filesTraversed": 35,
+        "dirsExplored": 9,
+        "contextWindowUtilisation": 0.26946875
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 2,
+        "requiredFilesTotal": 2,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 1,
+        "correctConceptsFound": 2,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 2356,
+        "iterations": 7,
+        "retries": 0,
+        "messagesExchanged": 12
+      },
+      "cost": {
+        "estimatedCostUSD": 0.32767999999999997,
+        "tokensSaved": 0,
+        "costSavedUSD": 0,
+        "reductionPercent": 0
+      },
+      "responseSummary": "[Baseline] Traversed 35 files. Found 2/3 concepts.",
+      "memoryUsed": false,
+      "memoryFilesRead": [],
+      "notes": "Cold-start. No AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127189-f753b2",
+      "taskId": "D3",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "ams",
+      "timestamp": "2026-05-07T18:55:27.189Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34512,
+        "totalPromptTokens": 41004,
+        "responseTokens": 10251,
+        "filesTraversed": 19,
+        "dirsExplored": 2,
+        "contextWindowUtilisation": 0.32034375
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 2,
+        "requiredFilesTotal": 2,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 0,
+        "correctConceptsFound": 3,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 625,
+        "iterations": 3,
+        "retries": 0,
+        "messagesExchanged": 4
+      },
+      "cost": {
+        "estimatedCostUSD": 0.35878499999999997,
+        "tokensSaved": -6415,
+        "costSavedUSD": -0.031104999999999994,
+        "reductionPercent": -9
+      },
+      "responseSummary": "[AMS] Read 5 memory files + 2 target files. Found 3/3 concepts.",
+      "memoryUsed": true,
+      "memoryFilesRead": [
+        "00-project-overview.md",
+        "01-repository-map.md",
+        "02-system-architecture.md",
+        "03-development-workflow.md",
+        "04-api-and-interfaces.md"
+      ],
+      "notes": "Warm-start via AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127200-173793",
+      "taskId": "C1",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "baseline",
+      "timestamp": "2026-05-07T18:55:27.200Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34458,
+        "totalPromptTokens": 34488,
+        "responseTokens": 10346,
+        "filesTraversed": 35,
+        "dirsExplored": 9,
+        "contextWindowUtilisation": 0.2694375
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 1,
+        "requiredFilesTotal": 2,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 1,
+        "correctConceptsFound": 2,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 1526,
+        "iterations": 7,
+        "retries": 0,
+        "messagesExchanged": 12
+      },
+      "cost": {
+        "estimatedCostUSD": 0.32763,
+        "tokensSaved": 0,
+        "costSavedUSD": 0,
+        "reductionPercent": 0
+      },
+      "responseSummary": "[Baseline] Traversed 35 files. Found 2/3 concepts.",
+      "memoryUsed": false,
+      "memoryFilesRead": [],
+      "notes": "Cold-start. No AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127205-a98a74",
+      "taskId": "C1",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "ams",
+      "timestamp": "2026-05-07T18:55:27.205Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34512,
+        "totalPromptTokens": 35524,
+        "responseTokens": 8881,
+        "filesTraversed": 19,
+        "dirsExplored": 2,
+        "contextWindowUtilisation": 0.27753125
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 2,
+        "requiredFilesTotal": 2,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 0,
+        "correctConceptsFound": 3,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 362,
+        "iterations": 3,
+        "retries": 0,
+        "messagesExchanged": 4
+      },
+      "cost": {
+        "estimatedCostUSD": 0.310835,
+        "tokensSaved": 429,
+        "costSavedUSD": 0.016795000000000004,
+        "reductionPercent": 5
+      },
+      "responseSummary": "[AMS] Read 5 memory files + 2 target files. Found 3/3 concepts.",
+      "memoryUsed": true,
+      "memoryFilesRead": [
+        "00-project-overview.md",
+        "01-repository-map.md",
+        "02-system-architecture.md",
+        "03-development-workflow.md",
+        "04-api-and-interfaces.md"
+      ],
+      "notes": "Warm-start via AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127216-132d4e",
+      "taskId": "C2",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "baseline",
+      "timestamp": "2026-05-07T18:55:27.217Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34458,
+        "totalPromptTokens": 34492,
+        "responseTokens": 10348,
+        "filesTraversed": 35,
+        "dirsExplored": 9,
+        "contextWindowUtilisation": 0.26946875
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 1,
+        "requiredFilesTotal": 2,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 1,
+        "correctConceptsFound": 2,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 1529,
+        "iterations": 7,
+        "retries": 0,
+        "messagesExchanged": 12
+      },
+      "cost": {
+        "estimatedCostUSD": 0.32767999999999997,
+        "tokensSaved": 0,
+        "costSavedUSD": 0,
+        "reductionPercent": 0
+      },
+      "responseSummary": "[Baseline] Traversed 35 files. Found 2/3 concepts.",
+      "memoryUsed": false,
+      "memoryFilesRead": [],
+      "notes": "Cold-start. No AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127221-73bb08",
+      "taskId": "C2",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "ams",
+      "timestamp": "2026-05-07T18:55:27.221Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34512,
+        "totalPromptTokens": 35754,
+        "responseTokens": 8939,
+        "filesTraversed": 19,
+        "dirsExplored": 2,
+        "contextWindowUtilisation": 0.279328125
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 2,
+        "requiredFilesTotal": 2,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 0,
+        "correctConceptsFound": 3,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 246,
+        "iterations": 3,
+        "retries": 0,
+        "messagesExchanged": 4
+      },
+      "cost": {
+        "estimatedCostUSD": 0.312855,
+        "tokensSaved": 147,
+        "costSavedUSD": 0.014824999999999977,
+        "reductionPercent": 5
+      },
+      "responseSummary": "[AMS] Read 5 memory files + 2 target files. Found 3/3 concepts.",
+      "memoryUsed": true,
+      "memoryFilesRead": [
+        "00-project-overview.md",
+        "01-repository-map.md",
+        "02-system-architecture.md",
+        "03-development-workflow.md",
+        "04-api-and-interfaces.md"
+      ],
+      "notes": "Warm-start via AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127230-cff749",
+      "taskId": "C3",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "baseline",
+      "timestamp": "2026-05-07T18:55:27.230Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34458,
+        "totalPromptTokens": 34485,
+        "responseTokens": 10346,
+        "filesTraversed": 35,
+        "dirsExplored": 9,
+        "contextWindowUtilisation": 0.2694140625
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 1,
+        "requiredFilesTotal": 1,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 1,
+        "correctConceptsFound": 2,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 1557,
+        "iterations": 7,
+        "retries": 2,
+        "messagesExchanged": 12
+      },
+      "cost": {
+        "estimatedCostUSD": 0.327615,
+        "tokensSaved": 0,
+        "costSavedUSD": 0,
+        "reductionPercent": 0
+      },
+      "responseSummary": "[Baseline] Traversed 35 files. Found 2/3 concepts.",
+      "memoryUsed": false,
+      "memoryFilesRead": [],
+      "notes": "Cold-start. No AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127233-de2294",
+      "taskId": "C3",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "ams",
+      "timestamp": "2026-05-07T18:55:27.233Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34512,
+        "totalPromptTokens": 62861,
+        "responseTokens": 15715,
+        "filesTraversed": 18,
+        "dirsExplored": 2,
+        "contextWindowUtilisation": 0.4911015625
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 1,
+        "requiredFilesTotal": 1,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 0,
+        "correctConceptsFound": 3,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 273,
+        "iterations": 3,
+        "retries": 0,
+        "messagesExchanged": 4
+      },
+      "cost": {
+        "estimatedCostUSD": 0.55003,
+        "tokensSaved": -33745,
+        "costSavedUSD": -0.22241500000000003,
+        "reductionPercent": -68
+      },
+      "responseSummary": "[AMS] Read 5 memory files + 1 target files. Found 3/3 concepts.",
+      "memoryUsed": true,
+      "memoryFilesRead": [
+        "00-project-overview.md",
+        "01-repository-map.md",
+        "02-system-architecture.md",
+        "03-development-workflow.md",
+        "04-api-and-interfaces.md"
+      ],
+      "notes": "Warm-start via AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127241-a1f914",
+      "taskId": "M1",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "baseline",
+      "timestamp": "2026-05-07T18:55:27.241Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34458,
+        "totalPromptTokens": 34486,
+        "responseTokens": 10346,
+        "filesTraversed": 35,
+        "dirsExplored": 9,
+        "contextWindowUtilisation": 0.269421875
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 1,
+        "requiredFilesTotal": 2,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 1,
+        "correctConceptsFound": 2,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 719,
+        "iterations": 7,
+        "retries": 1,
+        "messagesExchanged": 12
+      },
+      "cost": {
+        "estimatedCostUSD": 0.32762,
+        "tokensSaved": 0,
+        "costSavedUSD": 0,
+        "reductionPercent": 0
+      },
+      "responseSummary": "[Baseline] Traversed 35 files. Found 2/3 concepts.",
+      "memoryUsed": false,
+      "memoryFilesRead": [],
+      "notes": "Cold-start. No AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127249-1cf2f0",
+      "taskId": "M1",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "ams",
+      "timestamp": "2026-05-07T18:55:27.249Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34512,
+        "totalPromptTokens": 34899,
+        "responseTokens": 8725,
+        "filesTraversed": 19,
+        "dirsExplored": 2,
+        "contextWindowUtilisation": 0.2726484375
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 2,
+        "requiredFilesTotal": 2,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 0,
+        "correctConceptsFound": 3,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 476,
+        "iterations": 3,
+        "retries": 0,
+        "messagesExchanged": 4
+      },
+      "cost": {
+        "estimatedCostUSD": 0.30537000000000003,
+        "tokensSaved": 1208,
+        "costSavedUSD": 0.022249999999999992,
+        "reductionPercent": 7
+      },
+      "responseSummary": "[AMS] Read 5 memory files + 2 target files. Found 3/3 concepts.",
+      "memoryUsed": true,
+      "memoryFilesRead": [
+        "00-project-overview.md",
+        "01-repository-map.md",
+        "02-system-architecture.md",
+        "03-development-workflow.md",
+        "04-api-and-interfaces.md"
+      ],
+      "notes": "Warm-start via AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127259-2028a0",
+      "taskId": "M2",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "baseline",
+      "timestamp": "2026-05-07T18:55:27.259Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34458,
+        "totalPromptTokens": 34495,
+        "responseTokens": 10349,
+        "filesTraversed": 35,
+        "dirsExplored": 9,
+        "contextWindowUtilisation": 0.2694921875
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 1,
+        "requiredFilesTotal": 2,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 1,
+        "correctConceptsFound": 2,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 1826,
+        "iterations": 7,
+        "retries": 1,
+        "messagesExchanged": 12
+      },
+      "cost": {
+        "estimatedCostUSD": 0.32770999999999995,
+        "tokensSaved": 0,
+        "costSavedUSD": 0,
+        "reductionPercent": 0
+      },
+      "responseSummary": "[Baseline] Traversed 35 files. Found 2/3 concepts.",
+      "memoryUsed": false,
+      "memoryFilesRead": [],
+      "notes": "Cold-start. No AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127270-ffa33e",
+      "taskId": "M2",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "ams",
+      "timestamp": "2026-05-07T18:55:27.270Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34512,
+        "totalPromptTokens": 34908,
+        "responseTokens": 8727,
+        "filesTraversed": 19,
+        "dirsExplored": 2,
+        "contextWindowUtilisation": 0.27271875
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 2,
+        "requiredFilesTotal": 2,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 0,
+        "correctConceptsFound": 3,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 478,
+        "iterations": 3,
+        "retries": 0,
+        "messagesExchanged": 4
+      },
+      "cost": {
+        "estimatedCostUSD": 0.30544499999999997,
+        "tokensSaved": 1209,
+        "costSavedUSD": 0.02226499999999998,
+        "reductionPercent": 7
+      },
+      "responseSummary": "[AMS] Read 5 memory files + 2 target files. Found 3/3 concepts.",
+      "memoryUsed": true,
+      "memoryFilesRead": [
+        "00-project-overview.md",
+        "01-repository-map.md",
+        "02-system-architecture.md",
+        "03-development-workflow.md",
+        "04-api-and-interfaces.md"
+      ],
+      "notes": "Warm-start via AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127283-927950",
+      "taskId": "B1",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "baseline",
+      "timestamp": "2026-05-07T18:55:27.284Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34458,
+        "totalPromptTokens": 34494,
+        "responseTokens": 10348,
+        "filesTraversed": 35,
+        "dirsExplored": 9,
+        "contextWindowUtilisation": 0.269484375
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 1,
+        "requiredFilesTotal": 2,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 1,
+        "correctConceptsFound": 2,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 2116,
+        "iterations": 7,
+        "retries": 1,
+        "messagesExchanged": 12
+      },
+      "cost": {
+        "estimatedCostUSD": 0.32769000000000004,
+        "tokensSaved": 0,
+        "costSavedUSD": 0,
+        "reductionPercent": 0
+      },
+      "responseSummary": "[Baseline] Traversed 35 files. Found 2/3 concepts.",
+      "memoryUsed": false,
+      "memoryFilesRead": [],
+      "notes": "Cold-start. No AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127288-fa0386",
+      "taskId": "B1",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "ams",
+      "timestamp": "2026-05-07T18:55:27.288Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34512,
+        "totalPromptTokens": 64368,
+        "responseTokens": 16092,
+        "filesTraversed": 19,
+        "dirsExplored": 2,
+        "contextWindowUtilisation": 0.502875
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 2,
+        "requiredFilesTotal": 2,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 0,
+        "correctConceptsFound": 3,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 592,
+        "iterations": 3,
+        "retries": 0,
+        "messagesExchanged": 4
+      },
+      "cost": {
+        "estimatedCostUSD": 0.5632199999999999,
+        "tokensSaved": -35618,
+        "costSavedUSD": -0.2355299999999999,
+        "reductionPercent": -72
+      },
+      "responseSummary": "[AMS] Read 5 memory files + 2 target files. Found 3/3 concepts.",
+      "memoryUsed": true,
+      "memoryFilesRead": [
+        "00-project-overview.md",
+        "01-repository-map.md",
+        "02-system-architecture.md",
+        "03-development-workflow.md",
+        "04-api-and-interfaces.md"
+      ],
+      "notes": "Warm-start via AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127301-f42b30",
+      "taskId": "B2",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "baseline",
+      "timestamp": "2026-05-07T18:55:27.301Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34458,
+        "totalPromptTokens": 34497,
+        "responseTokens": 10349,
+        "filesTraversed": 35,
+        "dirsExplored": 9,
+        "contextWindowUtilisation": 0.2695078125
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 1,
+        "requiredFilesTotal": 1,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 1,
+        "correctConceptsFound": 2,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 1577,
+        "iterations": 7,
+        "retries": 1,
+        "messagesExchanged": 12
+      },
+      "cost": {
+        "estimatedCostUSD": 0.32772,
+        "tokensSaved": 0,
+        "costSavedUSD": 0,
+        "reductionPercent": 0
+      },
+      "responseSummary": "[Baseline] Traversed 35 files. Found 2/3 concepts.",
+      "memoryUsed": false,
+      "memoryFilesRead": [],
+      "notes": "Cold-start. No AMS. Hallucinated 1 files."
+    },
+    {
+      "runId": "run-1778180127305-b5394f",
+      "taskId": "B2",
+      "agentId": "antigravity",
+      "repoId": "AgentMemorySystem",
+      "mode": "ams",
+      "timestamp": "2026-05-07T18:55:27.306Z",
+      "success": true,
+      "context": {
+        "orientationTokens": 34512,
+        "totalPromptTokens": 62873,
+        "responseTokens": 15718,
+        "filesTraversed": 18,
+        "dirsExplored": 2,
+        "contextWindowUtilisation": 0.4911953125
+      },
+      "accuracy": {
+        "architectureCorrect": true,
+        "requiredFilesFound": 1,
+        "requiredFilesTotal": 1,
+        "hallucinatedFiles": 1,
+        "incorrectAPIClaims": 0,
+        "correctConceptsFound": 3,
+        "correctConceptsTotal": 3
+      },
+      "speed": {
+        "durationMs": 372,
+        "iterations": 3,
+        "retries": 0,
+        "messagesExchanged": 4
+      },
+      "cost": {
+        "estimatedCostUSD": 0.550135,
+        "tokensSaved": -33745,
+        "costSavedUSD": -0.22241500000000003,
+        "reductionPercent": -68
+      },
+      "responseSummary": "[AMS] Read 5 memory files + 1 target files. Found 3/3 concepts.",
+      "memoryUsed": true,
+      "memoryFilesRead": [
+        "00-project-overview.md",
+        "01-repository-map.md",
+        "02-system-architecture.md",
+        "03-development-workflow.md",
+        "04-api-and-interfaces.md"
+      ],
+      "notes": "Warm-start via AMS. Hallucinated 1 files."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "taskCount": 21,
+  "baseline": {
+    "avgTokens": 34487,
+    "avgFiles": 35,
+    "avgHallucinations": 1,
+    "avgConceptAccuracy": 66,
+    "avgCostUSD": 0.3276
+  },
+  "ams": {
+    "avgTokens": 42467,
+    "avgFiles": 19,
+    "avgHallucinations": 1,
+    "avgConceptAccuracy": 100,
+    "avgCostUSD": 0.3716
+  },
+  "improvement": {
+    "tokenReductionPct": -23,
+    "fileReductionPct": 45,
+    "hallucinationReductionPct": 0,
+    "conceptAccuracyGainPct": 34,
+    "costReductionPct": -13,
+    "overallScore": 8
+  }
+}

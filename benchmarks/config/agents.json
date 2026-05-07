@@ -1,0 +1,65 @@
+[
+  {
+    "id": "antigravity",
+    "name": "Antigravity (Google DeepMind)",
+    "vendor": "Google DeepMind",
+    "contextWindowTokens": 1000000,
+    "supportsAMS": true,
+    "available": true,
+    "limitationsNote": "Full access. Uses AMS natively. Primary benchmark agent."
+  },
+  {
+    "id": "codex",
+    "name": "OpenAI Codex / GPT-4o",
+    "vendor": "OpenAI",
+    "contextWindowTokens": 128000,
+    "supportsAMS": true,
+    "available": true,
+    "limitationsNote": "Can read AMS memory files. Context window limit means large repos require memory compression."
+  },
+  {
+    "id": "claude-code",
+    "name": "Claude Code (Anthropic)",
+    "vendor": "Anthropic",
+    "contextWindowTokens": 200000,
+    "supportsAMS": true,
+    "available": true,
+    "limitationsNote": "200k context. Excellent at reading structured markdown memory files. Recommended for cross-session benchmarks."
+  },
+  {
+    "id": "vscode-copilot",
+    "name": "VS Code GitHub Copilot Agent",
+    "vendor": "GitHub / Microsoft",
+    "contextWindowTokens": 64000,
+    "supportsAMS": true,
+    "available": true,
+    "limitationsNote": "Limited context window. AMS memory files provide the largest benefit here."
+  },
+  {
+    "id": "cursor",
+    "name": "Cursor AI Agent",
+    "vendor": "Anysphere",
+    "contextWindowTokens": 128000,
+    "supportsAMS": true,
+    "available": false,
+    "limitationsNote": "Simulated via proxy measurement. Cursor's codebase indexing may overlap with AMS scope partially."
+  },
+  {
+    "id": "gemini-cli",
+    "name": "Gemini CLI Agent",
+    "vendor": "Google",
+    "contextWindowTokens": 1000000,
+    "supportsAMS": true,
+    "available": true,
+    "limitationsNote": "1M context window. Least benefit from token reduction, but benefits significantly from structured navigation hints."
+  },
+  {
+    "id": "simulated-baseline",
+    "name": "Simulated Baseline Agent",
+    "vendor": "Benchmark Harness",
+    "contextWindowTokens": 128000,
+    "supportsAMS": false,
+    "available": true,
+    "limitationsNote": "Automated simulation representing a typical GPT-4-class agent with no persistent memory. Used for automated benchmark runs."
+  }
+]

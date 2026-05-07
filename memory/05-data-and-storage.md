@@ -16,6 +16,8 @@
 
 ## Config Files That May Affect Storage
 
+- `benchmarks/config/agents.json`
+- `benchmarks/config/repositories.json`
 - `examples/node-app/.env.example`
 - `src/analyzers/env.ts`
 - `tsconfig.json`

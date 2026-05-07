@@ -12,6 +12,17 @@ agent-memory maintain --since main
 
 Structural changes include package manifests, routes, API files, schemas, models, migrations, config, CI workflows, command definitions, and agent instruction files.
 
+## 🧠 Graph Intelligence
+Before modifying interfaces, types, or shared utilities, check the blast radius to avoid breaking downstream files:
+
+```bash
+agent-memory graph query --file src/path/to/file.ts
+```
+
+If you rename an export or change a signature, verify breaking changes:
+```bash
+agent-memory graph diff
+```
 During long work, record checkpoints:
 
 ```bash

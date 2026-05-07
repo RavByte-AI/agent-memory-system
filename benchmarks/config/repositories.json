@@ -1,0 +1,107 @@
+[
+  {
+    "id": "agent-memory-system",
+    "name": "Agent Memory System",
+    "size": "small",
+    "url": "https://github.com/RavByte-AI/agent-memory-system",
+    "localPath": ".",
+    "stack": [
+      "TypeScript",
+      "Node.js",
+      "ESM"
+    ],
+    "approximateFiles": 80,
+    "approximateLines": 5000,
+    "hasTests": true,
+    "hasCI": true,
+    "hasAuth": false,
+    "hasDatabase": false,
+    "hasAPI": false,
+    "notes": "The AMS repository itself — perfect for self-benchmarking. Has graph engine, CLI, validators, worklogs."
+  },
+  {
+    "id": "nextjs-commerce",
+    "name": "Next.js Commerce (Vercel)",
+    "size": "medium",
+    "url": "https://github.com/vercel/commerce",
+    "localPath": null,
+    "stack": [
+      "Next.js",
+      "TypeScript",
+      "React",
+      "Tailwind"
+    ],
+    "approximateFiles": 300,
+    "approximateLines": 25000,
+    "hasTests": true,
+    "hasCI": true,
+    "hasAuth": true,
+    "hasDatabase": false,
+    "hasAPI": true,
+    "notes": "Full-stack e-commerce application with server components, API routes, auth, and complex routing."
+  },
+  {
+    "id": "fastapi-users",
+    "name": "FastAPI Users (Python)",
+    "size": "medium",
+    "url": "https://github.com/fastapi-users/fastapi-users",
+    "localPath": null,
+    "stack": [
+      "Python",
+      "FastAPI",
+      "SQLAlchemy",
+      "Pydantic"
+    ],
+    "approximateFiles": 120,
+    "approximateLines": 8000,
+    "hasTests": true,
+    "hasCI": true,
+    "hasAuth": true,
+    "hasDatabase": true,
+    "hasAPI": true,
+    "notes": "Well-structured Python API library with auth, database layers, routing, and comprehensive tests."
+  },
+  {
+    "id": "turborepo-kitchen-sink",
+    "name": "Turborepo Kitchen Sink",
+    "size": "monorepo",
+    "url": "https://github.com/vercel/turbo/tree/main/examples/kitchen-sink",
+    "localPath": null,
+    "stack": [
+      "TypeScript",
+      "Node.js",
+      "React",
+      "Monorepo",
+      "Turborepo"
+    ],
+    "approximateFiles": 600,
+    "approximateLines": 40000,
+    "hasTests": true,
+    "hasCI": true,
+    "hasAuth": false,
+    "hasDatabase": false,
+    "hasAPI": true,
+    "notes": "Complex monorepo with multiple packages, shared configs, cross-package dependencies, and CI."
+  },
+  {
+    "id": "langchain-python",
+    "name": "LangChain (Python AI)",
+    "size": "large",
+    "url": "https://github.com/langchain-ai/langchain",
+    "localPath": null,
+    "stack": [
+      "Python",
+      "LLM",
+      "AI",
+      "Async"
+    ],
+    "approximateFiles": 2000,
+    "approximateLines": 150000,
+    "hasTests": true,
+    "hasCI": true,
+    "hasAuth": false,
+    "hasDatabase": false,
+    "hasAPI": true,
+    "notes": "Large AI-focused Python monorepo. Stress-tests cold-start context. 100+ integrations. Perfect for hallucination testing."
+  }
+]

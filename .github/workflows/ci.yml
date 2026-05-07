@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0   # required for git diff in graph diff command
       - uses: actions/setup-node@v5
         with:
           node-version: 24
@@ -21,3 +23,22 @@ jobs:
       - run: npm test
       - run: npm run build
       - run: npm run memory:check
+
+      # Build the repository graph (validates graph engine works)
+      - name: Build repository graph
+        run: node dist/cli/index.js graph build --output memory --depth shallow
+
+      # On pull requests: detect breaking changes vs base branch
+      - name: Check for breaking changes
+        if: github.event_name == 'pull_request'
+        run: |
+          node dist/cli/index.js graph diff --output memory
+          if [ -f memory/breaking-changes.json ]; then
+            node -e "
+              const bc = require('./memory/breaking-changes.json');
+              if (bc.breakingChanges && bc.breakingChanges.length > 0) {
+                console.error('Breaking changes detected:', JSON.stringify(bc.summary, null, 2));
+                process.exit(1);
+              }
+            "
+          fi

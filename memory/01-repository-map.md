@@ -19,6 +19,13 @@
 
 ## Source Files
 
+- `benchmarks/harness/metrics.ts`
+- `benchmarks/harness/reporter.ts`
+- `benchmarks/harness/runner.ts`
+- `benchmarks/harness/tasks.ts`
+- `benchmarks/harness/types.ts`
+- `benchmarks/scripts/report.ts`
+- `benchmarks/scripts/run.ts`
 - `examples/monorepo/packages/api/src/routes.ts`
 - `examples/node-app/app/api/health/route.ts`
 - `examples/node-app/app/page.tsx`
@@ -31,7 +38,19 @@
 - `src/constants.ts`
 - `src/generator/context-index.ts`
 - `src/generator/generate.ts`
+- `src/generator/graph-artifacts.ts`
 - `src/generator/write.ts`
+- `src/graph/blast-radius.ts`
+- `src/graph/builder.ts`
+- `src/graph/health.ts`
+- `src/graph/index.ts`
+- `src/graph/layers.ts`
+- `src/graph/parser.ts`
+- `src/graph/patterns.ts`
+- `src/graph/query.ts`
+- `src/graph/snapshot.ts`
+- `src/graph/summarizer.ts`
+- `src/graph/types.ts`
 - `src/index.ts`
 - `src/maintenance/git.ts`
 - `src/scanner/path-utils.ts`
@@ -41,6 +60,7 @@
 - `src/validators/rules.ts`
 - `src/validators/validate.ts`
 - `tests/generator.test.ts`
+- `tests/graph.test.ts`
 - `tests/integration.test.ts`
 - `tests/maintenance.test.ts`
 - `tests/scanner.test.ts`
@@ -64,6 +84,8 @@
 
 ## Config Files
 
+- `benchmarks/config/agents.json`
+- `benchmarks/config/repositories.json`
 - `examples/node-app/.env.example`
 - `examples/python-api/pyproject.toml`
 - `src/analyzers/env.ts`
@@ -72,6 +94,7 @@
 ## Documentation and Agent Files
 
 - `README.md`
+- `benchmarks/README.md`
 - `examples/node-app/README.md`
 - `examples/python-api/README.md`
 - `memory/README.md`

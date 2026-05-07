@@ -26,6 +26,19 @@ agent-memory maintain --since main --check
 
 The command detects Git changes, identifies memory-impacting files, refreshes `memory/`, and validates the result.
 
+## 🧠 Graph Intelligence
+
+Agents must avoid guessing the impact of architectural changes. When modifying shared utilities, interfaces, or core abstractions, query the static analysis graph:
+
+Find downstream dependents (Blast Radius):
+```bash
+agent-memory graph query --file src/path/to/file.ts
+```
+
+Check repo health and circular dependencies:
+```bash
+agent-memory graph summary
+```
 ## Cross-Agent Handoff
 
 When an agent takes over a task, it should read `memory/agent-handoff.md` and, when needed, `memory/agent-worklog.jsonl`.

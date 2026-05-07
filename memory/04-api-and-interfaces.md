@@ -20,6 +20,8 @@
 
 ## Interface Sources
 
+- `benchmarks/harness/types.ts`
+- `src/graph/types.ts`
 - `src/types.ts`
 
 ## Notes

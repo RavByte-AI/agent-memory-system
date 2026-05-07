@@ -6,12 +6,13 @@
 
 ## Scanner-Discovered Risks
 
-| Finding                                                                | Reason                    |
-| ---------------------------------------------------------------------- | ------------------------- |
-| src/generator/context-index.ts: contains TODO/FIXME/stub-style markers | [INFERRED] Scanner marker |
-| src/generator/generate.ts: contains TODO/FIXME/stub-style markers      | [INFERRED] Scanner marker |
-| src/scanner/scan.ts: contains TODO/FIXME/stub-style markers            | [INFERRED] Scanner marker |
-| src/validators/rules.ts: contains TODO/FIXME/stub-style markers        | [INFERRED] Scanner marker |
+| Finding                                                                  | Reason                    |
+| ------------------------------------------------------------------------ | ------------------------- |
+| src/generator/context-index.ts: contains TODO/FIXME/stub-style markers   | [INFERRED] Scanner marker |
+| src/generator/generate.ts: contains TODO/FIXME/stub-style markers        | [INFERRED] Scanner marker |
+| src/generator/graph-artifacts.ts: contains TODO/FIXME/stub-style markers | [INFERRED] Scanner marker |
+| src/scanner/scan.ts: contains TODO/FIXME/stub-style markers              | [INFERRED] Scanner marker |
+| src/validators/rules.ts: contains TODO/FIXME/stub-style markers          | [INFERRED] Scanner marker |
 
 ## Unreadable Files
 

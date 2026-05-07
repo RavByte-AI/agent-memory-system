@@ -4,6 +4,11 @@ import path from "node:path";
 import { Command } from "commander";
 import { appendWorklogEvent, classifyMemoryImpact, generateMemory, getChangedFiles, readWorklogEvents, scanRepository, validateMemory, writeMemoryArtifacts } from "../index.js";
 import { logError, logInfo, logSuccess, logWarning, maybePrintLatestNotice, printCliBanner, theme } from "./theme.js";
+import { analyzeRepository } from "../graph/builder.js";
+import { createSnapshot, writeSnapshot, readSnapshot, diffSnapshots } from "../graph/snapshot.js";
+import { summarizeGraph } from "../graph/summarizer.js";
+import { queryBlastRadius, queryDependents, queryDependencies, queryFileInfo, queryLayer, queryHighRisk } from "../graph/query.js";
+import { buildRepositoryGraphArtifact, buildArchitectureFlowArtifact, buildBreakingChangesArtifact, buildDependencyImpactArtifact, buildCrossRepoLinksArtifact } from "../generator/graph-artifacts.js";
 
 async function exists(filePath: string): Promise<boolean> {
   try {
@@ -42,7 +47,7 @@ const program = new Command();
 program
   .name("agent-memory")
   .description("Generate an AI-readable project memory layer for any repository.")
-  .version("0.1.1");
+  .version("0.2.0");
 
 program
   .command("init")
@@ -289,6 +294,185 @@ worklog
     }
     for (const event of recent) {
       console.log(`${theme.muted(event.timestamp)} | ${theme.cyan(event.agent)} | ${theme.accent(event.type)}: ${event.message}`);
+    }
+    await maybePrintLatestNotice();
+  });
+
+// ── graph command group ────────────────────────────────────────────────────
+const graphCmd = program
+  .command("graph")
+  .description("Repository relationship graph commands (powered by Codeflow intelligence).");
+
+graphCmd
+  .command("build")
+  .description("Analyse the repository and write graph memory files.")
+  .option("-o, --output <dir>", "memory output directory", "memory")
+  .option("--depth <depth>", "analysis depth: shallow | full", "full")
+  .option("--max-files <n>", "maximum files to analyse", "1000")
+  .option("--no-tests", "exclude test files", false)
+  .option("--dry-run", "print planned writes without changing files", false)
+  .action(async (options: { output: string; depth: string; maxFiles: string; tests: boolean; dryRun: boolean }) => {
+    printCliBanner();
+    const rootDir = process.cwd();
+    const memDir = path.resolve(rootDir, options.output);
+
+    logInfo(`Analysing repository with depth=${options.depth} …`);
+
+    const graph = await analyzeRepository({
+      rootDir,
+      depth: options.depth as "shallow" | "full",
+      maxFiles: Number(options.maxFiles),
+      includeTests: options.tests !== false,
+    });
+
+    logInfo(`Analysed ${graph.stats.totalFiles} files, ${graph.stats.totalEdges} edges.`);
+
+    // Determine commit SHA (best-effort)
+    let commitSha = "unknown";
+    try {
+      const { execFile } = await import("node:child_process");
+      const { promisify } = await import("node:util");
+      const exec = promisify(execFile);
+      const { stdout } = await exec("git", ["rev-parse", "--short", "HEAD"], { cwd: rootDir });
+      commitSha = stdout.trim();
+    } catch { /* git not available */ }
+
+    const artifacts = [
+      buildRepositoryGraphArtifact(graph, commitSha),
+      buildArchitectureFlowArtifact(graph, commitSha),
+      buildCrossRepoLinksArtifact(
+        graph.repoName,
+        `https://github.com/${graph.repoName}`
+      ),
+    ];
+
+    if (options.dryRun) {
+      logInfo("Would write:");
+      for (const a of artifacts) console.log(`  ${theme.path(path.join(options.output, a.path))}`);
+      return;
+    }
+
+    await fs.mkdir(memDir, { recursive: true });
+    for (const a of artifacts) {
+      await fs.writeFile(path.join(memDir, a.path), a.content, "utf8");
+    }
+
+    logSuccess(`Graph written: ${theme.bold(String(artifacts.length))} files in ${theme.path(options.output + "/")}`);
+    logSuccess(`Health: ${theme.accent(graph.grade)} (${graph.healthScore}/100) | ${graph.stats.totalFiles} files | ${graph.stats.totalEdges} edges | ${graph.circularDependencies.length} cycles`);
+    await maybePrintLatestNotice();
+  });
+
+graphCmd
+  .command("query")
+  .description("Query the graph for a file's dependencies, dependents, and profile.")
+  .option("-f, --file <path>", "file path to query")
+  .option("-l, --layer <layer>", "list all files in a layer")
+  .option("--high-risk", "show the highest-risk files by dependent count", false)
+  .option("-o, --output <dir>", "memory output directory", "memory")
+  .action(async (options: { file?: string; layer?: string; highRisk: boolean; output: string }) => {
+    printCliBanner();
+    const rootDir = process.cwd();
+    const graphPath = path.join(rootDir, options.output, "repository-graph.json");
+    const snapshot = await readSnapshot(graphPath);
+    if (!snapshot) {
+      logError(`No graph found at ${graphPath}. Run: agent-memory graph build`);
+      process.exitCode = 1; return;
+    }
+
+    if (options.highRisk) {
+      const r = queryHighRisk(snapshot);
+      logInfo(r.explanation);
+      r.results.forEach((l) => console.log(`  ${l}`));
+      return;
+    }
+    if (options.layer) {
+      const r = queryLayer(options.layer, snapshot);
+      logInfo(r.explanation);
+      r.results.forEach((f) => console.log(`  ${theme.path(f)}`));
+      return;
+    }
+    if (options.file) {
+      const info = queryFileInfo(options.file, snapshot);
+      const deps = queryDependencies(options.file, snapshot);
+      const dep_on = queryDependents(options.file, snapshot);
+      logInfo(`File: ${theme.path(info.file ?? options.file)}`);
+      info.results.forEach((l) => console.log(`  ${l}`));
+      console.log(`  imports: ${deps.results.map((f) => theme.path(f)).join(", ") || "none"}`);
+      console.log(`  importedBy: ${dep_on.results.map((f) => theme.path(f)).join(", ") || "none"}`);
+      return;
+    }
+    logError("Provide --file, --layer, or --high-risk");
+  });
+
+graphCmd
+  .command("blast-radius")
+  .description("Show all files that would break if the given file changes.")
+  .requiredOption("-f, --file <path>", "file path to analyse")
+  .option("-o, --output <dir>", "memory output directory", "memory")
+  .action(async (options: { file: string; output: string }) => {
+    printCliBanner();
+    const rootDir = process.cwd();
+    const snapshot = await readSnapshot(path.join(rootDir, options.output, "repository-graph.json"));
+    if (!snapshot) { logError("No graph found. Run: agent-memory graph build"); process.exitCode = 1; return; }
+    const result = queryBlastRadius(options.file, snapshot);
+    logInfo(result.explanation);
+    result.results.forEach((f) => console.log(`  ${theme.path(f)}`));
+    await maybePrintLatestNotice();
+  });
+
+graphCmd
+  .command("diff")
+  .description("Compare current graph snapshot against a previous one and write breaking-changes.json.")
+  .option("-o, --output <dir>", "memory output directory", "memory")
+  .option("--base <path>", "path to the previous snapshot JSON to compare against")
+  .action(async (options: { output: string; base?: string }) => {
+    printCliBanner();
+    const rootDir = process.cwd();
+    const memDir = path.resolve(rootDir, options.output);
+    const currentPath = path.join(memDir, "repository-graph.json");
+    const current = await readSnapshot(currentPath);
+    if (!current) { logError("No current graph. Run: agent-memory graph build first."); process.exitCode = 1; return; }
+
+    const basePath = options.base ?? path.join(memDir, ".repository-graph.prev.json");
+    const prev = await readSnapshot(basePath);
+    if (!prev) { logWarning("No previous snapshot found — storing current as baseline."); await writeSnapshot(current, basePath); return; }
+
+    const changeSet = diffSnapshots(prev, current);
+    const bcArtifact = buildBreakingChangesArtifact(changeSet);
+    await fs.writeFile(path.join(memDir, bcArtifact.path), bcArtifact.content, "utf8");
+
+    if (changeSet.breakingChanges.length > 0) {
+      const impactArtifact = buildDependencyImpactArtifact(changeSet);
+      await fs.writeFile(path.join(memDir, impactArtifact.path), impactArtifact.content, "utf8");
+      logWarning(`${changeSet.breakingChanges.length} breaking change(s) detected — see ${theme.path(options.output + "/breaking-changes.json")}`);
+    } else {
+      logSuccess("No breaking changes detected. ✅");
+    }
+
+    // Store current as new baseline
+    await writeSnapshot(current, basePath);
+    await maybePrintLatestNotice();
+  });
+
+graphCmd
+  .command("summary")
+  .description("Print a token-efficient agent summary of the repository graph.")
+  .option("-o, --output <dir>", "memory output directory", "memory")
+  .option("--json", "print raw JSON", false)
+  .action(async (options: { output: string; json: boolean }) => {
+    printCliBanner();
+    const rootDir = process.cwd();
+    const snapshot = await readSnapshot(path.join(rootDir, options.output, "repository-graph.json"));
+    if (!snapshot) { logError("No graph found. Run: agent-memory graph build"); process.exitCode = 1; return; }
+    const summary = summarizeGraph(snapshot);
+    if (options.json) { console.log(JSON.stringify(summary, null, 2)); return; }
+    logInfo(`${snapshot.repoName} | Grade: ${theme.accent(summary.grade)} (${summary.healthScore}/100) | ~${summary.estimatedTokens} tokens`);
+    console.log(`\nEntry points:`);
+    summary.entryPoints.forEach((f) => console.log(`  ${theme.path(f)}`));
+    console.log(`\nHigh-risk files:`);
+    summary.highRiskFiles.forEach((f) => console.log(`  ${theme.path(f.path)} (${f.dependents} dependents)`));
+    if (summary.circularDeps.length) {
+      logWarning(`Circular dependencies: ${summary.circularDeps.length}`);
     }
     await maybePrintLatestNotice();
   });

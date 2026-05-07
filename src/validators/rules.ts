@@ -1,6 +1,62 @@
+import fs from "node:fs/promises";
 import path from "node:path";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
 import { REQUIRED_CONTEXT_TOPICS, REQUIRED_MEMORY_FILES } from "../constants.js";
 import type { ContextIndex } from "../types.js";
+import type { GraphSnapshot } from "../graph/types.js";
+
+const execFileAsync = promisify(execFile);
+
+async function currentHeadSha(rootDir: string): Promise<string | null> {
+  try {
+    const { stdout } = await execFileAsync("git", ["rev-parse", "--short", "HEAD"], { cwd: rootDir });
+    return stdout.trim();
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Validate that repository-graph.json exists and is fresh relative to HEAD.
+ * Returns warning strings (not hard errors — graph is optional but recommended).
+ */
+export async function validateGraphFreshness(
+  memoryDir: string,
+  rootDir: string
+): Promise<string[]> {
+  const warnings: string[] = [];
+  const graphPath = path.join(memoryDir, "repository-graph.json");
+
+  let raw: string | undefined;
+  try {
+    raw = await fs.readFile(graphPath, "utf8");
+  } catch {
+    warnings.push(
+      "repository-graph.json is missing — run: agent-memory graph build  " +
+      "(optional but recommended for relationship intelligence)"
+    );
+    return warnings;
+  }
+
+  try {
+    const snapshot = JSON.parse(raw) as Partial<GraphSnapshot>;
+    const graphCommit = snapshot.commitSha;
+    if (!graphCommit || graphCommit === "unknown") return warnings;
+
+    const headCommit = await currentHeadSha(rootDir);
+    if (headCommit && headCommit !== graphCommit) {
+      warnings.push(
+        `repository-graph.json was built at ${graphCommit}, HEAD is now ${headCommit} — ` +
+        "run: agent-memory graph build  to refresh"
+      );
+    }
+  } catch {
+    warnings.push("repository-graph.json is not valid JSON");
+  }
+
+  return warnings;
+}
 
 export function missingRequiredFiles(files: string[]): string[] {
   const present = new Set(files);

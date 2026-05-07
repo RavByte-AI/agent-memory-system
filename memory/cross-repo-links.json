@@ -1,0 +1,12 @@
+{
+  "version": "1.0",
+  "generatedAt": "2026-05-07T17:47:57.671Z",
+  "primaryRepo": {
+    "name": "AgentMemorySystem",
+    "url": "https://github.com/AgentMemorySystem"
+  },
+  "linkedRepos": [],
+  "sharedDependencies": [],
+  "crossRepoImports": [],
+  "_note": "Populate linkedRepos using: agent-memory graph link --repo <url>"
+}

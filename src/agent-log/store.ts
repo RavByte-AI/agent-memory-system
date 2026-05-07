@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import type { AgentWorklogEvent, AgentWorklogEventType } from "../types.js";
+import type { GraphSnapshot } from "../graph/types.js";
 
 export interface AppendWorklogInput {
   rootDir: string;
@@ -46,7 +47,15 @@ export async function appendWorklogEvent(input: AppendWorklogInput): Promise<Age
   };
 
   await fs.appendFile(path.join(memoryDir, "agent-worklog.jsonl"), line(event), "utf8");
-  await writeHandoffSummary(memoryDir, await readWorklogEvents(memoryDir));
+
+  // Load graph snapshot for context annotation (best-effort)
+  let graph: GraphSnapshot | undefined;
+  try {
+    const raw = await fs.readFile(path.join(memoryDir, "repository-graph.json"), "utf8");
+    graph = JSON.parse(raw) as GraphSnapshot;
+  } catch { /* graph not available */ }
+
+  await writeHandoffSummary(memoryDir, await readWorklogEvents(memoryDir), graph);
   return event;
 }
 
@@ -63,9 +72,30 @@ export async function readWorklogEvents(memoryDir: string): Promise<AgentWorklog
   }
 }
 
-export async function writeHandoffSummary(memoryDir: string, events: AgentWorklogEvent[]): Promise<void> {
+export async function writeHandoffSummary(
+  memoryDir: string,
+  events: AgentWorklogEvent[],
+  graph?: GraphSnapshot
+): Promise<void> {
   const recent = events.slice(-12).reverse();
   const latest = recent[0];
+  const mentionedFiles = [...new Set(recent.flatMap((e) => e.files ?? []))].slice(0, 20);
+
+  // Graph context section — annotate mentioned files with relationship data
+  let graphContextSection = "";
+  if (graph && mentionedFiles.length > 0) {
+    const annotations = mentionedFiles
+      .map((file) => {
+        const node = graph.files.find((f) => f.path === file || f.path.endsWith(file));
+        if (!node) return null;
+        return `- \`${node.path}\` — layer: ${node.layer}, importedBy: ${node.importedBy.length}, health: ${node.healthScore}/100`;
+      })
+      .filter(Boolean);
+    if (annotations.length > 0) {
+      graphContextSection = `\n## Graph Context for Mentioned Files\n\n${annotations.join("\n")}\n`;
+    }
+  }
+
   const content = `# Agent Handoff
 
 **Last Updated:** ${new Date().toISOString().slice(0, 10)}
@@ -88,8 +118,7 @@ ${recent.flatMap((event) => event.nextSteps ?? []).slice(0, 10).map((step) => `-
 
 ## Files Mentioned
 
-${[...new Set(recent.flatMap((event) => event.files ?? []))].slice(0, 20).map((file) => `- \`${file}\``).join("\n") || "- No files mentioned yet."}
-`;
+${mentionedFiles.map((file) => `- \`${file}\``).join("\n") || "- No files mentioned yet."}${graphContextSection}`;
 
   await fs.writeFile(path.join(memoryDir, "agent-handoff.md"), content, "utf8");
 }
