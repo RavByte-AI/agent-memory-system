@@ -22,4 +22,4 @@ npm run build
 
 Include a short summary, testing notes, and any changes to generated memory shape or public CLI/API behavior.
 
-Direct pushes to `main` should be disabled. See `docs/branch-protection.md` for the required GitHub ruleset.
+Changes to `main` should go through pull requests with the `Required CI` status check passing.
