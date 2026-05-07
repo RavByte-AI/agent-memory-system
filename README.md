@@ -9,11 +9,10 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/RavByte-AI/agent-memory-system"><img alt="GitHub stars" src="https://img.shields.io/github/stars/RavByte-AI/agent-memory-system?style=for-the-badge"></a>
-  <a href="https://github.com/RavByte-AI/agent-memory-system"><img alt="GitHub forks" src="https://img.shields.io/github/forks/RavByte-AI/agent-memory-system?style=for-the-badge"></a>
-  <a href="https://github.com/RavByte-AI/agent-memory-system"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/RavByte-AI/agent-memory-system?style=for-the-badge"></a>
-  <a href="https://github.com/RavByte-AI/agent-memory-system"><img alt="GitHub issues" src="https://img.shields.io/github/issues/RavByte-AI/agent-memory-system?style=for-the-badge"></a>
-  <a href="https://github.com/RavByte-AI/agent-memory-system"><img alt="License" src="https://img.shields.io/github/license/RavByte-AI/agent-memory-system?style=for-the-badge"></a>
+  <a href="https://github.com/RavByte-AI/agent-memory-system"><img alt="GitHub stars" src="https://badgen.net/github/stars/RavByte-AI/agent-memory-system?icon=github"></a>
+  <a href="https://github.com/RavByte-AI/agent-memory-system"><img alt="GitHub forks" src="https://badgen.net/github/forks/RavByte-AI/agent-memory-system?icon=github"></a>
+  <a href="https://github.com/RavByte-AI/agent-memory-system/issues"><img alt="GitHub issues" src="https://badgen.net/github/open-issues/RavByte-AI/agent-memory-system?icon=github"></a>
+  <a href="https://github.com/RavByte-AI/agent-memory-system/blob/main/LICENSE"><img alt="License" src="https://badgen.net/github/license/RavByte-AI/agent-memory-system"></a>
 </p>
 
 ## What It Does

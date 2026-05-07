@@ -27,6 +27,7 @@
 - `src/analyzers/env.ts`
 - `src/analyzers/manifest.ts`
 - `src/cli/index.ts`
+- `src/cli/theme.ts`
 - `src/constants.ts`
 - `src/generator/context-index.ts`
 - `src/generator/generate.ts`

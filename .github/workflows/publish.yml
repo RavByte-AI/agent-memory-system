@@ -23,6 +23,7 @@ jobs:
   publish:
     name: Publish latest npm package
     runs-on: ubuntu-latest
+    environment: npm-publish
     if: github.repository == 'RavByte-AI/agent-memory-system'
     steps:
       - uses: actions/checkout@v5
@@ -64,6 +65,21 @@ jobs:
       - name: Publish to npm
         if: steps.version.outputs.publish == 'true'
         run: npm publish --access public
+
+      - name: Deprecate older npm versions
+        if: steps.version.outputs.publish == 'true'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        shell: bash
+        run: |
+          if [ -z "${NODE_AUTH_TOKEN}" ]; then
+            echo "NPM_TOKEN is not configured. Skipping automatic deprecation of older versions."
+            echo "Create a granular npm token with package deprecate permission if you want CI to deprecate older versions."
+            exit 0
+          fi
+
+          npm deprecate "${{ steps.version.outputs.name }}@<${{ steps.version.outputs.version }}" \
+            "This version is deprecated. Please install ${{ steps.version.outputs.name }}@latest."
 
       - name: Create GitHub release
         if: steps.version.outputs.publish == 'true'

@@ -6,9 +6,12 @@
 
 ## Environment Variable Names
 
+- `AGENT_MEMORY_SKIP_UPDATE_CHECK`
 - `API_KEY`
 - `DATABASE_URL`
+- `FORCE_COLOR`
 - `NEXT_PUBLIC_API_URL`
+- `NO_COLOR`
 - `RUNTIME_FLAG`
 
 ## Config Files

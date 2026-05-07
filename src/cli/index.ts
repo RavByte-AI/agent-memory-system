@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { Command } from "commander";
 import { appendWorklogEvent, classifyMemoryImpact, generateMemory, getChangedFiles, readWorklogEvents, scanRepository, validateMemory, writeMemoryArtifacts } from "../index.js";
+import { logError, logInfo, logSuccess, logWarning, maybePrintLatestNotice, theme } from "./theme.js";
 
 async function exists(filePath: string): Promise<boolean> {
   try {
@@ -27,12 +28,12 @@ async function addAgentBootstrap(rootDir: string, outputDir: string, dryRun: boo
 
 function printValidation(result: Awaited<ReturnType<typeof validateMemory>>): void {
   if (result.ok) {
-    console.log("Memory validation passed.");
+    logSuccess("Memory validation passed.");
     return;
   }
-  console.error("Memory validation failed:");
+  logError("Memory validation failed:");
   for (const error of result.errors) {
-    console.error(`- ${error}`);
+    console.error(`  - ${error}`);
   }
 }
 
@@ -56,13 +57,14 @@ program
     const artifacts = await generateMemory(scan, { outputDir: options.output, profile: options.profile as never });
 
     if (options.dryRun) {
-      console.log(`Would write ${artifacts.length} files to ${options.output}/`);
+      logInfo(`Would write ${theme.bold(String(artifacts.length))} files to ${theme.path(`${options.output}/`)}`);
       for (const artifact of artifacts) {
-        console.log(`- ${options.output}/${artifact.path}`);
+        console.log(`  ${theme.path(`${options.output}/${artifact.path}`)}`);
       }
       if (!(await exists(path.join(rootDir, "AGENTS.md")))) {
-        console.log("- AGENTS.md");
+        console.log(`  ${theme.path("AGENTS.md")}`);
       }
+      await maybePrintLatestNotice();
       return;
     }
 
@@ -70,12 +72,13 @@ program
     const bootstrap = await addAgentBootstrap(rootDir, options.output, false);
     const result = await validateMemory({ rootDir, memoryDir: options.output });
 
-    console.log(`Generated ${artifacts.length} memory files in ${options.output}/.`);
+    logSuccess(`Generated ${theme.bold(String(artifacts.length))} memory files in ${theme.path(`${options.output}/`)}.`);
     if (bootstrap) {
-      console.log(`Added ${bootstrap} bootstrap instructions.`);
+      logSuccess(`Added ${theme.path(bootstrap)} bootstrap instructions.`);
     }
     printValidation(result);
-    console.log("Next: read memory/README.md and memory/context-index.json.");
+    logInfo(`Next: read ${theme.path("memory/README.md")} and ${theme.path("memory/context-index.json")}.`);
+    await maybePrintLatestNotice();
   });
 
 program
@@ -88,11 +91,12 @@ program
       console.log(JSON.stringify(scan, null, 2));
       return;
     }
-    console.log(`${scan.repoName}: ${scan.profile}`);
-    console.log(`Languages: ${scan.languages.join(", ") || "none detected"}`);
-    console.log(`Frameworks: ${scan.frameworks.join(", ") || "none detected"}`);
-    console.log(`Manifests: ${scan.manifests.length}`);
-    console.log(`Source files: ${scan.sourceFiles.length}`);
+    console.log(`${theme.bold(scan.repoName)}: ${theme.accent(scan.profile)}`);
+    console.log(`Languages: ${scan.languages.join(", ") || theme.muted("none detected")}`);
+    console.log(`Frameworks: ${scan.frameworks.join(", ") || theme.muted("none detected")}`);
+    console.log(`Manifests: ${theme.bold(String(scan.manifests.length))}`);
+    console.log(`Source files: ${theme.bold(String(scan.sourceFiles.length))}`);
+    await maybePrintLatestNotice();
   });
 
 program
@@ -106,6 +110,7 @@ program
     if (!result.ok) {
       process.exitCode = 1;
     }
+    await maybePrintLatestNotice();
   });
 
 program
@@ -120,11 +125,12 @@ program
     await writeMemoryArtifacts(process.cwd(), options.output, artifacts, options.force);
     const changedFiles = await getChangedFiles(process.cwd(), options.since);
     const impact = classifyMemoryImpact(changedFiles);
-    console.log(`Updated ${options.output}/ using full scan.`);
+    logSuccess(`Updated ${theme.path(`${options.output}/`)} using full scan.`);
     if (impact.requiresMemoryUpdate) {
-      console.log(`Structural changes detected since ${options.since}: ${impact.structuralFiles.length}`);
-      console.log(`Suggested topics: ${impact.suggestedTopics.join(", ") || "general"}`);
+      logInfo(`Structural changes detected since ${theme.bold(options.since)}: ${theme.bold(String(impact.structuralFiles.length))}`);
+      logInfo(`Suggested topics: ${impact.suggestedTopics.join(", ") || "general"}`);
     }
+    await maybePrintLatestNotice();
   });
 
 program
@@ -140,19 +146,19 @@ program
     const impact = classifyMemoryImpact(changedFiles);
 
     if (changedFiles.length === 0) {
-      console.log("No Git changes detected.");
+      logInfo("No Git changes detected.");
     } else {
-      console.log(`Changed files detected: ${changedFiles.length}`);
+      logInfo(`Changed files detected: ${theme.bold(String(changedFiles.length))}`);
     }
 
     if (impact.requiresMemoryUpdate) {
-      console.log(`Memory-impacting structural files: ${impact.structuralFiles.length}`);
+      logWarning(`Memory-impacting structural files: ${theme.bold(String(impact.structuralFiles.length))}`);
       for (const file of impact.structuralFiles.slice(0, 20)) {
-        console.log(`- ${file}`);
+        console.log(`  - ${theme.path(file)}`);
       }
-      console.log(`Suggested topics: ${impact.suggestedTopics.join(", ") || "general"}`);
+      logInfo(`Suggested topics: ${impact.suggestedTopics.join(", ") || "general"}`);
     } else {
-      console.log("No structural changes requiring memory refresh were detected.");
+      logSuccess("No structural changes requiring memory refresh were detected.");
     }
 
     if (options.check) {
@@ -178,8 +184,9 @@ program
         }
       }
       if (staleArtifacts.length > 0) {
-        console.error(`Structural changes require refreshed ${options.output}/ files: ${staleArtifacts.join(", ")}`);
+        logError(`Structural changes require refreshed ${theme.path(`${options.output}/`)} files: ${staleArtifacts.join(", ")}`);
       }
+      await maybePrintLatestNotice();
       if (staleArtifacts.length > 0 || !validation.ok) {
         process.exitCode = 1;
       }
@@ -190,14 +197,16 @@ program
     const artifacts = await generateMemory(scan, { outputDir: options.output });
 
     if (options.dryRun) {
-      console.log(`Would refresh ${artifacts.length} files in ${options.output}/.`);
+      logInfo(`Would refresh ${theme.bold(String(artifacts.length))} files in ${theme.path(`${options.output}/`)}.`);
+      await maybePrintLatestNotice();
       return;
     }
 
     await writeMemoryArtifacts(rootDir, options.output, artifacts, true);
     const validation = await validateMemory({ rootDir, memoryDir: options.output });
     printValidation(validation);
-    console.log("Memory maintenance complete.");
+    logSuccess("Memory maintenance complete.");
+    await maybePrintLatestNotice();
   });
 
 program
@@ -205,14 +214,15 @@ program
   .description("Check local environment and memory readiness.")
   .action(async () => {
     const rootDir = process.cwd();
-    console.log(`Working directory: ${rootDir}`);
-    console.log(`Memory directory: ${(await exists(path.join(rootDir, "memory"))) ? "present" : "missing"}`);
-    console.log(`AGENTS.md: ${(await exists(path.join(rootDir, "AGENTS.md"))) ? "present" : "missing"}`);
+    console.log(`Working directory: ${theme.path(rootDir)}`);
+    console.log(`Memory directory: ${(await exists(path.join(rootDir, "memory"))) ? theme.accent("present") : theme.warn("missing")}`);
+    console.log(`AGENTS.md: ${(await exists(path.join(rootDir, "AGENTS.md"))) ? theme.accent("present") : theme.warn("missing")}`);
     const scan = await scanRepository({ rootDir });
-    console.log(`Detected profile: ${scan.profile}`);
-    console.log(`Manifests: ${scan.manifests.length}`);
+    console.log(`Detected profile: ${theme.accent(scan.profile)}`);
+    console.log(`Manifests: ${theme.bold(String(scan.manifests.length))}`);
     const impact = classifyMemoryImpact(await getChangedFiles(rootDir, "main"));
-    console.log(`Memory-impacting changes: ${impact.structuralFiles.length}`);
+    console.log(`Memory-impacting changes: ${theme.bold(String(impact.structuralFiles.length))}`);
+    await maybePrintLatestNotice();
   });
 
 const worklog = program
@@ -244,10 +254,11 @@ for (const type of ["start", "log", "checkpoint", "handoff", "finish"] as const)
         commands: options.commands ? [options.commands] : [],
         nextSteps: options.next ? [options.next] : []
       });
-      console.log(`Recorded ${event.type} event ${event.id}.`);
+      logSuccess(`Recorded ${theme.accent(event.type)} event ${theme.muted(event.id)}.`);
       if (type === "handoff") {
-        console.log(`${options.memoryDir}/agent-handoff.md is ready for the next agent.`);
+        logSuccess(`${theme.path(`${options.memoryDir}/agent-handoff.md`)} is ready for the next agent.`);
       }
+      await maybePrintLatestNotice();
     });
 }
 
@@ -264,15 +275,17 @@ worklog
       return;
     }
     if (recent.length === 0) {
-      console.log("No agent worklog events recorded yet.");
+      logInfo("No agent worklog events recorded yet.");
+      await maybePrintLatestNotice();
       return;
     }
     for (const event of recent) {
-      console.log(`${event.timestamp} | ${event.agent} | ${event.type}: ${event.message}`);
+      console.log(`${theme.muted(event.timestamp)} | ${theme.cyan(event.agent)} | ${theme.accent(event.type)}: ${event.message}`);
     }
+    await maybePrintLatestNotice();
   });
 
 program.parseAsync(process.argv).catch((error: unknown) => {
-  console.error(error instanceof Error ? error.message : String(error));
+  logError(error instanceof Error ? error.message : String(error));
   process.exitCode = 1;
 });
