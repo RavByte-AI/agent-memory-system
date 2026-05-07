@@ -41,6 +41,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
   padding: 16px clamp(20px, 5vw, 72px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(5, 5, 6, 0.82);
@@ -59,7 +60,7 @@ footer,
 }
 
 .brand img {
-  width: 172px;
+  width: clamp(132px, 18vw, 172px);
   height: auto;
   display: block;
 }
@@ -67,6 +68,16 @@ footer,
 nav {
   color: var(--muted);
   font-size: 14px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+nav a {
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
 }
 
 nav a:hover,
@@ -517,15 +528,38 @@ footer strong {
 }
 
 @media (max-width: 980px) {
-  .site-header,
   footer,
   .hero-actions {
     align-items: flex-start;
     flex-direction: column;
   }
 
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px 18px;
+  }
+
+  .brand img {
+    width: 148px;
+  }
+
   nav {
-    flex-wrap: wrap;
+    width: 100%;
+    gap: 8px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 2px 0 8px;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  nav a {
+    min-height: 36px;
+    padding: 0 12px;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.025);
   }
 
   .hero,
@@ -546,5 +580,27 @@ footer strong {
   .signal-strip div,
   .feature-grid article {
     border-right: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .site-header {
+    padding: 12px 14px;
+  }
+
+  .brand img {
+    width: 136px;
+  }
+
+  nav {
+    margin-left: -14px;
+    margin-right: -14px;
+    width: calc(100% + 28px);
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  nav a {
+    font-size: 13px;
   }
 }
