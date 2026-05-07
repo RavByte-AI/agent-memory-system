@@ -1,6 +1,6 @@
 # Project Overview
 
-**Last Updated:** 2026-05-06
+**Last Updated:** 2026-05-07
 
 ---
 
@@ -40,7 +40,7 @@
 
 ## Ownership
 
-- Main Developer / Founder: Gaurav Singh
+- Founder: Gaurav Singh
 - Company: RAVBYTE TECHNOLOGIES PRIVATE LIMITED
 - Website: https://www.ravbyte.com
 - Email: sync@ravbyte.com

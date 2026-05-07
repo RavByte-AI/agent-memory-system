@@ -1,49 +1,55 @@
-# Agent Memory System
+<p align="center">
+  <img src="docs/assets/company-logo.png" alt="RAVBYTE Technologies" width="220" />
+</p>
 
-Generate and maintain an AI-readable project memory layer for any repository with one command.
+<h1 align="center">Agent Memory System</h1>
+
+<p align="center">
+  Persistent project memory, agent worklogs, and cross-agent handoffs for AI coding tools.
+</p>
+
+<p align="center">
+  <a href="https://github.com/RavByte-AI/agent-memory-system"><img alt="GitHub stars" src="https://img.shields.io/github/stars/RavByte-AI/agent-memory-system?style=for-the-badge"></a>
+  <a href="https://github.com/RavByte-AI/agent-memory-system"><img alt="GitHub forks" src="https://img.shields.io/github/forks/RavByte-AI/agent-memory-system?style=for-the-badge"></a>
+  <a href="https://github.com/RavByte-AI/agent-memory-system"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/RavByte-AI/agent-memory-system?style=for-the-badge"></a>
+  <a href="https://github.com/RavByte-AI/agent-memory-system"><img alt="GitHub issues" src="https://img.shields.io/github/issues/RavByte-AI/agent-memory-system?style=for-the-badge"></a>
+  <a href="https://github.com/RavByte-AI/agent-memory-system"><img alt="License" src="https://img.shields.io/github/license/RavByte-AI/agent-memory-system?style=for-the-badge"></a>
+</p>
+
+## What It Does
+
+Agent Memory System gives any repository a durable memory layer that AI agents can read before they work. It scans the codebase, generates structured Markdown memory, creates a machine-readable topic index, tracks structural changes, and records handoffs so context survives when work moves between Antigravity, Codex, Claude, Cursor, or another assistant.
 
 ```bash
 npx agent-memory-system init
 ```
 
-The tool scans a project, infers its shape, writes deterministic Markdown memory files to `memory/`, creates `memory/context-index.json`, adds a lightweight `AGENTS.md` bootstrap when none exists, and preserves agent working state across Antigravity, Codex, Claude, Cursor, and other assistants.
+The project is owned and maintained by **RAVBYTE TECHNOLOGIES PRIVATE LIMITED**, but it is completely open source under the MIT License and open for public contribution.
 
 ## Ownership
 
-- Main Developer / Founder: Gaurav Singh
+- Founder: Gaurav Singh
 - Company: RAVBYTE TECHNOLOGIES PRIVATE LIMITED
 - Website: https://www.ravbyte.com
 - Email: sync@ravbyte.com
 - Founder X: https://x.com/gauravchadhry
 - Founder LinkedIn: https://www.linkedin.com/in/gauravchadhry/
+- Repository: https://github.com/RavByte-AI/agent-memory-system
 
-## Install
+## Why It Exists
 
-```bash
-npm install -g agent-memory-system
-agent-memory init
-```
+AI coding agents are powerful, but they forget the project between sessions and tools. A task can start in Antigravity, continue in Codex, get reviewed in Claude, and lose the working state at every switch.
 
-or run without installing:
+Agent Memory System fixes that by keeping:
 
-```bash
-npx agent-memory-system init
-```
+- Repository structure and architecture notes
+- API, storage, security, testing, and workflow context
+- Agent execution checkpoints
+- Commands run and files touched
+- Human-readable handoff summaries
+- CI-enforced memory freshness checks
 
-## Commands
-
-```bash
-agent-memory init --output memory --profile auto --force false --dry-run false
-agent-memory scan --json
-agent-memory validate --strict
-agent-memory update --since main
-agent-memory maintain --since main
-agent-memory worklog checkpoint --agent codex --message "updated scanner" --files src/scanner/scan.ts
-agent-memory worklog handoff --agent codex --message "ready for Claude review" --next "review generated memory"
-agent-memory doctor
-```
-
-## Generated Output
+## Generated Memory
 
 ```text
 memory/
@@ -57,63 +63,91 @@ memory/
   07-testing-and-quality.md
   08-known-issues-and-tech-debt.md
   09-agent-guidelines.md
-  README.md
+  10-agent-worklog.md
+  agent-handoff.md
+  agent-worklog.jsonl
   context-index.json
+  README.md
 ```
 
-## Agent Workflow
+## Install And Use
 
-Agents should read `memory/README.md` and `memory/context-index.json` before making large changes. They should then open the domain-specific memory file for the area they are modifying.
-
-When taking over from another agent, first read:
+Run once in a repository:
 
 ```bash
-memory/agent-handoff.md
-memory/agent-worklog.jsonl
+npx agent-memory-system init
 ```
 
-During long-running work, agents should record checkpoints:
-
-```bash
-agent-memory worklog checkpoint --agent codex --message "implemented CLI maintain command" --files src/cli/index.ts --commands "npm test"
-```
-
-Before switching tools or stopping mid-task:
-
-```bash
-agent-memory worklog handoff --agent codex --message "tests pass; next publish GitHub Pages" --next "push to GitHub"
-```
-
-After structural changes, agents should run:
+Refresh memory after structural changes:
 
 ```bash
 agent-memory maintain --since main
 ```
 
-Structural changes include package manifests, routes, API files, schemas, models, migrations, config, CI workflows, command definitions, and agent instruction files. The command detects Git changes, refreshes `memory/`, and validates the result.
-
-For CI or review checks:
+Check memory freshness in CI:
 
 ```bash
 agent-memory maintain --since main --check
 ```
 
-## Safety
+Record agent progress:
 
-Agent Memory System records environment variable names, not values. It ignores generated and vendor paths such as `node_modules/`, `.git/`, `dist/`, `build/`, `.next/`, `.venv/`, `__pycache__/`, and `target/`.
+```bash
+agent-memory worklog checkpoint \
+  --agent codex \
+  --message "implemented scanner validation" \
+  --files src/scanner/scan.ts,tests/scanner.test.ts \
+  --commands "npm test"
+```
 
-## Examples
+Create a handoff before switching agents:
 
-Keep `examples/` in the public repository. These fixtures prove the scanner works across a Node app, Python API, and monorepo, and the integration tests depend on them. They are intentionally small so the package stays lightweight.
+```bash
+agent-memory worklog handoff \
+  --agent codex \
+  --message "tests pass; README needs review" \
+  --next "review docs and publish GitHub Pages"
+```
 
-## Development
+## Security Features
+
+- Documents environment variable names, never values.
+- Validates generated memory for obvious secret patterns.
+- Ignores generated and vendor paths such as `node_modules/`, `.git/`, `dist/`, `build/`, `.next/`, `.venv/`, `__pycache__/`, and `target/`.
+- Labels uncertain sections as `[INFERRED]`, `[INCOMPLETE]`, or `[PLANNED]`.
+- Supports CI checks so stale memory cannot silently pass review.
+- Encourages branch protection so all changes go through pull requests and CI.
+
+## Open Source Contribution
+
+Public contributions are welcome. Good first contributions include:
+
+- New ecosystem detectors
+- Better framework and route inference
+- More validators for memory quality
+- Improved examples and fixtures
+- Agent skill integrations
+- Documentation and website improvements
+
+Before opening a pull request:
 
 ```bash
 npm install
 npm run typecheck
 npm test
 npm run build
+npm run memory:check
 ```
+
+Direct pushes to `main` should be disabled in GitHub branch rules. See [Branch Protection](docs/branch-protection.md).
+
+## GitHub Pages
+
+The static website lives in `docs/` and deploys through GitHub Actions.
+
+## Repository
+
+https://github.com/RavByte-AI/agent-memory-system
 
 ## License
 

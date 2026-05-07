@@ -18,7 +18,7 @@ function ownership(scan: ProjectScan): string {
 
   if (owner) {
     return [
-      owner.founder ? `- Main Developer / Founder: ${owner.founder}` : undefined,
+      owner.founder ? `- Founder: ${owner.founder}` : undefined,
       owner.company ? `- Company: ${owner.company}` : undefined,
       owner.website ? `- Website: ${owner.website}` : undefined,
       owner.email ? `- Email: ${owner.email}` : undefined,

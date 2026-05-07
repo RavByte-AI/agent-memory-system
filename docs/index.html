@@ -3,46 +3,54 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Agent Memory System preserves project context, execution history, and handoffs across AI coding agents." />
+    <meta name="description" content="Agent Memory System preserves project context, execution history, security notes, and handoffs across AI coding agents." />
     <title>Agent Memory System</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Agent Memory System home">
-        <span class="brand-mark"></span>
-        <span>Agent Memory System</span>
+        <img src="./assets/company-logo.png" alt="RAVBYTE Technologies" />
       </a>
       <nav>
         <a href="#memory">Memory</a>
+        <a href="#security">Security</a>
         <a href="#handoff">Handoff</a>
-        <a href="#install">Install</a>
-        <a href="https://www.ravbyte.com">RAVBYTE</a>
+        <a href="#contribute">Contribute</a>
+        <a href="https://github.com/RavByte-AI/agent-memory-system">GitHub</a>
       </nav>
     </header>
 
     <main id="top">
       <section class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">Persistent context for coding agents</p>
-          <h1>Project memory that survives every agent switch.</h1>
+          <p class="eyebrow">Open source context infrastructure</p>
+          <h1>Memory for AI agents.</h1>
           <p class="lead">
-            Generate repository memory, keep it fresh, and preserve execution state as work moves between Antigravity, Codex, Claude, Cursor, and the next agent you try.
+            Agent Memory System gives every repository a durable, secure memory layer so project context, execution history, and handoffs survive across Antigravity, Codex, Claude, Cursor, and future agents.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#install">Install the CLI</a>
-            <a class="button secondary" href="https://github.com/RAVBYTE/agent-memory-system">View on GitHub</a>
+            <a class="button primary" href="#install">Install</a>
+            <a class="button secondary" href="https://github.com/RavByte-AI/agent-memory-system">Star on GitHub</a>
+          </div>
+          <div class="badge-row" aria-label="GitHub project stats">
+            <img alt="GitHub stars" src="https://img.shields.io/github/stars/RavByte-AI/agent-memory-system?style=flat-square&color=d8ff6b&labelColor=111315" />
+            <img alt="GitHub forks" src="https://img.shields.io/github/forks/RavByte-AI/agent-memory-system?style=flat-square&color=8cf7ff&labelColor=111315" />
+            <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/RavByte-AI/agent-memory-system?style=flat-square&color=f4f1eb&labelColor=111315" />
+            <img alt="GitHub issues" src="https://img.shields.io/github/issues/RavByte-AI/agent-memory-system?style=flat-square&color=ffb86b&labelColor=111315" />
+            <img alt="License" src="https://img.shields.io/github/license/RavByte-AI/agent-memory-system?style=flat-square&color=f4f1eb&labelColor=111315" />
           </div>
         </div>
 
         <div class="memory-console" aria-label="Agent Memory System terminal preview">
           <div class="console-top">
             <span></span><span></span><span></span>
-            <strong>memory/handoff</strong>
+            <strong>agent-memory</strong>
           </div>
           <pre><code>$ npx agent-memory-system init
 Generated memory/context-index.json
 Generated memory/09-agent-guidelines.md
+Generated memory/10-agent-worklog.md
 
 $ agent-memory worklog handoff \
   --agent codex \
@@ -53,43 +61,70 @@ for the next agent.</code></pre>
         </div>
       </section>
 
+      <section class="ownership">
+        <img src="./assets/logo.png" alt="RAVBYTE logo" />
+        <div>
+          <p class="tag">Owned by RAVBYTE TECHNOLOGIES PRIVATE LIMITED</p>
+          <h2>Company maintained. Community open.</h2>
+          <p>
+            Agent Memory System is maintained by RAVBYTE TECHNOLOGIES PRIVATE LIMITED and founded by Gaurav Singh. The project is MIT licensed, public, and open for issues, pull requests, ecosystem detectors, documentation, and agent integrations.
+          </p>
+        </div>
+      </section>
+
       <section class="signal-strip" aria-label="Core signals">
         <div><strong>10+</strong><span>memory files</span></div>
         <div><strong>JSONL</strong><span>agent worklog</span></div>
-        <div><strong>CI</strong><span>freshness checks</span></div>
-        <div><strong>MIT</strong><span>open source</span></div>
+        <div><strong>CI</strong><span>freshness gates</span></div>
+        <div><strong>PRs</strong><span>public contribution</span></div>
       </section>
 
       <section id="memory" class="feature-grid">
         <article>
           <p class="tag">Repository memory</p>
-          <h2>One command turns a codebase into agent-readable context.</h2>
+          <h2>One command creates project context.</h2>
           <p>
-            The scanner detects manifests, routes, APIs, configs, tests, storage hints, docs, and generated directories, then writes deterministic Markdown plus a machine-readable topic index.
+            The scanner detects manifests, routes, APIs, configs, tests, storage hints, documentation, and generated directories, then writes Markdown plus a topic index any agent can read.
           </p>
         </article>
         <article>
           <p class="tag">Automatic upkeep</p>
-          <h2>Memory stays current as the repository moves.</h2>
+          <h2>Memory changes with the repo.</h2>
           <p>
-            `agent-memory maintain --since main` detects structural Git changes, refreshes the memory directory, and validates that agents have the latest project map.
+            `agent-memory maintain --since main` detects structural Git changes, refreshes `memory/`, and validates the result so stale context does not quietly drift into reviews.
           </p>
         </article>
         <article>
-          <p class="tag">Safe by default</p>
-          <h2>Names, not secrets.</h2>
+          <p class="tag">Agent native</p>
+          <h2>Designed for Codex, Claude, Cursor, and more.</h2>
           <p>
-            Environment variable names are documented, but secret values are blocked by validators. Generated and vendor directories are ignored as source ownership.
+            A portable skill wrapper tells agents exactly what to read, when to refresh memory, and how to hand work to the next assistant without losing state.
           </p>
         </article>
+      </section>
+
+      <section id="security" class="security">
+        <div>
+          <p class="eyebrow">Security first</p>
+          <h2>Useful memory without leaking secrets.</h2>
+          <p>
+            Memory files should help agents understand the system, not expose credentials. Agent Memory System records environment variable names, blocks obvious secret patterns, avoids generated/vendor paths, and labels inferred content so agents know what needs verification.
+          </p>
+        </div>
+        <div class="security-list">
+          <div><strong>No secret values</strong><span>Environment names only, never `.env` values.</span></div>
+          <div><strong>Secret pattern checks</strong><span>JWT-like strings, long hex values, and password assignments are flagged.</span></div>
+          <div><strong>Generated path guardrails</strong><span>`node_modules`, `dist`, `.next`, `.venv`, and caches stay out of source ownership.</span></div>
+          <div><strong>CI memory checks</strong><span>Structural changes must include refreshed memory in pull requests.</span></div>
+        </div>
       </section>
 
       <section id="handoff" class="handoff">
         <div>
           <p class="eyebrow">Cross-agent continuity</p>
-          <h2>Antigravity starts it. Codex continues it. Claude reviews it.</h2>
+          <h2>Start anywhere. Continue anywhere.</h2>
           <p>
-            Agent Memory System records checkpoints, commands, files, blockers, next steps, and final handoffs in `memory/agent-worklog.jsonl`, then generates `memory/agent-handoff.md` for the next assistant.
+            Agent Memory System records checkpoints, commands, files, blockers, and next steps in `memory/agent-worklog.jsonl`, then generates `memory/agent-handoff.md` so the next assistant can recover the working state immediately.
           </p>
         </div>
         <div class="handoff-card">
@@ -99,8 +134,8 @@ for the next agent.</code></pre>
           <div class="wire"></div>
           <div class="node">Claude</div>
           <div class="handoff-memory">
-            <span>shared memory layer</span>
-            <strong>context-index.json + agent-handoff.md</strong>
+            <span>shared context layer</span>
+            <strong>context-index.json + agent-handoff.md + agent-worklog.jsonl</strong>
           </div>
         </div>
       </section>
@@ -115,14 +150,36 @@ agent-memory maintain --since main
 agent-memory worklog checkpoint --agent codex --message "implemented scanner"
 agent-memory worklog handoff --agent codex --message "ready for review"</code></pre>
       </section>
+
+      <section id="contribute" class="contribute">
+        <div>
+          <p class="eyebrow">Open source</p>
+          <h2>Built by RAVBYTE. Open to everyone.</h2>
+          <p>
+            Contributions are welcome: ecosystem scanners, validators, docs, examples, tests, agent skills, and CI integrations. Direct pushes to `main` should be blocked by repository rules; changes should land through pull requests with CI passing.
+          </p>
+        </div>
+        <div class="contributor-panel">
+          <h3>Contributor path</h3>
+          <ol>
+            <li>Fork the repository.</li>
+            <li>Create a feature branch.</li>
+            <li>Run typecheck, tests, build, and memory check.</li>
+            <li>Open a pull request.</li>
+          </ol>
+          <a class="button secondary" href="https://github.com/RavByte-AI/agent-memory-system">Contribute on GitHub</a>
+        </div>
+      </section>
     </main>
 
     <footer>
       <div>
         <strong>RAVBYTE TECHNOLOGIES PRIVATE LIMITED</strong>
-        <span>Main Developer / Founder: Gaurav Singh</span>
+        <span>Founder: Gaurav Singh</span>
+        <span>MIT licensed and open for public contribution.</span>
       </div>
       <div class="footer-links">
+        <a href="https://github.com/RavByte-AI/agent-memory-system">GitHub</a>
         <a href="mailto:sync@ravbyte.com">sync@ravbyte.com</a>
         <a href="https://x.com/gauravchadhry">Founder X</a>
         <a href="https://www.linkedin.com/in/gauravchadhry/">LinkedIn</a>
