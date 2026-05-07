@@ -33,7 +33,7 @@
         "strict_required_status_checks_policy": true,
         "required_status_checks": [
           {
-            "context": "test",
+            "context": "Required CI",
             "integration_id": null
           }
         ]

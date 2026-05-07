@@ -139,7 +139,7 @@ npm run build
 npm run memory:check
 ```
 
-Direct pushes to `main` should be disabled in GitHub branch rules. See [Branch Protection](docs/branch-protection.md).
+Direct pushes to `main` should be disabled in GitHub branch rules. Require pull requests and the `Required CI` status check. See [Branch Protection](docs/branch-protection.md).
 
 ## GitHub Pages
 

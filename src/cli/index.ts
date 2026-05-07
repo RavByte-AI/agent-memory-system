@@ -159,10 +159,28 @@ program
       const validation = await validateMemory({ rootDir, memoryDir: options.output });
       printValidation(validation);
       const hasMemoryChanges = changedFiles.some((file) => file === options.output || file.startsWith(`${options.output}/`));
+      let staleArtifacts: string[] = [];
       if (impact.requiresMemoryUpdate && !hasMemoryChanges) {
-        console.error(`Structural changes require refreshed ${options.output}/ files.`);
+        const scan = await scanRepository({ rootDir });
+        const artifacts = await generateMemory(scan, { outputDir: options.output });
+        for (const artifact of artifacts) {
+          const currentPath = path.join(rootDir, options.output, artifact.path);
+          let current = "";
+          try {
+            current = await fs.readFile(currentPath, "utf8");
+          } catch {
+            staleArtifacts.push(artifact.path);
+            continue;
+          }
+          if (current !== artifact.content) {
+            staleArtifacts.push(artifact.path);
+          }
+        }
       }
-      if ((impact.requiresMemoryUpdate && !hasMemoryChanges) || !validation.ok) {
+      if (staleArtifacts.length > 0) {
+        console.error(`Structural changes require refreshed ${options.output}/ files: ${staleArtifacts.join(", ")}`);
+      }
+      if (staleArtifacts.length > 0 || !validation.ok) {
         process.exitCode = 1;
       }
       return;
