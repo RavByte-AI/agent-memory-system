@@ -13,6 +13,7 @@
   <a href="https://github.com/RavByte-AI/agent-memory-system"><img alt="GitHub forks" src="https://badgen.net/github/forks/RavByte-AI/agent-memory-system?icon=github"></a>
   <a href="https://github.com/RavByte-AI/agent-memory-system/issues"><img alt="GitHub issues" src="https://badgen.net/github/open-issues/RavByte-AI/agent-memory-system?icon=github"></a>
   <a href="https://github.com/RavByte-AI/agent-memory-system/blob/main/LICENSE"><img alt="License" src="https://badgen.net/github/license/RavByte-AI/agent-memory-system"></a>
+  <a href="https://github.com/sponsors/gaurav-1302"><img alt="Sponsor" src="https://img.shields.io/badge/sponsor-GitHub%20Sponsors-d8ff6b?style=flat-square"></a>
 </p>
 
 ## What It Does
@@ -43,11 +44,29 @@ We maintain a rigorous [Benchmark Suite](./benchmarks) that measures the exact i
 
 Across 42 canonical tasks (Understanding, Refactoring, Debugging, Recovery, Multi-Agent), tests show that AMS significantly improves autonomous agent capabilities:
 
-- **+34% Concept Accuracy**: Agents solve complex tasks with 100% architectural accuracy.
-- **45% Fewer Files Traversed**: Agents navigate directly to correct files instead of hunting.
-- **Near-Zero Redundant Work**: Cross-session recovery and handoffs resume instantly without needing to re-read the codebase.
+```mermaid
+xychart-beta
+  title "Agent Memory System Benchmark Lift"
+  x-axis ["Concept Accuracy", "Files Traversed", "Recovery Tokens", "Redundant Work"]
+  y-axis "Improvement %" 0 --> 100
+  bar [34, 45, 90, 100]
+```
+
+| Metric | Result | Agent Impact |
+| --- | ---: | --- |
+| Concept accuracy | +34% | Agents solve complex tasks with 100% architectural accuracy. |
+| Files traversed | -45% | Agents navigate directly to correct files instead of hunting. |
+| Recovery tokens | -90% | Cross-session recovery resumes without re-reading the codebase. |
+| Redundant work | Near zero | Handoffs preserve exactly what the previous agent already did. |
 
 The benchmark suite is open source—you can run it on your own repos to measure your agent's performance.
+
+## Sponsor
+
+Support ongoing open-source development:
+
+- GitHub Sponsors: https://github.com/sponsors/gaurav-1302
+- PayPal: https://paypal.me/gauravchaudhary1302
 
 ## Ownership
 

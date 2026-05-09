@@ -46,7 +46,8 @@ img {
 .contributor-panel,
 .handoff-card,
 .graph-content,
-.graph-viz {
+.graph-viz,
+.sponsor-panel {
   min-width: 0;
   max-width: 100%;
 }
@@ -172,7 +173,8 @@ article p,
 .handoff p,
 .security p,
 .ownership p,
-.contribute p {
+.contribute p,
+.sponsor p {
   color: var(--muted);
   font-size: 18px;
   line-height: 1.7;
@@ -404,7 +406,8 @@ pre {
 .benchmarks,
 .handoff,
 .install,
-.contribute {
+.contribute,
+.sponsor {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
   gap: 36px;
@@ -468,7 +471,8 @@ pre {
 }
 
 .security-list,
-.contributor-panel {
+.contributor-panel,
+.sponsor-panel {
   border: 1px solid var(--line);
   background: var(--panel);
 }
@@ -540,9 +544,21 @@ pre {
 }
 
 .install,
-.contribute {
+.contribute,
+.sponsor {
   border-top: 1px solid var(--line);
   background: #080909;
+}
+
+.sponsor {
+  border-bottom: 1px solid var(--line);
+}
+
+.sponsor-panel {
+  padding: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
 }
 
 .install-commands {
@@ -697,6 +713,7 @@ footer strong {
   .handoff,
   .install,
   .contribute,
+  .sponsor,
   .feature-grid,
   .signal-strip {
     grid-template-columns: 1fr;
@@ -739,6 +756,7 @@ footer strong {
   .security p,
   .ownership p,
   .contribute p,
+  .sponsor p,
   .graph-content p {
     font-size: 16px;
     line-height: 1.65;
