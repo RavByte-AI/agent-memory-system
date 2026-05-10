@@ -210,6 +210,20 @@ article p,
   margin-top: 26px;
 }
 
+.product-hunt-badge {
+  margin-top: 20px;
+}
+
+.product-hunt-badge a {
+  display: inline-flex;
+}
+
+.product-hunt-badge img {
+  width: min(250px, 100%);
+  height: auto;
+  display: block;
+}
+
 .memory-console,
 .install pre {
   border: 1px solid var(--line);
