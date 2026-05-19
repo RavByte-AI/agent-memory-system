@@ -9,3 +9,4 @@ coverage/
 !.env.example
 npm-debug.log*
 *.tsbuildinfo
+/temp
